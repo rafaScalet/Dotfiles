@@ -1,0 +1,125 @@
+[username]
+style_user = "red"
+style_root = "red"
+format = "[$user]($style) in "
+disabled = false
+show_always = true
+
+[character]
+success_symbol = '[➜](green)'
+error_symbol = '[✗](red)'
+
+[directory]
+format = "[$read_only]($read_only_style)[$path]($style) "
+read_only = " "
+home_symbol = " "
+read_only_style = "cyan"
+# truncation_symbol = "…/"
+truncation_length = 1
+style = "italic cyan"
+
+[directory.substitutions]
+"Annotations" = "󰈙 "
+"Documents" = "󰈙 "
+"Documentos" = "󰈙 "
+"Modelos" = "󰛼 "
+"Models" = "󰛼 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Músicas" = "󰝚 "
+"Pictures" = " "
+"Imagens" = " "
+"Developer" = "󰲋 "
+"Dev" = "󰲋 "
+"Projects" = "󰲋 "
+"Games" = "󰮂 "
+"Público" = "󰖟 "
+"Public" = "󰖟 "
+"Vídeos" = " "
+"Desktop" = " "
+"Área de trabalho" = " "
+"Dotfiles" = " "
+
+[package]
+format = 'is [$symbol $version]($style) '
+version_format = "${raw}"
+style ="yellow"
+symbol = "󰏗"
+
+[nodejs]
+format = 'via [$symbol $version]($style) '
+version_format = "${raw}"
+style ="green"
+symbol = ""
+
+[java]
+format = 'via [$symbol $version]($style) '
+version_format = "${raw}"
+style ="bright-red"
+symbol = ""
+
+[php]
+format = 'via [$symbol $version]($style) '
+version_format = "${raw}"
+style ="bright-blue"
+symbol = ""
+
+[python]
+format = 'via [$symbol $version]($style) '
+version_format = "${raw}"
+style ="blue"
+symbol = ""
+
+[dotnet]
+format = 'via [$symbol $version]($style) '
+version_format = "${raw}"
+style = "purple"
+symbol = ""
+
+[rust]
+format = 'via [$symbol $version]($style) '
+version_format = "${raw}"
+style = "yellow"
+symbol = ""
+
+[golang]
+format = 'via [$symbol $version]($style) '
+version_format = "${raw}"
+style = "cyan"
+symbol = ""
+
+[kotlin]
+format = 'via [$symbol $version]($style) '
+version_format = "${raw}"
+style = "blue"
+symbol = ""
+
+[haskell]
+format = 'via [$symbol $version]($style) '
+version_format = "${raw}"
+style = "purple"
+symbol = ""
+
+[c]
+format = 'via [$symbol $version]($style) '
+version_format = "${raw}"
+style = "purple"
+symbol = " "
+
+[git_branch]
+symbol = " "
+style = "purple"
+
+[git_status]
+style = "purple"
+
+[time]
+disabled = false
+time_format = "%R"
+style = "black"
+format = "[$time ]($style)"
+
+[cmd_duration]
+disabled = false
+style = "black"
+format = "[took $duration]($style)"
