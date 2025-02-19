@@ -1,0 +1,5 @@
+[tools]
+usage = "latest"
+
+[env]
+_.file = "~/.env"
