@@ -33,3 +33,6 @@ codium/.config/VSCodium/SharedStorage-wal
 codium/.config/VSCodium/TransportSecurity
 codium/.config/VSCodium/Trust Tokens
 codium/.config/VSCodium/Trust Tokens-journal
+codium/.config/VSCodium/Trust Tokens-journal
+codium/.config/VSCodium/WebStorage
+codium/.config/VSCodium/Service Worker
