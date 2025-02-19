@@ -3,3 +3,33 @@ fish/.config/fish/completions
 fish/.config/fish/conf.d
 fish/.config/fish/themes
 fish/.config/fish/fish_variables
+
+codium/.config/VSCodium/Backups
+codium/.config/VSCodium/blob_storage
+codium/.config/VSCodium/Cache
+codium/.config/VSCodium/CachedData
+codium/.config/VSCodium/CachedProfilesData
+codium/.config/VSCodium/Code Cache
+codium/.config/VSCodium/Crashpad
+codium/.config/VSCodium/DawnGraphiteCache
+codium/.config/VSCodium/DawnWebGPUCache
+codium/.config/VSCodium/Dictionaries
+codium/.config/VSCodium/GPUCache
+codium/.config/VSCodium/Local Storage
+codium/.config/VSCodium/logs
+codium/.config/VSCodium/Session Storage
+codium/.config/VSCodium/Shared Dictionary
+codium/.config/VSCodium/User/globalStorage
+codium/.config/VSCodium/User/History
+codium/.config/VSCodium/User/workspaceStorage
+codium/.config/VSCodium/code.lock
+codium/.config/VSCodium/Cookies
+codium/.config/VSCodium/Cookies-journal
+codium/.config/VSCodium/machineid
+codium/.config/VSCodium/Network Persistent State
+codium/.config/VSCodium/Preferences
+codium/.config/VSCodium/SharedStorage
+codium/.config/VSCodium/SharedStorage-wal
+codium/.config/VSCodium/TransportSecurity
+codium/.config/VSCodium/Trust Tokens
+codium/.config/VSCodium/Trust Tokens-journal
