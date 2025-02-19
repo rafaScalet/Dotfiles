@@ -27,7 +27,6 @@
     {
       "type": "packages",
       "key": " ",
-      "format": "{} (pacman)",
       "keyColor": "yellow"
     },
     {

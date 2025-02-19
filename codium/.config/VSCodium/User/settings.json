@@ -81,12 +81,11 @@
   // #endregion
   // #region Terminal
   "terminal.integrated.defaultProfile.linux": "sh",
-  "terminal.integrated.env.linux": {},
   "terminal.integrated.defaultProfile.windows": "Git Bash",
   "terminal.integrated.fontFamily": "JetBrainsMono NFP",
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.fontWeight": "bold",
-  "terminal.integrated.fontLigatures": true,
+  "terminal.integrated.fontLigatures.enabled": true,
   // #endregion
   // #region Explorer
   "explorer.compactFolders": false,
