@@ -14,12 +14,11 @@ format = "[$read_only]($read_only_style)[$path]($style) "
 read_only = " "
 home_symbol = " "
 read_only_style = "cyan"
-# truncation_symbol = "…/"
 truncation_length = 1
 style = "italic cyan"
 
 [directory.substitutions]
-"Annotations" = "󰈙 "
+"Annotations" = " "
 "Documents" = "󰈙 "
 "Documentos" = "󰈙 "
 "Modelos" = "󰛼 "
