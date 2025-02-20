@@ -1,3 +1,31 @@
 {
-  "explorer.excludeGitIgnore": true
+  "explorer.excludeGitIgnore": true,
+  "cSpell.words": [
+    "autopair",
+    "charactger",
+    "conflictstyle",
+    "emph",
+    "enummember",
+    "gazorby",
+    "gdscript",
+    "ghostty",
+    "iosevka",
+    "jhillyerd",
+    "jorgebucaran",
+    "keyof",
+    "lookaheads",
+    "macchiato",
+    "nickeb",
+    "objectvalues",
+    "phpdoc",
+    "puctuation",
+    "readwrite",
+    "setext",
+    "sgml",
+    "strikethrough",
+    "styleguide",
+    "typeparameters",
+    "wmtheme",
+    "zdiff"
+  ]
 }
