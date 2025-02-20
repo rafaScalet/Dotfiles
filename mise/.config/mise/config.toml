@@ -1,5 +1,8 @@
 [tools]
 usage = "latest"
+node = "lts-jod"
+pnpm = "latest"
+yarn = "latest"
 
 [env]
 _.file = "~/.env"
