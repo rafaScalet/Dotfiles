@@ -1,11 +1,8 @@
 {
   // #region" Misc
-  "svg.preview.mode": "svg",
-  "telemetry.telemetryLevel": "off",
   "git.openRepositoryInParentFolders": "never",
   "breadcrumbs.enabled": false,
   "debug.toolBarLocation": "docked",
-  "redhat.telemetry.enabled": false,
   "security.workspace.trust.enabled": true,
   // #endregion
   // #region File Size

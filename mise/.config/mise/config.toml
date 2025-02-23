@@ -1,8 +1,15 @@
 [tools]
-usage = "latest"
-node = "lts-jod"
-pnpm = "latest"
-yarn = "latest"
+usage = 'latest'
+node = '22'
+pnpm = '10'
+yarn = '4'
+java = '17'
+maven = '3'
+gradle = '8'
+aws-cli = 'latest'
 
 [env]
-_.file = "~/.env"
+
+[env._]
+file = '~/.env'
+path = '~/Scripts'
