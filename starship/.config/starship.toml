@@ -19,6 +19,7 @@ style = "italic cyan"
 
 [directory.substitutions]
 "Annotations" = " "
+"Notes" = " "
 "Documents" = "󰈙 "
 "Documentos" = "󰈙 "
 "Modelos" = "󰛼 "
@@ -38,6 +39,8 @@ style = "italic cyan"
 "Desktop" = " "
 "Área de trabalho" = " "
 "Dotfiles" = " "
+"Config" = " "
+"Configurations" = " "
 
 [package]
 format = 'is [$symbol $version]($style) '
