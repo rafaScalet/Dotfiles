@@ -1,5 +1,11 @@
 {
   // #region" Misc
+  "projectManager.git.baseFolders": [
+    "~/Dev",
+    "~/Developer",
+    "~/Dotfiles",
+    "~/Projects",
+  ],
   "git.openRepositoryInParentFolders": "never",
   "breadcrumbs.enabled": false,
   "debug.toolBarLocation": "docked",

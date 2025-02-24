@@ -1,11 +1,12 @@
 actboy168.tasks
+alefragnani.project-manager
 biati.vscode-file-size-and-stats
 biomejs.biome
 catppuccin.catppuccin-vsc
 hideoo.toggler
-jock.svg
 meganrogge.template-string-converter
 miguelsolorio.fluent-icons
+mintlify.document
 naumovs.color-highlight
 redhat.vscode-yaml
 remcohaszing.schemastore
