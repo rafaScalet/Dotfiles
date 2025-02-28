@@ -1,0 +1,9 @@
+{
+  "EEFI Hello World": {
+    "prefix": "eefi",
+    "body": [
+      "(() => {console.log('Hello, World!')})();"
+    ],
+    "description": "Creates an EEFI that prints 'Hello, World!'"
+  }
+}
