@@ -1,0 +1,169 @@
+[username]
+style_user = "bold red"
+style_root = "bold red"
+format = "[$user]($style) in "
+disabled = false
+show_always = true
+
+[character]
+success_symbol = '[➜](green)'
+error_symbol = '[✗](red)'
+
+[directory]
+format = "[$read_only]($read_only_style)[$path]($style) "
+read_only = " "
+home_symbol = " "
+read_only_style = "cyan"
+truncation_length = 1
+style = "italic bold cyan"
+
+[directory.substitutions]
+"Annotations" = " "
+"Notes" = " "
+"Documents" = "󰈙 "
+"Documentos" = "󰈙 "
+"Modelos" = "󰛼 "
+"Models" = "󰛼 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Músicas" = "󰝚 "
+"Pictures" = " "
+"Imagens" = " "
+"Developer" = "󰲋 "
+"Dev" = "󰲋 "
+"Projects" = "󰲋 "
+"Games" = "󰮂 "
+"Público" = "󰖟 "
+"Public" = "󰖟 "
+"Vídeos" = " "
+"Desktop" = " "
+"Área de trabalho" = " "
+"Dotfiles" = " "
+"Config" = " "
+"Configurations" = " "
+
+[shell]
+disabled = false
+style = "black"
+format = "[$indicator  ]($style)"
+fish_indicator = "󰻴"
+bash_indicator = ""
+zsh_indicator = ""
+cmd_indicator = ""
+powershell_indicator = ""
+
+[package]
+format = 'is [$symbol $version]($style) '
+version_format = "${raw}"
+style ="bold yellow"
+symbol = "󰏗"
+
+[nodejs]
+format = 'via [$symbol $version]($style) '
+version_format = "${raw}"
+style = "bold green"
+symbol = ""
+
+[java]
+format = 'via [$symbol $version]($style) '
+version_format = "${raw}"
+style ="bold red"
+symbol = ""
+
+[php]
+format = 'via [$symbol $version]($style) '
+version_format = "${raw}"
+style ="bold blue"
+symbol = ""
+
+[python]
+format = 'via [$symbol $version]($style) '
+version_format = "${raw}"
+style ="bold blue"
+symbol = ""
+
+[dotnet]
+format = 'via [$symbol $version]($style) '
+version_format = "${raw}"
+style = "bold purple"
+symbol = ""
+
+[rust]
+format = 'via [$symbol $version]($style) '
+version_format = "${raw}"
+style = "bold yellow"
+symbol = ""
+
+[golang]
+format = 'via [$symbol $version]($style) '
+version_format = "${raw}"
+style = "bold cyan"
+symbol = ""
+
+[kotlin]
+format = 'via [$symbol $version]($style) '
+version_format = "${raw}"
+style = "bold blue"
+symbol = ""
+
+[haskell]
+format = 'via [$symbol $version]($style) '
+version_format = "${raw}"
+style = "bold purple"
+symbol = ""
+
+[c]
+format = 'via [$symbol $version]($style) '
+version_format = "${raw}"
+style = "bold purple"
+symbol = ""
+
+[lua]
+format = 'via [$symbol $version]($style) '
+version_format = "${raw}"
+style = "bold blue"
+symbol = "󰢱"
+
+[git_branch]
+symbol = " "
+style = "bold purple"
+
+[git_status]
+style = "bold italic purple"
+
+[time]
+disabled = false
+time_format = "%R"
+style = "black"
+format = "[$time ]($style)"
+
+[cmd_duration]
+disabled = false
+style = "black"
+format = "[took $duration]($style)"
+
+[os]
+disabled = true
+style = "black"
+format = "[$symbol ]($style)"
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+Macos = ""
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"

@@ -1,0 +1,10 @@
+fish/.config/fish/*
+!fish/.config/fish/config.fish
+!fish/.config/fish/fish_plugins
+
+codium/.config/VSCodium/*
+!codium/.config/VSCodium/User
+codium/.config/VSCodium/User/History
+codium/.config/VSCodium/User/globalStorage
+codium/.config/VSCodium/User/workspaceStorage
+codium/.config/VSCodium/User/profiles

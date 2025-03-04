@@ -1,0 +1,32 @@
+[user]
+	name = Rafael Scalet
+	email = 114953004+rafaScalet@users.noreply.github.com
+	signingkey = ~/.ssh/id_ed25519.pub
+[init]
+	defaultBranch = main
+[alias]
+  pom = push origin main -u
+  a = add .
+  ps = push
+  pf = push --force-with-lease
+  ci = "!f() { git commit -m \"$*\"; }; f"
+  co = checkout
+  cm = checkout main
+  cb = checkout -b
+  st = status -sb
+  sf = show --name-only
+  lg = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue<%an>%Creset %s %Cgreen%C(bold)%cr%Creset%C(magenta)%d' --max-count=30 --date=short
+  incoming = !(git fetch --quiet && git log --pretty=format:'%C(yellow)%h %C(white)- %C(red)%an %C(white)- %C(cyan)%d%Creset %s %C(white)- %ar%Creset' ..@{u})
+  outgoing = !(git fetch --quiet && git log --pretty=format:'%C(yellow)%h %C(white)- %C(red)%an %C(white)- %C(cyan)%d%Creset %s %C(white)- %ar%Creset' @{u}..)
+  unstage = reset HEAD --
+  undo = checkout --
+  amend = commit -v -a --no-edit --amend
+  rollback = reset --soft HEAD~1
+[core]
+	excludesfile = ~/.gitignore
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	allowedSignersFile = ~/.gitallowed
+[commit]
+	gpgsign = true

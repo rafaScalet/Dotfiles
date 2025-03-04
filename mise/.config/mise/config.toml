@@ -1,0 +1,26 @@
+[tools]
+usage = 'latest'
+watchexec = "latest"
+node = '22'
+pnpm = '10'
+yarn = '4'
+java = '17'
+maven = '3'
+gradle = '8'
+aws-cli = 'latest'
+
+[env]
+
+[env._]
+file = '~/.env'
+path = '~/Scripts'
+
+[tasks.exec-java]
+description = "runs a simple java project"
+run = "java -cp dist"
+alias = "je"
+
+[tasks.build-java]
+description = "builds a simple java project"
+run = "javac -d dist ./src/**/*.java"
+alias = "jb"
