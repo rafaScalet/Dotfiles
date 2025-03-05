@@ -1,0 +1,72 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Stow a package",
+      "type": "shell",
+      "command": "stow",
+      "args": ["--stow", "${input:packages}"],
+      "icon": { "id": "arrow-small-right" },
+      "options": {
+        "statusbar": {
+          "icon": { "id": "arrow-small-right" },
+          "label": "",
+          "detail": "Dot"
+        }
+      }
+    },
+    {
+      "label": "Untow a package",
+      "type": "shell",
+      "command": "stow",
+      "args": ["--delete", "${input:packages}"],
+      "icon": { "id": "arrow-small-left" },
+      "options": {
+        "statusbar": {
+          "icon": { "id": "arrow-small-left" },
+          "label": "",
+          "detail": "Undot"
+        }
+      }
+    },
+    {
+      "label": "Restow a package",
+      "type": "shell",
+      "command": "stow",
+      "args": ["--restow", "${input:packages}"],
+      "icon": { "id": "arrow-both" },
+      "options": {
+        "statusbar": {
+          "icon": { "id": "arrow-both" },
+          "label": "",
+          "detail": "Redot"
+        }
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "id": "packages",
+      "type": "pickString",
+      "description": "Choose a directory",
+      "options": [
+        "assets",
+        "bash",
+        "bat",
+        "codium",
+        "fastfetch",
+        "fish",
+        "ghostty",
+        "git",
+        "git-delta",
+        "lazygit",
+        "mise",
+        "nvim",
+        "starship",
+        "starship-catppuccin",
+        "stow",
+        "tmux",
+      ]
+    }
+  ]
+}

@@ -6,10 +6,13 @@ catppuccin.catppuccin-vsc
 hideoo.toggler
 meganrogge.template-string-converter
 miguelsolorio.fluent-icons
+mikestead.dotenv
 mintlify.document
 naumovs.color-highlight
+redhat.java
 redhat.vscode-yaml
 remcohaszing.schemastore
+rhalaly.scope-to-this
 scalet.let-icons
 streetsidesoftware.code-spell-checker
 streetsidesoftware.code-spell-checker-portuguese-brazilian

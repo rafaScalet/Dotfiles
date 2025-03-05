@@ -1,0 +1,9 @@
+figlet
+fortune
+cowsay
+ponysay
+wtf
+cmatrix
+cbonsai
+pipes.sh
+cava

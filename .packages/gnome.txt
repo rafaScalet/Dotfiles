@@ -9,4 +9,5 @@ logomenu@aryan_k
 paperwm@paperwm.github.com
 places-menu@gnome-shell-extensions.gcampax.github.com
 Rounded_Corners@lennart-k
+system-monitor@gnome-shell-extensions.gcampax.github.com
 user-theme@gnome-shell-extensions.gcampax.github.com

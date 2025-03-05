@@ -42,70 +42,28 @@ alias md='mkdir -p'
 alias config='codium ~/.config/fish/config.fish'
 alias envar='codium ~/.env'
 alias ignore='codium ~/.gitignore'
+alias dot='stow --stow'
+alias undot='stow --delete'
+alias redot='stow --restow'
 
-function fish_greeting
-  fastfetch --config ~/.config/fastfetch/greeting.jsonc 2> /dev/null
-end
+source $__fish_config_dir/let.fish
 
-function fish_title
-  set -l current_dir (basename (pwd))
-  set -l parent_dir (basename (dirname (pwd)))
+function __stow_completion
+  if test -f ~/.stowrc
+    set dotfiles_dir (cat ~/.stowrc | grep dir | cut -c3-)
+    eval set dotfiles_dir (string replace "dir=" "" $dotfiles_dir)
+  else
+    eval set dotfiles_dir (pwd)
+  end
 
-  switch $current_dir
-    case (whoami)
-      echo 
-    case 'Documentos' 'Documents'
-      echo 󰈙
-    case 'Models' 'Modelos'
-      echo 󰛼
-    case 'Downloads'
-      echo 
-    case 'Music' 'Músicas'
-      echo 󰝚
-    case 'Pictures' 'Imagens'
-      echo 
-    case 'Projects' 'Developer' 'Dev'
-      echo 󰲋
-    case 'Games'
-      echo 󰮂
-    case 'Public' 'Público'
-      echo 󰖟
-    case 'Vídeos' 'Videos'
-      echo 
-    case 'Desktop' 'Área de trabalho'
-      echo 
-    case 'Dotfiles' 'Config' 'Configurations'
-      echo 
-    case 'Annotations' 'Notes'
-      echo 
-    case '*'
-      echo $parent_dir/$current_dir
+
+  for dir in $dotfiles_dir/*
+    if test -d $dir
+      echo (basename $dir)
+    end
   end
 end
 
-function fish_prompt
-  set_color magenta
-  printf '%s' $USER
-  set_color normal
-  printf ' in '
+complete -f -c stow -a "(__stow_completion)"
 
-  set_color yellow
-  printf '%s' (basename (pwd))
-  set_color normal
 
-  # Line 2
-  echo
-  set_color green
-  printf '↪ '
-  set_color normal
-end
-
-if type -q starship
-  function starship_transient_prompt_func
-    starship module character
-  end
-
-  starship init fish | source
-
-  enable_transience
-end

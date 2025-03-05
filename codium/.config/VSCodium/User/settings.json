@@ -1,5 +1,6 @@
 {
   // #region" Misc
+  "redhat.telemetry.enabled": false,
   "git.openRepositoryInParentFolders": "never",
   "debug.toolBarLocation": "docked",
   // #endregion
@@ -38,6 +39,9 @@
   "workbench.startupEditor": "none",
   "workbench.editor.showTabs": "single",
   "workbench.activityBar.location": "hidden",
+  "workbench.editorAssociations": {
+    "*.svg": "default"
+  },
   // #endregion
   // #region Window
   "window.zoomLevel": 0,
@@ -124,7 +128,9 @@
   "cSpell.userWords": [
     "catppuccin",
     "dotnet",
+    "easycoast",
     "fastfetch",
+    "fatec",
     "javac",
     "kotlin",
     "lazydocker",
@@ -221,5 +227,6 @@
       "activityBar.inactiveForeground": "accent",
     },
   },
+  "window.newWindowProfile": "Default",
   // #endregion
 }
