@@ -9,8 +9,6 @@ abbr c. 'codium .'
 abbr c! 'codium -r . && exit'
 abbr nv 'nvim'
 abbr nv. 'nvim .'
-abbr vi 'nvim'
-abbr vi. 'nvim .'
 abbr gllg "git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue<%an>%Creset %s %Cgreen%C(bold)%cr%Creset%C(magenta)%d' --max-count=30 --date=short"
 abbr d 'docker'
 abbr dc 'docker compose'
@@ -65,5 +63,3 @@ function __stow_completion
 end
 
 complete -f -c stow -a "(__stow_completion)"
-
-
