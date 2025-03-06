@@ -1,13 +1,18 @@
 [username]
 style_user = "bold red"
-style_root = "bold red"
+style_root = "bg:red fg:black"
 format = "[$user]($style) in "
 disabled = false
 show_always = true
 
 [character]
-success_symbol = '[➜](green)'
-error_symbol = '[✗](red)'
+format = "$symbol  "
+error_symbol = '[](red)'
+success_symbol = '[](green)'
+vimcmd_symbol = '[](green)'
+vimcmd_replace_one_symbol = '[](purple)'
+vimcmd_replace_symbol = '[](purple)'
+vimcmd_visual_symbol = '[](yellow)'
 
 [directory]
 format = "[$read_only]($read_only_style)[$path]($style) "
@@ -47,7 +52,8 @@ disabled = false
 style = "black"
 format = "[$indicator  ]($style)"
 fish_indicator = "󰻴"
-bash_indicator = ""
+bash_indicator = ""
+nu_indicator = ""
 zsh_indicator = ""
 cmd_indicator = ""
 powershell_indicator = ""
@@ -143,7 +149,7 @@ style = "black"
 format = "[took $duration]($style)"
 
 [os]
-disabled = true
+disabled = false
 style = "black"
 format = "[$symbol ]($style)"
 
