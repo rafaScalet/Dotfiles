@@ -10,10 +10,9 @@ gradle = '8'
 aws-cli = 'latest'
 
 [env]
+_.file = '~/.env'
+_.path = '~/Scripts'
 
-[env._]
-file = '~/.env'
-path = '~/Scripts'
 
 [tasks.exec-java]
 description = "runs a simple java project"

@@ -4,6 +4,7 @@
     "actboy",
     "alaz",
     "alefragnani",
+    "aliasrc",
     "artix",
     "aunetx",
     "autopair",
@@ -27,6 +28,7 @@
     "expandtab",
     "filepicker",
     "fullscreen",
+    "fundle",
     "gazorby",
     "gcampax",
     "gdscript",
@@ -61,6 +63,7 @@
     "neofetch",
     "neovim",
     "nickeb",
+    "numpad",
     "nushell",
     "nvim",
     "objectvalues",
@@ -86,9 +89,11 @@
     "shiftwidth",
     "signingkey",
     "softtabstop",
+    "sqltools",
     "stowrc",
     "strikethrough",
     "styleguide",
+    "tabnine",
     "tamasfe",
     "typeparameters",
     "undercurl",
@@ -102,5 +107,14 @@
     "yoavbls",
     "zdiff",
     "zellij"
-  ]
+  ],
+  "files.exclude": {
+    "**/.git": false,
+    "**/.svn": false,
+    "**/.hg": false,
+    "**/CVS": false,
+    "**/.DS_Store": false,
+    "**/Thumbs.db": false,
+    "**/node_modules": false
+  }
 }

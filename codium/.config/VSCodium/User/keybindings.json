@@ -125,5 +125,25 @@
 	{
 		"key": "ctrl+shift+j",
 		"command": "workbench.action.createTerminalEditor"
+	},
+	{
+		"key": "ctrl+right",
+		"command": "cursorWordPartRight",
+		"when": "editorTextFocus"
+	},
+	{
+		"key": "ctrl+left",
+		"command": "cursorWordPartLeft",
+		"when": "editorTextFocus"
+	},
+	{
+		"key": "ctrl+shift+right",
+		"command": "cursorWordPartRightSelect",
+		"when": "editorTextFocus"
+	},
+	{
+		"key": "ctrl+shift+left",
+		"command": "cursorWordPartLeftSelect",
+		"when": "editorTextFocus"
 	}
 ]

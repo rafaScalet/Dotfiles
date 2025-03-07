@@ -53,6 +53,7 @@
   "window.title": "${folderName}",
   "window.customTitleBarVisibility": "auto",
   "window.openFoldersInNewWindow": "default",
+  "window.newWindowProfile": "Default",
   // #endregion
   // #region Editor
   "editor.wordWrap": "on",
@@ -95,6 +96,7 @@
   "explorer.sortOrder": "foldersNestsFiles",
   "explorer.fileNesting.enabled": false,
   "explorer.fileNesting.expand": false,
+  "explorer.expandSingleFolderWorkspaces": false,
   "explorer.fileNesting.patterns": {
     "*.ts": "", "*.js": "", "*.jsx": "", "*.tsx": "",
     "tsconfig.json": "tsconfig.*.json, *.tsbuildinfo",
@@ -227,6 +229,5 @@
       "activityBar.inactiveForeground": "accent",
     },
   },
-  "window.newWindowProfile": "Default",
   // #endregion
 }

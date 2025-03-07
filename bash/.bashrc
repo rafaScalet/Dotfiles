@@ -1,10 +1,11 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ..='cd ..'
-alias .='cd .'
+command -v codium &>/dev/null && alias code='codium'
+[ -f ~/.aliasrc ] && source ~/.aliasrc
+
 alias ~='cd'
-# alias -='cd -'
+alias r='source ~/.bashrc'
 
 alias ls='ls --color=auto'
 alias la='ls --color=auto -la'
