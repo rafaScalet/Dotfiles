@@ -1,4 +1,10 @@
 {
+  "files.associations": {
+    "dot-gitalias": "properties",
+    "dot-gitconfig": "properties",
+    "dot-stowrc": "properties",
+    "dot-aliases": "shellscript"
+  },
   "explorer.excludeGitIgnore": true,
   "cSpell.words": [
     "actboy",
@@ -34,6 +40,7 @@
     "gdscript",
     "gext",
     "ghostty",
+    "gitalias",
     "gitallowed",
     "github",
     "gllg",
