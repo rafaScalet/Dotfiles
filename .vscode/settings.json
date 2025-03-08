@@ -95,6 +95,8 @@
     "styleguide",
     "tabnine",
     "tamasfe",
+    "thefuck",
+    "tldr",
     "typeparameters",
     "undercurl",
     "undot",
@@ -106,7 +108,8 @@
     "xclip",
     "yoavbls",
     "zdiff",
-    "zellij"
+    "zellij",
+    "zoxide"
   ],
   "files.exclude": {
     "**/.git": false,

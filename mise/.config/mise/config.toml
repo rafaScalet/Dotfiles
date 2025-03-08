@@ -13,7 +13,6 @@ aws-cli = 'latest'
 _.file = '~/.env'
 _.path = '~/Scripts'
 
-
 [tasks.exec-java]
 description = "runs a simple java project"
 run = "java -cp dist"

@@ -2,9 +2,12 @@
 [[ $- != *i* ]] && return
 
 command -v codium &>/dev/null && alias code='codium'
-[ -f ~/.aliasrc ] && source ~/.aliasrc
 
-alias ~='cd'
+# source the alias file
+if [ -f ~/.aliases ]; then
+  eval "$(sed 's/\babbr\b/alias/g' ~/.aliases)"
+fi
+
 alias r='source ~/.bashrc'
 
 alias ls='ls --color=auto'

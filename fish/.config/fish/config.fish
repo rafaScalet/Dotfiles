@@ -1,11 +1,20 @@
 status is-interactive || exit
 
-if not functions -q fundle; eval (curl -sfL https://git.io/fundle-install); end # install fundle
+set -Ux temp "$__fish_config_dir/conf.d/temp"
 
-function fish_default_mode_prompt ;end # disable the vi mode view in prompt
+if not functions -q fundle; eval (curl -sfL https://git.io/fundle-install); end
 
-if type -q codium; alias code='codium'; end # replace code command for codium if is installed
-if test -f ~/.aliasrc; source ~/.aliasrc; end
+function fish_default_mode_prompt ;end
+
+type -q codium; and alias code='codium'
+
+type -q bat; and alias cat='bat'
+
+test -f ~/.aliases; and string replace '="' ' "' (cat ~/.aliases) | source
+
+type -q thefuck; and test -f "$temp.fuck.fish" || thefuck --alias > "$temp.fuck.fish"
+
+type -q zoxide; and test -f "$temp.zoxide.fish" || zoxide init fish --cmd cd > "$temp.zoxide.fish"
 
 alias r='source ~/.config/fish/config.fish'
 
