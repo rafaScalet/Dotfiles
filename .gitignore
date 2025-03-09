@@ -1,11 +1,11 @@
-fish/.config/fish/fundle
-fish/.config/fish/fish_variables
-fish/.config/fish/functions/fundle.fish
-fish/.config/fish/conf.d/temp.*.fish
+fish/dot-config/fish/fundle
+fish/dot-config/fish/fish_variables
+fish/dot-config/fish/functions/fundle.fish
+fish/dot-config/fish/conf.d/temp.*.fish
 
-codium/.config/VSCodium/*
-!codium/.config/VSCodium/User
-codium/.config/VSCodium/User/History
-codium/.config/VSCodium/User/globalStorage
-codium/.config/VSCodium/User/workspaceStorage
-codium/.config/VSCodium/User/profiles
+codium/dot-config/VSCodium/*
+!codium/dot-config/VSCodium/User
+codium/dot-config/VSCodium/User/History
+codium/dot-config/VSCodium/User/globalStorage
+codium/dot-config/VSCodium/User/workspaceStorage
+codium/dot-config/VSCodium/User/profiles

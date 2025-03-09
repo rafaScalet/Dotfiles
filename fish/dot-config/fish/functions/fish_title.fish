@@ -2,7 +2,10 @@ function fish_title
   set -l current_dir (basename (pwd))
   set -l parent_dir (basename (dirname (pwd)))
 
+  if [ $parent_dir = $USER ]; set parent_dir "~"; end
+
   if test -n "$TMUX"
+    if [ $current_dir = $USER ]; echo "~"; return ; end
     echo $parent_dir/$current_dir
   else
     switch $current_dir

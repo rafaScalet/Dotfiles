@@ -6,8 +6,6 @@ if not functions -q fundle; eval (curl -sfL https://git.io/fundle-install); end
 
 function fish_default_mode_prompt ;end
 
-type -q codium; and alias code='codium'
-
 type -q bat; and alias cat='bat'
 
 test -f ~/.aliases; and string replace '="' ' "' (cat ~/.aliases) | source
@@ -33,3 +31,5 @@ function fun
   fundle clean
   fundle update
 end
+
+command -v codium &>/dev/null && alias code='codium'

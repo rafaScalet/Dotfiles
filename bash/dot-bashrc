@@ -1,19 +1,12 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-command -v codium &>/dev/null && alias code='codium'
-
 # source the alias file
 if [ -f ~/.aliases ]; then
   eval "$(sed 's/\babbr\b/alias/g' ~/.aliases)"
 fi
 
 alias r='source ~/.bashrc'
-
-alias ls='ls --color=auto'
-alias la='ls --color=auto -la'
-alias ll='ls --color=auto -l'
-alias grep='grep --color=auto'
 
 if [ -f /usr/share/git/completion/git-prompt.sh ]; then
   source /usr/share/git/completion/git-prompt.sh
