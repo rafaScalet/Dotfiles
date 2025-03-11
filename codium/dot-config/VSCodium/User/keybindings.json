@@ -1,38 +1,8 @@
 // Place your key bindings in this file to override the defaults
 [
 	{
-		"key": "ctrl+shift+p",
-		"command": "workbench.action.quickOpenNavigatePreviousInFilePicker",
-		"when": "inFilesPicker && inQuickOpen"
-	},
-	{
-		"key": "ctrl+shift+e",
-		"command": "-workbench.action.quickOpenNavigatePreviousInFilePicker",
-		"when": "inFilesPicker && inQuickOpen"
-	},
-	{
 		"key": "ctrl+;",
 		"command": "editor.action.commentLine",
-		"when": "editorTextFocus && !editorReadonly"
-	},
-	{
-		"key": "ctrl+/",
-		"command": "-editor.action.commentLine",
-		"when": "editorTextFocus && !editorReadonly"
-	},
-	{
-		"key": "shift+alt+down",
-		"command": "-editor.action.insertCursorBelow",
-		"when": "editorTextFocus"
-	},
-	{
-		"key": "ctrl+enter",
-		"command": "editor.action.insertLineAfter",
-		"when": "editorTextFocus && !editorReadonly"
-	},
-	{
-		"key": "ctrl+enter",
-		"command": "-editor.action.insertLineAfter",
 		"when": "editorTextFocus && !editorReadonly"
 	},
 	{
@@ -41,35 +11,9 @@
 		"when": "editorTextFocus && !editorReadonly"
 	},
 	{
-		"key": "ctrl+shift+alt+down",
-		"command": "-editor.action.copyLinesDownAction",
-		"when": "editorTextFocus && !editorReadonly"
-	},
-	{
 		"key": "shift+alt+up",
 		"command": "editor.action.copyLinesUpAction",
 		"when": "editorTextFocus && !editorReadonly"
-	},
-	{
-		"key": "ctrl+shift+alt+up",
-		"command": "-editor.action.copyLinesUpAction",
-		"when": "editorTextFocus && !editorReadonly"
-	},
-	{
-		"key": "ctrl+shift+q",
-		"command": "sqltoolsViewConnectionExplorer.focus"
-	},
-	{
-		"key": "ctrl+shift+numpad_separator",
-		"command": "tabnine.chat.focus-input"
-	},
-	{
-		"key": "ctrl+shift+q",
-		"command": "-tabnine.chat.focus-input"
-	},
-	{
-		"key": "ctrl+shift+numpad_add",
-		"command": "postman-for-vscode.sidebar-panel.focus"
 	},
 	{
 		"key": "ctrl+alt+n",
@@ -78,19 +22,6 @@
 	{
 		"key": "ctrl+meta+n",
 		"command": "explorer.newFolder"
-	},
-	{
-		"key": "ctrl+meta+enter",
-		"command": "sqltools.executeCurrentQuery"
-	},
-	{
-		"key": "ctrl+shift+c",
-		"command": "-workbench.action.terminal.openNativeConsole",
-		"when": "!terminalFocus"
-	},
-	{
-		"key": "ctrl+q",
-		"command": "-workbench.action.quit"
 	},
 	{
 		"key": "ctrl+q",
@@ -103,24 +34,6 @@
 	{
 		"key": "alt+left",
 		"command": "workbench.action.focusPreviousGroup"
-	},
-	{
-		"key": "ctrl+shift+m",
-		"command": "asdfPluginView.focus"
-	},
-	{
-		"key": "ctrl+shift+u",
-		"command": "bigUML.show.umlPanel"
-	},
-	{
-		"key": "ctrl+d",
-		"command": "editor.action.addSelectionToNextFindMatch",
-		"when": "editorFocus"
-	},
-	{
-		"key": "ctrl+d",
-		"command": "-editor.action.addSelectionToNextFindMatch",
-		"when": "editorFocus"
 	},
 	{
 		"key": "ctrl+shift+j",
@@ -145,5 +58,65 @@
 		"key": "ctrl+shift+left",
 		"command": "cursorWordPartLeftSelect",
 		"when": "editorTextFocus"
-	}
+	},
+	{
+		"key": "ctrl+backspace",
+		"command": "deleteWordPartLeft",
+		"when": "editorTextFocus"
+	},
+	{
+		"key": "ctrl+delete",
+		"command": "deleteWordPartRight",
+		"when": "editorTextFocus"
+	},
+	{
+		"key": "ctrl+u ctrl+c",
+		"command": "texty.convertToCamelCase",
+		"when": "editorTextFocus"
+	},
+	{
+		"key": "ctrl+u ctrl+shift+c",
+		"command": "texty.convertToConstantCase",
+		"when": "editorTextFocus"
+	},
+	{
+		"key": "ctrl+u ctrl+k",
+		"command": "texty.convertToKebabCase",
+		"when": "editorTextFocus"
+	},
+	{
+		"key": "ctrl+u ctrl+u",
+		"command": "texty.convertToUpperCase",
+		"when": "editorTextFocus"
+	},
+	{
+		"key": "ctrl+u ctrl+shift+u",
+		"command": "texty.convertToLowerCase",
+		"when": "editorTextFocus"
+	},
+	{
+		"key": "ctrl+u ctrl+p",
+		"command": "texty.convertToPascalCase",
+		"when": "editorTextFocus"
+	},
+	{
+		"key": "ctrl+u ctrl+shift+p",
+		"command": "texty.convertToPathCase",
+		"when": "editorTextFocus"
+	},
+	{
+		"key": "ctrl+u ctrl+s",
+		"command": "texty.convertToSnakeCase",
+		"when": "editorTextFocus"
+	},
+	{
+		"key": "ctrl+u ctrl+shift+s",
+		"command": "texty.convertToSentenceCase",
+		"when": "editorTextFocus"
+	},
+	{
+		"key": "ctrl+u ctrl+d",
+		"command": "texty.convertToDotCase",
+		"when": "editorTextFocus"
+	},
 ]

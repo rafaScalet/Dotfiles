@@ -1,5 +1,7 @@
 status is-interactive || exit
 
+set -g temp "$__fish_config_dir/conf.d/temp"
+
 if type -q ~/.local/bin/mise; and not test -f "$temp.mise.fish"
   ~/.local/bin/mise activate fish > "$temp.mise.fish"
   ~/.local/bin/mise activate fish | source

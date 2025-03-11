@@ -1,3 +1,5 @@
+function fish_default_mode_prompt ;end
+
 switch $PROMPT
   case "starship"
     function starship_transient_prompt_func

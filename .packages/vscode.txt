@@ -2,13 +2,16 @@ actboy168.tasks
 alefragnani.project-manager
 biati.vscode-file-size-and-stats
 biomejs.biome
+cardinal90.multi-cursor-case-preserve
 catppuccin.catppuccin-vsc
+datasert.vscode-texty
 hideoo.toggler
 meganrogge.template-string-converter
 miguelsolorio.fluent-icons
 mikestead.dotenv
 mintlify.document
 naumovs.color-highlight
+nicholashsiang.vscode-change-case-next
 redhat.java
 redhat.vscode-yaml
 remcohaszing.schemastore

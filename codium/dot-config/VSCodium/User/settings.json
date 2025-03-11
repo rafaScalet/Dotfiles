@@ -2,6 +2,7 @@
   // #region" Misc
   "redhat.telemetry.enabled": false,
   "git.openRepositoryInParentFolders": "never",
+  "zenMode.showTabs": "single",
   "debug.toolBarLocation": "docked",
   // #endregion
   // #region File Size
@@ -16,10 +17,6 @@
     "~/Annotations",
   ],
   "projectManager.showProjectNameInStatusBar": false,
-  // #endregion
-  // #region ZenMode
-  "zenMode.fullScreen": false,
-  "zenMode.showTabs": "single",
   // #endregion
   // #region Extensions
   "extensions.ignoreRecommendations": true,
@@ -42,17 +39,16 @@
   "workbench.editorAssociations": {
     "*.svg": "default"
   },
+  "workbench.tree.expandMode": "doubleClick",
   // #endregion
   // #region Window
   "window.zoomLevel": 0,
   "window.commandCenter": false,
   "window.menuBarVisibility": "toggle",
   "window.autoDetectColorScheme": true,
-  "window.experimentalControlOverlay": true,
   "window.titleBarStyle": "native",
   "window.title": "${folderName}",
   "window.customTitleBarVisibility": "auto",
-  "window.openFoldersInNewWindow": "default",
   "window.newWindowProfile": "Default",
   // #endregion
   // #region Editor
@@ -70,11 +66,9 @@
   "editor.bracketPairColorization.enabled": true,
   "editor.bracketPairColorization.independentColorPoolPerBracketType": false,
   "editor.stickyScroll.enabled": false,
-  "editor.tabCompletion": "on",
   "editor.guides.bracketPairs": false,
   "editor.scrollbar.vertical": "hidden",
   "editor.scrollbar.horizontal": "hidden",
-  "editor.minimap.renderCharacters": false,
   "editor.minimap.enabled": false,
   "editor.lineNumbers": "relative",
   "editor.tabSize": 2,
@@ -112,15 +106,7 @@
   "files.associations": {
     ".env*": "dotenv"
   },
-  "files.exclude": {
-    "**/.git": false,
-    "**/.svn": false,
-    "**/.hg": false,
-    "**/CVS": false,
-    "**/.DS_Store": false,
-    "**/Thumbs.db": false,
-    "**/node_modules": false,
-  },
+  "files.exclude": {},
   // #endregion
   // #region JS / TS
   "javascript.preferences.quoteStyle": "single",
