@@ -36,11 +36,18 @@ abbr dst="docker start"
 abbr dsp="docker stop"
 abbr m="mise"
 
-command -v codium &> /dev/null && alias code="codium"
-command -v eza &> /dev/null && \
+command -v codium > /dev/null && alias code="codium"
+
+command -v exa > /dev/null && \
+  alias ls="exa --git --icons --color always --long --no-permissions --no-user --no-time --no-filesize --group-directories-first" && \
+  alias la="exa --git --icons --color always --long --all --group-directories-first" && \
+  alias ll="exa --git --icons --color always --long --group-directories-first"
+
+command -v eza > /dev/null && \
   alias ls="eza --git --icons --color always --long --no-permissions --no-user --no-time --no-filesize --group-directories-first" && \
   alias la="eza --git --icons --color always --long --all --group-directories-first" && \
   alias ll="eza --git --icons --color always --long --group-directories-first"
 
-command -v batman &> /dev/null && alias man="batman"
-command -v bat &> /dev/null && alias cat="bat"
+command -v batman > /dev/null && alias man="batman"
+command -v batcat > /dev/null && alias cat="batcat"
+command -v bat > /dev/null && alias cat="bat"
