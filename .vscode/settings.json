@@ -4,7 +4,9 @@
     "dot-gitconfig": "properties",
     "dot-stowrc": "properties",
     "dot-aliases": "shellscript",
-    "dot-bashrc": "shellscript"
+    "dot-bashrc": "shellscript",
+    "dot-env": "dotenv",
+    "dot-gitignore": "ignore"
   },
   "explorer.excludeGitIgnore": true,
   "cSpell.words": [

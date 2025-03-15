@@ -51,3 +51,5 @@ command -v eza > /dev/null && \
 command -v batman > /dev/null && alias man="batman"
 command -v batcat > /dev/null && alias cat="batcat"
 command -v bat > /dev/null && alias cat="bat"
+
+command -v python3 > /dev/null && alias python="python3"

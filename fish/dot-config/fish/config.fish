@@ -8,6 +8,8 @@ type -q thefuck; and test -f "$temp.fuck.fish" || thefuck --alias > "$temp.fuck.
 
 type -q zoxide; and test -f "$temp.zoxide.fish" || zoxide init fish --cmd cd > "$temp.zoxide.fish"
 
+type -q vivid; and set -gx LS_COLORS (vivid generate catppuccin-mocha)
+
 alias r='source ~/.config/fish/config.fish'
 
 set -gx CDPATH ~/Projects ~/Projects/*
