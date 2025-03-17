@@ -1,11 +1,15 @@
+apps-menu@gnome-shell-extensions.gcampax.github.com
 blur-my-shell@aunetx
 burn-my-windows@schneegans.github.com
+caffeine@patapon.info
 clipboard-indicator@tudmotu.com
 compiz-alike-magic-lamp-effect@hermes83.github.com
 dash2dock-lite@icedman.github.com
 extension-list@tu.berry
 hidetopbar@mathieu.bidon.ca
+just-perfection-desktop@just-perfection
 logomenu@aryan_k
+mprisLabel@moon-0xff.github.com
 paperwm@paperwm.github.com
 places-menu@gnome-shell-extensions.gcampax.github.com
 Rounded_Corners@lennart-k

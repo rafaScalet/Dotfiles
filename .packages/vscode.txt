@@ -5,13 +5,13 @@ biomejs.biome
 cardinal90.multi-cursor-case-preserve
 catppuccin.catppuccin-vsc
 datasert.vscode-texty
+editorconfig.editorconfig
 hideoo.toggler
 meganrogge.template-string-converter
 miguelsolorio.fluent-icons
 mikestead.dotenv
 mintlify.document
 naumovs.color-highlight
-nicholashsiang.vscode-change-case-next
 redhat.java
 redhat.vscode-yaml
 remcohaszing.schemastore
