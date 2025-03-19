@@ -5,12 +5,54 @@
 [init]
 	defaultBranch = main
 [include]
-  path = ~/.gilalias
+	path = ~/.gitalias
 [core]
+  pager = delta
 	excludesfile = ~/.gitignore
+[interactive]
+  diffFilter = delta --color-only
+[merge]
+  conflictstyle = zdiff3
 [gpg]
 	format = ssh
 [gpg "ssh"]
 	allowedSignersFile = ~/.gitallowed
 [commit]
 	gpgsign = true
+[delta]
+  navigate = true
+	features = catppuccin-mocha
+[delta "catppuccin-mocha"]
+	blame-palette = "#1e1e2e #181825 #11111b #313244 #45475a"
+	commit-decoration-style = "#6c7086" bold box ul
+	dark = true
+	file-decoration-style = "#6c7086"
+	file-style = "#cdd6f4"
+	hunk-header-decoration-style = "#6c7086" box ul
+	hunk-header-file-style = bold
+	hunk-header-line-number-style = bold "#a6adc8"
+	hunk-header-style = file line-number syntax
+	line-numbers-left-style = "#6c7086"
+	line-numbers-minus-style = bold "#f38ba8"
+	line-numbers-plus-style = bold "#a6e3a1"
+	line-numbers-right-style = "#6c7086"
+	line-numbers-zero-style = "#6c7086"
+	minus-emph-style = bold syntax "#53394c"
+	minus-style = syntax "#34293a"
+	plus-emph-style = bold syntax "#404f4a"
+	plus-style = syntax "#2c3239"
+	map-styles = \
+		bold purple => syntax "#494060", \
+		bold blue => syntax "#384361", \
+		bold cyan => syntax "#384d5d", \
+		bold yellow => syntax "#544f4e"
+	syntax-theme = Catppuccin Mocha
+[alias]
+  lc = log --pretty=format:'%Cred%h%Creset %C(bold)%cr%Creset %Cgreen<%an>%Creset %s' --max-count=30
+  sf = show --name-only
+  incoming = !(git fetch --quiet && git log --pretty=format:'%C(yellow)%h %C(white)- %C(red)%an %C(white)- %C(cyan)%d%Creset %s %C(white)- %ar%Creset' ..@{u})
+  outgoing = !(git fetch --quiet && git log --pretty=format:'%C(yellow)%h %C(white)- %C(red)%an %C(white)- %C(cyan)%d%Creset %s %C(white)- %ar%Creset' @{u}..)
+  unstage = reset HEAD --
+  undo = checkout --
+  amend = commit -v -a --no-edit --amend
+  rollback = reset --soft HEAD~1

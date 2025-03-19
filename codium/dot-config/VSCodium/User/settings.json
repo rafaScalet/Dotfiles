@@ -2,8 +2,18 @@
   // #region" Misc
   "redhat.telemetry.enabled": false,
   "git.openRepositoryInParentFolders": "never",
+  "vim.leader": " ",
+  // #endregion
+  // #region ZenMode
   "zenMode.showTabs": "single",
+  "zenMode.hideLineNumbers": false,
+  "zenMode.fullScreen": false,
+  "zenMode.hideStatusBar": true,
+  "zenMode.centerLayout": false,
+  // #endregion
+  // #region Debug
   "debug.toolBarLocation": "docked",
+  "debug.enableStatusBarColor": false,
   // #endregion
   // #region File Size
   "fileSizeAndStats.statusBarText": "${ORIGINAL_SIZE}",
@@ -137,6 +147,11 @@
   "catppuccin.workbenchMode": "minimal",
   "catppuccin.customUIColors": {
     "mocha": {
+      "breadcrumb.activeSelectionForeground": "accent",
+      "breadcrumb.foreground": "accent",
+      "breadcrumb.focusForeground": "accent",
+      "breadcrumb.background": "base",
+      "breadcrumbPicker.background": "base",
       "statusBar.debuggingBackground": "accent",
       "statusBar.foreground": "accent",
       "statusBar.noFolderForeground": "accent",
