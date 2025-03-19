@@ -8,7 +8,7 @@
 	path = ~/.gitalias
 [core]
   pager = delta
-	excludesfile = ~/.gitignore
+	excludesfile = ~/.ignore
 [interactive]
   diffFilter = delta --color-only
 [merge]

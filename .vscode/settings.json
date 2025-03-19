@@ -2,11 +2,11 @@
   "files.associations": {
     "dot-gitalias": "properties",
     "dot-gitconfig": "properties",
-    "dot-stowrc": "properties",
+    ".stowrc": "properties",
     "dot-aliases": "shellscript",
     "dot-bashrc": "shellscript",
     "dot-env": "dotenv",
-    "dot-gitignore": "ignore"
+    "dot-ignore": "ignore"
   },
   "explorer.excludeGitIgnore": true,
   "files.exclude": {

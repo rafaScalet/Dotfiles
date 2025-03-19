@@ -1,9 +1,0 @@
-{
-  "IIFE Hello World": {
-    "prefix": "iife",
-    "body": [
-      "(() => {console.log('Hello, World!')})();"
-    ],
-    "description": "Creates an IIFE that prints 'Hello, World!'"
-  }
-}
