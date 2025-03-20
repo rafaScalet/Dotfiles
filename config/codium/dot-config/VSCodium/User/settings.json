@@ -1,0 +1,209 @@
+{
+  // #region" Misc
+  "redhat.telemetry.enabled": false,
+  "git.openRepositoryInParentFolders": "never",
+  "vim.leader": " ",
+  // #endregion
+  // #region ZenMode
+  "zenMode.showTabs": "single",
+  "zenMode.hideLineNumbers": false,
+  "zenMode.fullScreen": false,
+  "zenMode.hideStatusBar": true,
+  "zenMode.centerLayout": false,
+  // #endregion
+  // #region Debug
+  "debug.toolBarLocation": "docked",
+  "debug.enableStatusBarColor": false,
+  // #endregion
+  // #region File Size
+  "fileSizeAndStats.statusBarText": "${ORIGINAL_SIZE}",
+  "fileSizeAndStats.statusItemPosition": "Right",
+  "fileSizeAndStats.sizeMode": "Binary Mode",
+  // #endregion
+  // #region Project Manager
+  "projectManager.git.baseFolders": [
+    "~/Dotfiles",
+    "~/Annotations",
+  ],
+  "projectManager.any.baseFolders": [ "~/Projects" ],
+  "projectManager.any.maxDepthRecursion": 2,
+  "projectManager.showProjectNameInStatusBar": false,
+  // #endregion
+  // #region Extensions
+  "extensions.ignoreRecommendations": true,
+  "extensions.closeExtensionDetailsOnViewChange": true,
+  "extensions.autoUpdate": false,
+  // #endregion
+  // #region Workbench
+  "workbench.panel.showLabels": false,
+  "workbench.colorCustomizations": {},
+  "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
+  "workbench.preferredLightColorTheme": "Catppuccin Latte",
+  "workbench.iconTheme": "let-icons",
+  "workbench.productIconTheme": "fluent-icons",
+  "workbench.layoutControl.enabled": false,
+  "workbench.startupEditor": "none",
+  "workbench.editor.showTabs": "single",
+  "workbench.activityBar.location": "hidden",
+  "workbench.editorAssociations": {
+    "*.svg": "default"
+  },
+  "workbench.tree.expandMode": "doubleClick",
+  // #endregion
+  // #region Window
+  "window.zoomLevel": 0,
+  "window.commandCenter": false,
+  "window.menuBarVisibility": "toggle",
+  "window.autoDetectColorScheme": true,
+  "window.titleBarStyle": "native",
+  "window.title": "${folderName}",
+  "window.customTitleBarVisibility": "auto",
+  "window.newWindowProfile": "Default",
+  // #endregion
+  // #region Editor
+  "editor.wordWrap": "on",
+  "editor.lineHeight": 1.4,
+  "editor.fontFamily": "JetBrainsMono NFP",
+  "editor.fontWeight": "900",
+  "editor.fontLigatures": true,
+  "editor.codeLens": false,
+  "editor.renderLineHighlight": "gutter",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorBlinking": "expand",
+  "editor.cursorStyle": "line",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": false,
+  "editor.stickyScroll.enabled": false,
+  "editor.guides.bracketPairs": false,
+  "editor.scrollbar.vertical": "hidden",
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.minimap.enabled": false,
+  "editor.lineNumbers": "relative",
+  "editor.tabSize": 2,
+  "editor.smoothScrolling": true,
+  "editor.indentSize": "tabSize",
+  "editor.scrollbar.verticalScrollbarSize": 0,
+  "editor.cursorSurroundingLines": 10,
+  // #endregion
+  // #region Terminal
+  "terminal.integrated.defaultProfile.linux": "sh",
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "terminal.integrated.fontFamily": "JetBrainsMono NFP",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontWeight": "bold",
+  "terminal.integrated.fontLigatures.enabled": true,
+  // #endregion
+  // #region Explorer
+  "explorer.compactFolders": false,
+  "explorer.incrementalNaming": "smart",
+  "explorer.decorations.badges": true,
+  "explorer.decorations.colors": false,
+  "explorer.sortOrder": "foldersNestsFiles",
+  "explorer.fileNesting.enabled": false,
+  "explorer.fileNesting.expand": false,
+  "explorer.expandSingleFolderWorkspaces": false,
+  "explorer.fileNesting.patterns": {
+    "*.ts": "", "*.js": "", "*.jsx": "", "*.tsx": "",
+    "tsconfig.json": "tsconfig.*.json, *.tsbuildinfo",
+    ".env": ".env.*",
+    "mise.toml": "mise.*.toml",
+    "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb",
+  },
+  // #endregion
+  // #region Files
+  "files.trimTrailingWhitespace": true,
+  "files.autoSave": "afterDelay",
+  "files.insertFinalNewline": true,
+  "files.associations": {
+    ".env*": "dotenv"
+  },
+  "files.exclude": {},
+  // #endregion
+  // #region JS / TS
+  "javascript.preferences.quoteStyle": "single",
+  "typescript.preferences.quoteStyle": "single",
+  // #endregion
+  // #region Code Spell Checker
+  "cSpell.userWords": [
+    "catppuccin",
+    "dotnet",
+    "easycoast",
+    "fastfetch",
+    "fatec",
+    "javac",
+    "kotlin",
+    "lazydocker",
+    "lazygit",
+    "println",
+    "rafascalet",
+    "scalet"
+  ],
+  "cSpell.language": "en, en-US, en-Gb, pt, pt-BR, lorem",
+  // #endregion
+  // #region Catppuccin
+  "catppuccin-icons.specificFolders": true,
+  "catppuccin-icons.monochrome": false,
+  "catppuccin.accentColor": "lavender",
+  "catppuccin.syncWithIconPack": true,
+  "catppuccin.workbenchMode": "minimal",
+  "catppuccin.customUIColors": {
+    "mocha": {
+      "breadcrumb.activeSelectionForeground": "accent",
+      "breadcrumb.foreground": "accent",
+      "breadcrumb.focusForeground": "accent",
+      "breadcrumb.background": "base",
+      "breadcrumbPicker.background": "base",
+      "statusBar.debuggingBackground": "accent",
+      "statusBar.foreground": "accent",
+      "statusBar.noFolderForeground": "accent",
+      "statusBarItem.remoteBackground": "accent",
+      "sideBar.foreground": "accent",
+      "sideBarSectionHeader.foreground": "accent",
+      "sideBarTitle.foreground": "accent",
+      "titleBar.activeForeground": "accent",
+      "titleBar.inactiveForeground": "accent",
+      "gitDecoration.addedResourceForeground": "accent",
+      "gitDecoration.conflictingResourceForeground": "accent",
+      "gitDecoration.deletedResourceForeground": "accent",
+      "gitDecoration.ignoredResourceForeground": "accent",
+      "gitDecoration.modifiedResourceForeground": "accent",
+      "gitDecoration.renamedResourceForeground": "accent",
+      "gitDecoration.stageDeletedResourceForeground": "accent",
+      "gitDecoration.stageModifiedResourceForeground": "accent",
+      "gitDecoration.untrackedResourceForeground": "accent",
+      "gitDecoration.submoduleResourceForeground": "accent",
+      "panelSectionHeader.foreground": "accent",
+      "panelTitle.activeForeground": "accent",
+      "panelTitle.inactiveForeground": "accent",
+      "activityBar.foreground": "accent",
+      "activityBar.inactiveForeground": "accent",
+      "minimap.background":"base",
+    },
+    "latte": {
+      "statusBar.debuggingBackground": "accent",
+      "statusBar.foreground": "accent",
+      "statusBar.noFolderForeground": "accent",
+      "statusBarItem.remoteBackground": "accent",
+      "sideBar.foreground": "accent",
+      "sideBarSectionHeader.foreground": "accent",
+      "titleBar.activeForeground": "accent",
+      "titleBar.inactiveForeground": "accent",
+      "gitDecoration.addedResourceForeground": "accent",
+      "gitDecoration.conflictingResourceForeground": "accent",
+      "gitDecoration.deletedResourceForeground": "accent",
+      "gitDecoration.ignoredResourceForeground": "accent",
+      "gitDecoration.modifiedResourceForeground": "accent",
+      "gitDecoration.renamedResourceForeground": "accent",
+      "gitDecoration.stageDeletedResourceForeground": "accent",
+      "gitDecoration.stageModifiedResourceForeground": "accent",
+      "gitDecoration.untrackedResourceForeground": "accent",
+      "gitDecoration.submoduleResourceForeground": "accent",
+      "panelSectionHeader.foreground": "accent",
+      "panelTitle.activeForeground": "accent",
+      "panelTitle.inactiveForeground": "accent",
+      "activityBar.foreground": "accent",
+      "activityBar.inactiveForeground": "accent",
+    },
+  },
+  // #endregion
+}

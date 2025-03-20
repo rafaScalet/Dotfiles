@@ -1,0 +1,13 @@
+{
+  "Java Main Class": {
+    "prefix": "Main",
+    "body": [
+      "public class Main {",
+      "  public static void main(String[] args) {",
+      "    System.out.println(\"Hello, World!\");",
+      "  }",
+      "}\n"
+    ],
+    "description": "Creates a basic java main class."
+  },
+}

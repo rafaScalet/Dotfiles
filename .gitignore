@@ -4,7 +4,7 @@ config/fish/dot-config/fish/functions/fundle.fish
 config/fish/dot-config/fish/conf.d/temp.*.fish
 
 config/codium/dot-config/VSCodium/*
-config/!codium/dot-config/VSCodium/User
+!config/codium/dot-config/VSCodium/User
 config/codium/dot-config/VSCodium/User/History
 config/codium/dot-config/VSCodium/User/globalStorage
 config/codium/dot-config/VSCodium/User/workspaceStorage

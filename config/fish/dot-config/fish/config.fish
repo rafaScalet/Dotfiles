@@ -10,3 +10,4 @@ set -gx CDPATH ~/Projects ~/Projects/*
 
 curl -fsSL -o ~/.gitalias https://raw.githubusercontent.com/GitAlias/gitalias/refs/heads/main/gitalias.txt
 
+mise activate fish | source
