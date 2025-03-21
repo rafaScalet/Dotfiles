@@ -1,13 +1,14 @@
-starship                    cross shell prompt written in rust
-oh-my-posh                  cress shell prompt written in go
-fish                        non-posix shell, friendly interactive shell
-nushell                     non-posix shell, where all data is structured
-mise                        tool, task and env manager
-carapace-bin                generate completions for most popular tools to most popular shells
-localsend-bin               An open source cross-platform alternative to AirDrop
-podman                      Tool and library for running OCI-based containers in pods
-podman-tui                  Podman Terminal User Interface
-podman-docker               Emulate Docker CLI using podman
-podman-compose              A script to run docker-compose.yml using podman
-podman-desktop              Manage Podman and other container engines from a single UI and tray.
-              
+starship                           cross shell prompt written in rust
+oh-my-posh                         cross shell prompt written in go
+fish                               non-posix shell, friendly interactive shell
+nushell                            non-posix shell, where all data is structured
+mise                               tool, task and env manager
+carapace-bin                       generate completions for most popular tools to most popular shells
+localsend-bin                      An open source cross-platform alternative to AirDrop
+podman                             Tool and library for running OCI-based containers in pods
+podman-tui                         Podman Terminal User Interface
+podman-docker                      Emulate Docker CLI using podman
+podman-compose                     A script to run docker-compose.yml using podman
+podman-desktop                     Manage Podman and other container engines from a single UI and tray.
+papirus-icon-theme                 papirus icon theme for gnome shell
+papirus-folders-catppuccin-git     catppuccin color scheme for papirus folders

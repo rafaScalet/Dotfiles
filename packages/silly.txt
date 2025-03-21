@@ -1,9 +1,10 @@
+cava
+cbonsai
+cmatrix
+cowsay
 figlet
 fortune
-cowsay
+lolcat
+pipes.sh
 ponysay
 wtf
-cmatrix
-cbonsai
-pipes.sh
-cava

@@ -8,6 +8,6 @@ alias r='source ~/.config/fish/config.fish'
 
 set -gx CDPATH ~/Projects ~/Projects/*
 
-curl -fsSL -o ~/.gitalias https://raw.githubusercontent.com/GitAlias/gitalias/refs/heads/main/gitalias.txt
+test -e ~/.gitalias; and curl -fsSL -o ~/.gitalias https://raw.githubusercontent.com/GitAlias/gitalias/refs/heads/main/gitalias.txt
 
 mise activate fish | source

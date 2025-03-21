@@ -1,4 +1,5 @@
 actboy168.tasks
+adpyke.codesnap
 alefragnani.project-manager
 biati.vscode-file-size-and-stats
 biomejs.biome
