@@ -20,7 +20,7 @@
       "format": "{pretty-name}"
     },
     {
-      "type": "theme",
+      "type": "wmtheme",
       "key": " ",
       "keyColor": "green"
     },
@@ -30,7 +30,7 @@
       "keyColor": "yellow"
     },
     {
-      "type": "wm",
+      "type": "de",
       "key": " ",
       "keyColor": "cyan"
     },

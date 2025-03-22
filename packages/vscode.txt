@@ -3,6 +3,7 @@ adpyke.codesnap
 alefragnani.project-manager
 biati.vscode-file-size-and-stats
 biomejs.biome
+bradlc.vscode-tailwindcss
 cardinal90.multi-cursor-case-preserve
 catppuccin.catppuccin-vsc
 datasert.vscode-texty
@@ -12,6 +13,7 @@ meganrogge.template-string-converter
 miguelsolorio.fluent-icons
 mikestead.dotenv
 mintlify.document
+ms-python.python
 naumovs.color-highlight
 redhat.java
 redhat.vscode-yaml

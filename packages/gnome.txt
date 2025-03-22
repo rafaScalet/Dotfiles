@@ -14,5 +14,6 @@ paperwm@paperwm.github.com
 places-menu@gnome-shell-extensions.gcampax.github.com
 quick-settings-tweaks@qwreey
 Rounded_Corners@lennart-k
+search-light@icedman.github.com
 system-monitor@gnome-shell-extensions.gcampax.github.com
 user-theme@gnome-shell-extensions.gcampax.github.com

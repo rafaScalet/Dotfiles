@@ -49,6 +49,12 @@
     "*.svg": "default"
   },
   "workbench.tree.expandMode": "doubleClick",
+  "workbench.list.openMode": "doubleClick",
+  // #endregion
+  // #region Code Snap
+  "codesnap.transparentBackground": true,
+  "codesnap.target": "window",
+  "codesnap.showWindowTitle": true,
   // #endregion
   // #region Window
   "window.zoomLevel": 0,
@@ -99,7 +105,7 @@
   "explorer.decorations.badges": true,
   "explorer.decorations.colors": false,
   "explorer.sortOrder": "foldersNestsFiles",
-  "explorer.fileNesting.enabled": false,
+  "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.expandSingleFolderWorkspaces": false,
   "explorer.fileNesting.patterns": {
@@ -117,7 +123,13 @@
   "files.associations": {
     ".env*": "dotenv"
   },
-  "files.exclude": {},
+  "files.exclude": {
+    "**/.git": false,
+    "**/.svn": false,
+    "**/.hg": false,
+    "**/.DS_Store": false,
+    "**/Thumbs.db": false
+  },
   // #endregion
   // #region JS / TS
   "javascript.preferences.quoteStyle": "single",

@@ -7,6 +7,7 @@ alias dot="stow --stow"
 alias undot="stow --delete"
 alias redot="stow --restow"
 alias pnpx="pnpm dlx"
+alias full-info="fastfetch --config ~/.config/fastfetch/all.jsonc"
 
 abbr q="exit"
 abbr A="cd ~/Annotations"
@@ -39,14 +40,14 @@ abbr m="mise"
 command -v codium > /dev/null && alias code="codium"
 
 command -v exa > /dev/null && \
-  alias ls="exa --git --icons --color always --long --no-permissions --no-user --no-time --no-filesize --group-directories-first" && \
-  alias la="exa --git --icons --color always --long --all --group-directories-first" && \
-  alias ll="exa --git --icons --color always --long --group-directories-first"
+  alias ls="exa --git --icons --long --no-permissions --no-user --no-time --no-filesize --group-directories-first" && \
+  alias la="exa --git --icons --long --all --group-directories-first" && \
+  alias ll="exa --git --icons --long --group-directories-first"
 
 command -v eza > /dev/null && \
-  alias ls="eza --git --icons --color always --long --no-permissions --no-user --no-time --no-filesize --group-directories-first" && \
-  alias la="eza --git --icons --color always --long --all --group-directories-first" && \
-  alias ll="eza --git --icons --color always --long --group-directories-first"
+  alias ls="eza --git --icons --long --no-permissions --no-user --no-time --no-filesize --group-directories-first" && \
+  alias la="eza --git --icons --long --all --group-directories-first" && \
+  alias ll="eza --git --icons --long --group-directories-first"
 
 command -v batman > /dev/null && alias man="batman"
 command -v batcat > /dev/null && alias cat="batcat"

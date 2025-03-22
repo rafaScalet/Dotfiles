@@ -5,6 +5,10 @@
 		"command": "workbench.action.reloadWindow"
 	},
 	{
+		"key": "ctrl+meta+r",
+		"command": "projectManager.refreshProjects"
+	},
+	{
 		"key": "ctrl+;",
 		"command": "editor.action.commentLine",
 		"when": "editorTextFocus && !editorReadonly"
@@ -122,5 +126,9 @@
 		"key": "ctrl+u ctrl+d",
 		"command": "texty.convertToDotCase",
 		"when": "editorTextFocus"
+	},
+	{
+		"key": "ctrl+insert",
+		"command": "codesnap.start"
 	},
 ]
