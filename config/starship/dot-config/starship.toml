@@ -98,7 +98,7 @@ symbol = ""
 format = 'via [$symbol $version]($style) '
 version_format = "${raw}"
 style = "bold yellow"
-symbol = ""
+symbol = ""
 
 [golang]
 format = 'via [$symbol $version]($style) '
