@@ -59,73 +59,85 @@ cmd_indicator = ""
 powershell_indicator = ""
 
 [package]
-format = 'is [$symbol $version]($style) '
+format = 'is[ $symbol $version ]($style)'
 version_format = "${raw}"
 style ="bold yellow"
 symbol = "󰏗"
 
 [nodejs]
-format = 'via [$symbol $version]($style) '
+format = 'via[ $symbol $version ]($style)'
 version_format = "${raw}"
 style = "bold green"
 symbol = ""
 
+[bun]
+format = 'via[ $symbol $version ]($style)'
+version_format = "${raw}"
+style = 'bold red'
+symbol = ''
+
+[deno]
+format = 'via[ $symbol $version ]($style)'
+version_format = "${raw}"
+style = "bold cyan"
+symbol = ""
+
 [java]
-format = 'via [$symbol $version]($style) '
+format = 'via[ $symbol $version ]($style)'
 version_format = "${raw}"
 style ="bold red"
 symbol = ""
 
 [php]
-format = 'via [$symbol $version]($style) '
+format = 'via[ $symbol $version ]($style)'
 version_format = "${raw}"
 style ="bold blue"
 symbol = ""
 
 [python]
-format = 'via [$symbol $version]($style) '
+format = 'via[ $symbol $version ]($style)'
 version_format = "${raw}"
-style ="bold blue"
+style = 'bold blue'
 symbol = ""
 
 [dotnet]
-format = 'via [$symbol $version]($style) '
+format = 'via[ $symbol $version ]($style)'
 version_format = "${raw}"
 style = "bold purple"
 symbol = ""
 
 [rust]
-format = 'via [$symbol $version]($style) '
+format = 'via[ $symbol $version ]($style)'
 version_format = "${raw}"
 style = "bold yellow"
 symbol = ""
 
 [golang]
-format = 'via [$symbol $version]($style) '
+format = 'via[ $symbol $version ]($style)'
 version_format = "${raw}"
 style = "bold cyan"
 symbol = ""
 
 [kotlin]
-format = 'via [$symbol $version]($style) '
+format = 'via[ $symbol $version ]($style)'
 version_format = "${raw}"
 style = "bold blue"
 symbol = ""
 
 [haskell]
-format = 'via [$symbol $version]($style) '
+format = 'via[ $symbol $version ]($style)'
 version_format = "${raw}"
 style = "bold purple"
 symbol = ""
 
 [c]
-format = 'via [$symbol $version]($style) '
+format = 'via[ $symbol $version ]($style)'
 version_format = "${raw}"
 style = "bold purple"
 symbol = ""
 
 [lua]
-format = 'via [$symbol $version]($style) '
+format = 'via[ $symbol $version ]($style)'
 version_format = "${raw}"
 style = "bold blue"
 symbol = "󰢱"

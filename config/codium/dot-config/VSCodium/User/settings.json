@@ -49,7 +49,6 @@
     "*.svg": "default"
   },
   "workbench.tree.expandMode": "doubleClick",
-  "workbench.list.openMode": "doubleClick",
   // #endregion
   // #region Code Snap
   "codesnap.transparentBackground": true,

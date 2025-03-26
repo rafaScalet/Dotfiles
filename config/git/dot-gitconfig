@@ -9,6 +9,7 @@
 [core]
   pager = delta
   excludesfile = ~/.ignore
+	editor = nvim
 [interactive]
   diffFilter = delta --color-only
 [merge]

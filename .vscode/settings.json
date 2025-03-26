@@ -8,7 +8,13 @@
     "dot-env": "dotenv",
     "dot-ignore": "ignore"
   },
+  "explorer.compactFolders": true,
   "explorer.excludeGitIgnore": true,
+  "explorer.fileNesting.patterns": {
+    "readme.md": ".gitignore, .stowrc, LICENSE, bootstrap.sh",
+    "dot-env": "readme.md",
+    "dot-ignore": "readme.md"
+  },
   "files.exclude": {
     "**/.git": false,
     "**/.svn": false,
