@@ -22,4 +22,22 @@
     "**/.DS_Store": false,
     "**/Thumbs.db": false
   },
+  "toggler.toggles": [
+    [
+      "absolute",
+      "relative"
+    ],
+    [
+      "high",
+      "low"
+    ],
+    [
+      "starship",
+      "ohmyposh"
+    ],
+    [
+      "git-bash",
+      "zen-p10K"
+    ]
+  ]
 }

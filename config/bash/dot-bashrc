@@ -6,7 +6,7 @@ if [ -f ~/.aliases ]; then
   eval "$(sed 's/\babbr\b/alias/g' ~/.aliases)"
 fi
 
-alias r='source ~/.bashrc'
+alias reset='source ~/.bashrc'
 
 if [ -f /usr/share/git/completion/git-prompt.sh ]; then
   source /usr/share/git/completion/git-prompt.sh

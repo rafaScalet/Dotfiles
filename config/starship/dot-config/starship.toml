@@ -1,3 +1,7 @@
+format = "$all"
+right_format = " $sudo$memory_usage$battery$time$shell$os "
+add_newline = false
+
 [username]
 style_user = "bold red"
 style_root = "bg:red fg:black"
@@ -49,8 +53,8 @@ style = "italic bold cyan"
 
 [shell]
 disabled = false
-style = "black"
-format = "[$indicator  ]($style)"
+style = "black bold"
+format = "[ $indicator ]($style)"
 fish_indicator = "󰻴"
 bash_indicator = ""
 nu_indicator = ""
@@ -152,18 +156,18 @@ style = "bold italic purple"
 [time]
 disabled = false
 time_format = "%R"
-style = "black"
-format = "[$time ]($style)"
+style = "black bold"
+format = "[ $time ]($style)"
 
 [cmd_duration]
 disabled = false
-style = "black"
+style = "black bold"
 format = "[took $duration]($style)"
 
 [os]
 disabled = false
-style = "black"
-format = "[$symbol ]($style)"
+style = "black bold"
+format = "[ $symbol ]($style)"
 
 [os.symbols]
 Windows = "󰍲"
@@ -185,3 +189,20 @@ CentOS = ""
 Debian = "󰣚"
 Redhat = "󱄛"
 RedHatEnterprise = "󱄛"
+
+[battery]
+display = [{ style = "black bold", threshold = 60 }]
+format = "[ $symbol$percentage ]($style)"
+
+[sudo]
+disabled = false
+style = "bold black"
+format = "[ $symbol ]($style)"
+symbol = "sudo"
+
+[memory_usage]
+disabled = false
+format = "[ ${ram} | ${swap} ]($style)"
+threshold = 75
+style = "bold black"
+symbol = "󰍛"

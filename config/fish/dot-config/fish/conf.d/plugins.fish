@@ -21,6 +21,8 @@ fundle plugin laughedelic/fish_logo
 fundle plugin meaningful-ooo/sponge
 fundle plugin nickeb96/puffer-fish
 fundle plugin OakNinja/MakeMeFish
+# fundle plugin paldepind/projectdo
+fundle plugin PatrickF1/fzf.fish
 # fundle plugin paysonwallach/fish-you-should-use
 # fundle plugin pure-fish/pure
 fundle plugin rafascalet/docker-db.fish
