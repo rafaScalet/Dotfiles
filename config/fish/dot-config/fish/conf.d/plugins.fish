@@ -1,36 +1,29 @@
-if not functions -q fundle; eval (curl -sfL https://git.io/fundle-install); end
+function @plugin; set -g plugins $plugins (string lower $argv[1]); end
 
-# fundle plugin adamchristiansen/vertical-fish
-fundle plugin Alaz-Oz/fish-insulter
-# fundle plugin archelaus/shell-mommy
-# fundle plugin daleeidd/natural-selection
-# fundle plugin gazorby/fish-abbreviation-tips
-# fundle plugin halostatue/fish-macos
-fundle plugin halostatue/fish-utils
-fundle plugin halostatue/fish-utils-core
-fundle plugin halostatue/fish-utils-net
-fundle plugin IlanCosman/tide
-fundle plugin jhillyerd/plugin-git
-# fundle plugin joehillen/to-fish
-fundle plugin jorgebucaran/autopair.fish
-fundle plugin jorgebucaran/humantime.fish
-# fundle plugin jorgebucaran/hydro
-fundle plugin jorgebucaran/replay.fish
-fundle plugin laughedelic/fish_logo
-# fundle plugin mattmc3/magic-enter.fish
-fundle plugin meaningful-ooo/sponge
-fundle plugin nickeb96/puffer-fish
-fundle plugin OakNinja/MakeMeFish
-# fundle plugin paldepind/projectdo
-fundle plugin PatrickF1/fzf.fish
-# fundle plugin paysonwallach/fish-you-should-use
-# fundle plugin pure-fish/pure
-fundle plugin rafascalet/docker-db.fish
-
-fundle init
-
-function fun
-  fundle install
-  fundle clean
-  fundle update
-end
+# @plugin adamchristiansen/vertical-fish
+@plugin Alaz-Oz/fish-insulter
+# @plugin archelaus/shell-mommy
+# @plugin daleeidd/natural-selection
+@plugin gazorby/fish-abbreviation-tips
+# @plugin halostatue/fish-macos
+@plugin halostatue/fish-utils
+@plugin halostatue/fish-utils-core
+@plugin halostatue/fish-utils-net
+# @plugin IlanCosman/tide
+@plugin jhillyerd/plugin-git
+# @plugin joehillen/to-fish
+@plugin jorgebucaran/autopair.fish
+@plugin jorgebucaran/fisher
+@plugin jorgebucaran/humantime.fish
+# @plugin jorgebucaran/hydro
+@plugin jorgebucaran/replay.fish
+@plugin laughedelic/fish_logo
+@plugin mattmc3/magic-enter.fish
+@plugin meaningful-ooo/sponge
+@plugin nickeb96/puffer-fish
+@plugin OakNinja/MakeMeFish
+# @plugin paldepind/projectdo
+@plugin PatrickF1/fzf.fish
+@plugin paysonwallach/fish-you-should-use
+# @plugin pure-fish/pure
+@plugin rafascalet/docker-db.fish

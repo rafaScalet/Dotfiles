@@ -33,7 +33,8 @@
     ],
     [
       "starship",
-      "ohmyposh"
+      "ohmyposh",
+      "native"
     ],
     [
       "git-bash",

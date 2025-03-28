@@ -11,4 +11,5 @@ switch $PROMPT
     enable_transience
   case "ohmyposh"
     oh-my-posh init --config ~/.config/ohmyposh/$OHMYPOSH_THEME.json fish | source
+  case "native"
 end

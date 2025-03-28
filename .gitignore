@@ -1,5 +1,7 @@
 config/fish/dot-config/fish/fundle
-config/fish/dot-config/fish/fish_variables
+config/fish/dot-config/fish/plugin
+config/fish/dot-config/fish/fisher
+config/fish/dot-config/fish/fish_*
 config/fish/dot-config/fish/functions/fundle.fish
 config/fish/dot-config/fish/conf.d/temp.*.fish
 
