@@ -24,6 +24,6 @@ function @plugin; set -g plugins $plugins (string lower $argv[1]); end
 @plugin OakNinja/MakeMeFish
 # @plugin paldepind/projectdo
 @plugin PatrickF1/fzf.fish
-@plugin paysonwallach/fish-you-should-use
+# @plugin paysonwallach/fish-you-should-use
 # @plugin pure-fish/pure
 @plugin rafascalet/docker-db.fish

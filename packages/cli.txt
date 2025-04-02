@@ -1,0 +1,8 @@
+the_silver_searcher
+bat
+bat-extra
+eza
+fzf
+ripgrep
+git-delta
+tldr

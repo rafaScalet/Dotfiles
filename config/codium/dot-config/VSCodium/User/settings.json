@@ -24,8 +24,8 @@
   "projectManager.git.baseFolders": [
     "~/Dotfiles",
     "~/Annotations",
+    "~/Projects"
   ],
-  "projectManager.any.baseFolders": [ "~/Projects" ],
   "projectManager.any.maxDepthRecursion": 2,
   "projectManager.showProjectNameInStatusBar": false,
   // #endregion
@@ -133,6 +133,8 @@
   // #region JS / TS
   "javascript.preferences.quoteStyle": "single",
   "typescript.preferences.quoteStyle": "single",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always",
   // #endregion
   // #region Code Spell Checker
   "cSpell.userWords": [
