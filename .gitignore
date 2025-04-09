@@ -5,9 +5,14 @@ config/fish/dot-config/fish/fish_*
 config/fish/dot-config/fish/functions/fundle.fish
 config/fish/dot-config/fish/conf.d/*.temp.fish
 
+config/fish/fish_*
+config/fish/themes
+
 config/codium/dot-config/VSCodium/*
 !config/codium/dot-config/VSCodium/User
 config/codium/dot-config/VSCodium/User/History
 config/codium/dot-config/VSCodium/User/globalStorage
 config/codium/dot-config/VSCodium/User/workspaceStorage
 config/codium/dot-config/VSCodium/User/profiles
+
+config/tmux/dot-config/tmux/plugins
