@@ -1,4 +1,3 @@
 nautilus-open-any-terminal
-nautilus-folder-icons
 nautilus-admin-gtk4
 nautilus-code

@@ -1,0 +1,16 @@
+services:
+  mariadb:
+    image: mariadb
+    container_name: mariadb
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD:-root}
+      MARIADB_USER: ${MARIADB_USER:-docker}
+      MARIADB_PASSWORD: ${MARIADB_PASSWORD:-mariadb}
+      MARIADB_DATABASE: ${MARIADB_DATABASE:-example}
+    ports:
+      - "${MARIA_PORT:-3306}:3306"
+    volumes:
+      - mariadb_data:/var/lib/mysql
+volumes:
+  mariadb_data:
