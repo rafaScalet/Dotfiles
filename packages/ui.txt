@@ -1,0 +1,4 @@
+papirus-folders-catppuccin-git     catppuccin color scheme for papirus folders
+papirus-icon-theme                 papirus icon theme for gnome shell
+starship                           cross shell prompt written in rust
+ttf-jetbrains-mono-nerd

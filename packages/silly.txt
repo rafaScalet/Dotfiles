@@ -1,3 +1,4 @@
+asciiquarium
 cava
 cbonsai
 cmatrix
