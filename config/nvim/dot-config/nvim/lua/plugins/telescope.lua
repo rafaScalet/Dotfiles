@@ -1,0 +1,33 @@
+return {
+  "nvim-telescope/telescope.nvim",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    -- "ahmedkhalf/project.nvim",
+    "jonarrien/telescope-cmdline.nvim",
+    "nvim-telescope/telescope-ui-select.nvim",
+  },
+  cmd = "Telescope",
+  opts = {
+    extensions = {
+      ["ui-select"] = {
+        require("telescope.themes").get_dropdown({}),
+      },
+    },
+  },
+  keys = {
+    { "<leader>fc", ":Telescope cmdline<CR>", desc = "Telescope Command Line" },
+    { "<leader>ff", ":Telescope find_files<CR>", desc = "Telescope find files" },
+    { "<leader>fl", ":Telescope live_grep<CR>", desc = "Telescope live grep" },
+    { "<leader>fg", ":Telescope git_files<CR>", desc = "Telescope live grep" },
+    { "<leader>fb", ":Telescope buffers<CR>", desc = "Telescope buffers" },
+    { "<leader>fh", ":Telescope help_tags", desc = "Telescope help tags" },
+    { "<leader>fp", ":Telescope projects<CR>", desc = "Telescope help tags" },
+  },
+  config = function(_, opts)
+    require("telescope").setup(opts)
+    require("telescope").load_extension("cmdline")
+    require("telescope").load_extension("ui-select")
+    -- require("telescope").load_extension("projects")
+    -- require("telescope").load_extension("noice")
+  end,
+}
