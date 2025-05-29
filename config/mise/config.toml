@@ -9,8 +9,7 @@ yarn = '4'
 java = '21'
 maven = '3'
 gradle = '8'
-aws-cli = 'latest'
-rust = 'latest'
+rust = '1'
 dotnet = '8'
 
 [[env]]
@@ -30,7 +29,7 @@ usage = 'arg "class-name" default="Main"'
 
 [tasks.java-build]
 description = 'builds a simple java project'
-run = 'javac -d dist --source-path ./src src/*.java'
+run = 'javac -d dist --source-path ./src ./**/*.java'
 
 [tasks.jar-build]
 run = 'jar cfm "$(basename "$PWD").jar" "$(find . -type f -iname "manifest.mf" | head -n 1)" -C dist .'
@@ -48,3 +47,4 @@ alias = 'pv'
 
 [settings]
 idiomatic_version_file_enable_tools = ["node"]
+experimental = true

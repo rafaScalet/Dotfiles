@@ -1,3 +1,4 @@
 --theme-dark="Catppuccin Mocha"
 --theme-light="Catppuccin Latte"
---decorations never
+--decorations=never
+--pager=never

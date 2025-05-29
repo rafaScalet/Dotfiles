@@ -4,12 +4,12 @@ function @plugin
     set -g plugins $plugins (string lower $argv[1])
 end
 
-# @plugin gazorby/fifc
+@plugin gazorby/fifc
 @plugin budimanjojo/tmux.fish
 @plugin catppuccin/fish
 @plugin dracula/fish
 @plugin franciscolourenco/done
-@plugin gazorby/fish-git-emojis
+# @plugin gazorby/fish-git-emojis
 @plugin halostatue/fish-utils
 @plugin halostatue/fish-utils-core
 @plugin halostatue/fish-utils-net

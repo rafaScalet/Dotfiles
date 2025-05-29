@@ -1,5 +1,5 @@
 function fish_reload
-    fishin
+    # fishin
     clear
     exec fish
 end

@@ -11,15 +11,8 @@ return {
     require("mason").setup({})
 
     require("mason-lspconfig").setup({
-      ensure_installed = {
-        "ts_ls",
-        "lua_ls",
-        "jdtls",
-        "taplo",
-        "jsonls",
-        "yamlls",
-      },
-      automatic_enable = false
+      ensure_installed = { "ts_ls", "lua_ls", "jdtls", "taplo", "jsonls", "yamlls", "html", "cssls" },
+      automatic_enable = false,
     })
 
     -- Lua
@@ -40,8 +33,20 @@ return {
     lspconfig.angularls.setup({})
     lspconfig.tailwindcss.setup({})
 
+    lspconfig.cssls.setup({})
+    lspconfig.html.setup({})
+
     -- Java (needs JDK 21)
-    lspconfig.jdtls.setup({})
+    lspconfig.jdtls.setup({
+      root_dir = vim.fn.getcwd(),
+      settings = {
+        java = {
+          project = {
+            sourcePaths = { "src", "src/main/java", "src/test/java" },
+          },
+        },
+      },
+    })
 
     -- Shell
     lspconfig.fish_lsp.setup({})
@@ -94,11 +99,11 @@ return {
     })
   end,
   keys = {
-    { "K",          vim.lsp.buf.hover,        desc = "Show info about the hovered keyword" },
-    { "gd",         vim.lsp.buf.definition,   desc = "Jump to definition" },
-    { "<leader>ca", vim.lsp.buf.code_action,  desc = "Display code actions" },
-    { "[d",         vim.diagnostic.goto_prev, {} },
-    { "]d",         vim.diagnostic.goto_next, {} },
+    { "K", vim.lsp.buf.hover, desc = "Show info about the hovered keyword" },
+    { "gd", vim.lsp.buf.definition, desc = "Jump to definition" },
+    { "<leader>ca", vim.lsp.buf.code_action, desc = "Display code actions" },
+    { "[d", vim.diagnostic.goto_prev, {} },
+    { "]d", vim.diagnostic.goto_next, {} },
   },
   dependencies = {
     "b0o/schemastore.nvim",

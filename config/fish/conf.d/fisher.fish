@@ -1,6 +1,6 @@
 status is-interactive || exit
 
-set -Ux fisher_path $HOME/.local/share/fish/plugins
+set -gx fisher_path $HOME/.local/share/fish/plugins
 
 set -g fisher_function_path $fisher_path/functions
 set -g fisher_complete_path $fisher_path/completions
