@@ -35,7 +35,6 @@ return {
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "luasnip" },
-        { name = "emmet_vim" },
         { name = "fish" },
       }, {
         { name = "buffer" },
@@ -48,8 +47,6 @@ return {
     "L3MON4D3/LuaSnip",
     "saadparwaiz1/cmp_luasnip",
     "rafamadriz/friendly-snippets",
-    "mattn/emmet-vim",
-    "dcampos/cmp-emmet-vim",
     "mtoohey31/cmp-fish",
   },
 }

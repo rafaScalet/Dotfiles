@@ -27,29 +27,31 @@ truncation_length = 1
 style = "italic bold cyan"
 
 [directory.substitutions]
-"Annotations" = " "
-"Notes" = " "
-"Documents" = "󰈙 "
-"Documentos" = "󰈙 "
-"Modelos" = "󰛼 "
-"Models" = "󰛼 "
-"Downloads" = " "
-"Music" = "󰝚 "
-"Músicas" = "󰝚 "
-"Pictures" = " "
-"Imagens" = " "
-"Developer" = "󰲋 "
-"Dev" = "󰲋 "
-"Projects" = "󰲋 "
-"Games" = "󰮂 "
-"Público" = "󰖟 "
-"Public" = "󰖟 "
-"Vídeos" = " "
-"Desktop" = " "
-"Área de trabalho" = " "
-"Dotfiles" = " "
-"Config" = " "
-"Configurations" = " "
+"Annotations" = ""
+"Notes" = ""
+"Documents" = "󰈙"
+"Documentos" = "󰈙"
+"Modelos" = "󰛼"
+"Templates" = "󰛼"
+"Models" = "󰛼"
+"Downloads" = ""
+"Music" = "󰝚"
+"Músicas" = "󰝚"
+"Pictures" = ""
+"Imagens" = ""
+"Developer" = "󰲋"
+"Dev" = "󰲋"
+"Projects" = "󰲋"
+"Games" = "󰮂"
+"Público" = "󰖟"
+"Public" = "󰖟"
+"Vídeos" = ""
+"Videos" = ""
+"Desktop" = ""
+"Área de trabalho" = ""
+"Dotfiles" = ""
+"Config" = ""
+"Configurations" = ""
 
 [shell]
 disabled = false
@@ -159,8 +161,7 @@ format = '[\($state( $progress_current/$progress_total)\) ]($style)'
 style = "bold italic dimmed purple"
 
 [time]
-disabled = true
-time_format = "%R"
+disabled = false
 style = "black bold"
 format = "[ $time ]($style)"
 
@@ -196,7 +197,7 @@ Redhat = "󱄛"
 RedHatEnterprise = "󱄛"
 
 [battery]
-display = [{ style = "black bold", threshold = 60 }]
+display = [{ style = "black bold", threshold = 80 }]
 format = "[ $symbol$percentage ]($style)"
 
 [sudo]

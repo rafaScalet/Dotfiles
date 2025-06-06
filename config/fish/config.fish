@@ -18,7 +18,7 @@ function fish_reload
     exec fish
 end
 
-# PLugins config
+# Plugins config
 if not functions -q fisher
     curl -sL https://git.io/fisher | source && fisher update
 end
@@ -37,8 +37,6 @@ set -gx fifc_exa_opts --icons
 set -gx fzf_fd_opts --max-depth 5
 set -gx fzf_preview_dir_cmd eza --all --color=always --no-quotes --icons --group-directories-first --oneline --long
 
-set -gx starship_transient_prompt (set_color blue)" "(set_color normal)
-
 # Binds
 bind --mode insert ctrl-shift-l clear-screen
 bind --mode default ctrl-shift-l clear-screen
@@ -53,6 +51,21 @@ end
 
 if not test -e ~/.gitcatppuccin
     curl -fsSL -o ~/.gitcatppuccin https://raw.githubusercontent.com/catppuccin/delta/refs/heads/main/catppuccin.gitconfig
+end
+
+# Starship Config
+if type -q starship
+    function starship_transient_prompt_func
+        echo -n (set_color blue)" "
+    end
+
+    function starship_transient_rprompt_func
+        starship module time
+    end
+
+    starship init fish | source
+
+    enable_transience
 end
 
 # Abbreviations
@@ -71,9 +84,7 @@ abbr ~ "cd ~"
 abbr .. "cd .."
 abbr -- - "cd -"
 abbr s source
-abbr nv nvim
-abbr vi nvim
-abbr vim nvim
+abbr n nvim
 abbr m mise
 abbr c cat
 

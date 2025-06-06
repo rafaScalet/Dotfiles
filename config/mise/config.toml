@@ -29,7 +29,7 @@ usage = 'arg "class-name" default="Main"'
 
 [tasks.java-build]
 description = 'builds a simple java project'
-run = 'javac -d dist --source-path ./src ./**/*.java'
+run = 'javac -d dist $(find src -name "*.java")'
 
 [tasks.jar-build]
 run = 'jar cfm "$(basename "$PWD").jar" "$(find . -type f -iname "manifest.mf" | head -n 1)" -C dist .'

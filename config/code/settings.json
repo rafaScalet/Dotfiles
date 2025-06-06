@@ -26,6 +26,7 @@
     "~/Annotations",
     "~/Projects"
   ],
+  "projectManager.any.baseFolders": ["~/Projects"],
   "projectManager.any.maxDepthRecursion": 2,
   "projectManager.showProjectNameInStatusBar": false,
   // #endregion

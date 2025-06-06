@@ -7,7 +7,7 @@ telemetry=false
 enabled=true
 
 [calculator_qalculate]
-enabled=true
+enabled=false
 
 [chromium]
 enabled=true
@@ -48,7 +48,7 @@ enabled=true
 enabled=true
 
 [python.zeal]
-enabled=true
+enabled=false
 
 [snippets]
 enabled=true

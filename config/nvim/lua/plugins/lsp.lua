@@ -11,7 +11,17 @@ return {
     require("mason").setup({})
 
     require("mason-lspconfig").setup({
-      ensure_installed = { "ts_ls", "lua_ls", "jdtls", "taplo", "jsonls", "yamlls", "html", "cssls" },
+      ensure_installed = {
+        "ts_ls",
+        "lua_ls",
+        "jdtls",
+        "taplo",
+        "jsonls",
+        "yamlls",
+        "html",
+        "cssls",
+        "emmet_language_server",
+      },
       automatic_enable = false,
     })
 
@@ -33,8 +43,10 @@ return {
     lspconfig.angularls.setup({})
     lspconfig.tailwindcss.setup({})
 
+    -- Web
     lspconfig.cssls.setup({})
     lspconfig.html.setup({})
+    lspconfig.emmet_language_server.setup({})
 
     -- Java (needs JDK 21)
     lspconfig.jdtls.setup({
