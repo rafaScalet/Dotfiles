@@ -1,55 +1,40 @@
+local bunda = {}
 return {
-  "williamboman/mason.nvim",
-  build = ":MasonUpdate",
+  "mason-org/mason-lspconfig.nvim",
   lazy = false,
   config = function()
-    local lspconfig = require("lspconfig")
-    local schemastore = require("schemastore")
-
-    require("telescope").setup({})
-
-    require("mason").setup({})
-
-    require("mason-lspconfig").setup({
+    require("mason-tool-installer").setup({
       ensure_installed = {
-        "ts_ls",
-        "lua_ls",
-        "jdtls",
-        "taplo",
-        "jsonls",
-        "yamlls",
-        "html",
+        "biome",
+        "black",
         "cssls",
         "emmet_language_server",
+        "google-java-format",
+        "html",
+        "isort",
+        "jdtls",
+        "jsonls",
+        "lua_ls",
+        "stylua",
+        "tailwindcss",
+        "taplo",
+        "ts_ls",
+        "yamlls",
       },
-      automatic_enable = false,
     })
 
-    -- Lua
-    lspconfig.lua_ls.setup({
-      settings = {
-        Lua = {
-          runtime = { version = "LuaJIT" },
-          workspace = { library = vim.api.nvim_get_runtime_file("", true) },
-          telemetry = { enable = false },
+    require("mason-lspconfig").setup({
+      automatic_enable = {
+        exclude = {
+          "lua_ls",
+          "jdtls",
+          "jsonls",
+          "yamlls",
         },
       },
     })
 
-    -- Javascript and Typescript
-    lspconfig.ts_ls.setup({})
-    lspconfig.biome.setup({})
-    lspconfig.eslint.setup({})
-    lspconfig.angularls.setup({})
-    lspconfig.tailwindcss.setup({})
-
-    -- Web
-    lspconfig.cssls.setup({})
-    lspconfig.html.setup({})
-    lspconfig.emmet_language_server.setup({})
-
-    -- Java (needs JDK 21)
-    lspconfig.jdtls.setup({
+    vim.lsp.config("jdtls", {
       root_dir = vim.fn.getcwd(),
       settings = {
         java = {
@@ -60,29 +45,10 @@ return {
       },
     })
 
-    -- Shell
-    lspconfig.fish_lsp.setup({})
-    lspconfig.nushell.setup({})
-
-    -- JSON
-    lspconfig.jsonls.setup({
-      on_attach = function(client, _)
-        client.server_capabilities.documentFormattingProvider = false
-        client.server_capabilities.documentRangeFormattingProvider = false
-      end,
-      settings = {
-        json = {
-          schemas = schemastore.json.schemas(),
-          validate = { enable = true },
-        },
-      },
-    })
-
-    -- YAML
-    lspconfig.yamlls.setup({
+    vim.lsp.config("yamlls", {
       settings = {
         yaml = {
-          schemas = schemastore.yaml.schemas(),
+          schemas = require("schemastore").yaml.schemas(),
           validate = true,
           format = { enable = false },
           hover = true,
@@ -91,24 +57,58 @@ return {
       },
     })
 
-    -- TOML
-    lspconfig.taplo.setup({})
-
-    vim.diagnostic.config({
-      virtual_text = {
-        prefix = "",
-        format = function(diagnostic)
-          local icons = {
-            [vim.diagnostic.severity.ERROR] = " ",
-            [vim.diagnostic.severity.WARN] = " ",
-            [vim.diagnostic.severity.HINT] = " ",
-            [vim.diagnostic.severity.INFO] = " ",
-          }
-          return icons[diagnostic.severity] .. diagnostic.message
-        end,
+    vim.lsp.config("jsonls", {
+      on_attach = function(client, _)
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
+      end,
+      settings = {
+        json = {
+          schemas = require("schemastore").json.schemas(),
+          validate = { enable = true },
+        },
       },
-      signs = false,
     })
+
+    vim.lsp.config("lua_ls", {
+      on_init = function(client)
+        if client.workspace_folders then
+          local path = client.workspace_folders[1].name
+          if
+            path ~= vim.fn.stdpath("config")
+            and (vim.uv.fs_stat(path .. "/.luarc.json") or vim.uv.fs_stat(path .. "/.luarc.jsonc"))
+          then
+            return
+          end
+        end
+        client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
+          runtime = {
+            version = "LuaJIT",
+            path = {
+              "lua/?.lua",
+              "lua/?/init.lua",
+            },
+          },
+          workspace = {
+            checkThirdParty = false,
+            library = {
+              vim.env.VIMRUNTIME,
+            },
+          },
+        })
+      end,
+      settings = {
+        Lua = {},
+      },
+    })
+
+    vim.lsp.enable("lua_ls")
+    vim.lsp.enable("jdtls")
+    vim.lsp.enable("yamlls")
+    vim.lsp.enable("jsonls")
+    vim.lsp.enable("cspell_ls")
+    vim.lsp.enable("fish_lsp")
+    vim.lsp.enable("nushell")
   end,
   keys = {
     { "K", vim.lsp.buf.hover, desc = "Show info about the hovered keyword" },
@@ -118,10 +118,10 @@ return {
     { "]d", vim.diagnostic.goto_next, {} },
   },
   dependencies = {
+    { "mason-org/mason.nvim", opts = {}, build = ":MasonUpdate" },
+    { "nvim-telescope/telescope.nvim", opts = {} },
     "b0o/schemastore.nvim",
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
     "neovim/nvim-lspconfig",
-    "williamboman/mason-lspconfig.nvim",
-    "williamboman/mason.nvim",
-    "nvim-telescope/telescope.nvim",
   },
 }

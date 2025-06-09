@@ -1,57 +1,49 @@
-format = "$all"
-right_format = " $sudo$memory_usage$battery$time$shell$os "
 add_newline = false
+format = """$username[@](bold)$hostname $directory$sudo$character"""
+right_format = """
+$cmd_duration
+$battery
+$git_branch
+$git_status
+$package
+$nodejs
+$bun
+$deno
+$java
+$php
+$python
+$dotnet
+$rust
+$golang
+$kotlin
+$haskell
+$c
+$lua
+"""
 
 [username]
-style_user = "bold red"
-style_root = "bg:red fg:black"
-format = "[$user]($style) in "
-disabled = false
+format = "[$user]($style)"
 show_always = true
 
+[hostname]
+ssh_only = false
+format = "[$hostname$ssh_symbol]($style)"
+ssh_symbol = "󰖟"
+style = "red bold"
+
 [character]
-format = "$symbol  "
-error_symbol = '[](red)'
-success_symbol = '[](green)'
-vimcmd_symbol = '[](green)'
-vimcmd_replace_one_symbol = '[](purple)'
-vimcmd_replace_symbol = '[](purple)'
-vimcmd_visual_symbol = '[](yellow)'
+error_symbol = "[](red bold)"
+success_symbol = "[](green bold)"
+vimcmd_symbol = "[](green bold)"
+vimcmd_replace_one_symbol = "[](purple bold)"
+vimcmd_replace_symbol = "[](purple bold)"
+vimcmd_visual_symbol = "[](yellow bold)"
 
 [directory]
-format = "[$read_only]($read_only_style)[$path]($style) "
-read_only = " "
-home_symbol = " "
+format = "[$path]($style)"
 read_only_style = "cyan"
 truncation_length = 1
-style = "italic bold cyan"
-
-[directory.substitutions]
-"Annotations" = ""
-"Notes" = ""
-"Documents" = "󰈙"
-"Documentos" = "󰈙"
-"Modelos" = "󰛼"
-"Templates" = "󰛼"
-"Models" = "󰛼"
-"Downloads" = ""
-"Music" = "󰝚"
-"Músicas" = "󰝚"
-"Pictures" = ""
-"Imagens" = ""
-"Developer" = "󰲋"
-"Dev" = "󰲋"
-"Projects" = "󰲋"
-"Games" = "󰮂"
-"Público" = "󰖟"
-"Public" = "󰖟"
-"Vídeos" = ""
-"Videos" = ""
-"Desktop" = ""
-"Área de trabalho" = ""
-"Dotfiles" = ""
-"Config" = ""
-"Configurations" = ""
+truncate_to_repo = false
 
 [shell]
 disabled = false
@@ -65,100 +57,96 @@ cmd_indicator = ""
 powershell_indicator = ""
 
 [package]
-format = 'is[ $symbol $version ]($style)'
+format = "[ $symbol $version ]($style)"
 version_format = "${raw}"
-style = "bold yellow"
+style = "bold dimmed yellow"
 symbol = "󰏗"
 
 [nodejs]
-format = 'via[ $symbol $version ]($style)'
+format = "[ $symbol $version ]($style)"
 version_format = "${raw}"
-style = "bold green"
+style = "bold dimmed green"
 symbol = ""
 
 [bun]
-format = 'via[ $symbol $version ]($style)'
+format = "[ $symbol $version ]($style)"
 version_format = "${raw}"
-style = 'bold red'
-symbol = ''
+style = "bold dimmed red"
+symbol = ""
 
 [deno]
-format = 'via[ $symbol $version ]($style)'
+format = "[ $symbol $version ]($style)"
 version_format = "${raw}"
-style = "bold cyan"
+style = "bold dimmed cyan"
 symbol = ""
 
 [java]
-format = 'via[ $symbol $version ]($style)'
+format = "[ $symbol $version ]($style)"
 version_format = "${raw}"
-style = "bold red"
+style = "bold dimmed red"
 symbol = ""
 
 [php]
-format = 'via[ $symbol $version ]($style)'
+format = "[ $symbol $version ]($style)"
 version_format = "${raw}"
-style = "bold blue"
+style = "bold dimmed blue"
 symbol = ""
 
 [python]
-format = 'via[ $symbol $version ]($style)'
+format = "[ $symbol $version ]($style)"
 version_format = "${raw}"
-style = 'bold blue'
+style = "bold dimmed blue"
 symbol = ""
 
 [dotnet]
-format = 'via[ $symbol $version ]($style)'
+format = "[ $symbol $version ]($style)"
 version_format = "${raw}"
-style = "bold purple"
+style = "bold dimmed purple"
 symbol = ""
 
 [rust]
-format = 'via[ $symbol $version ]($style)'
+format = "[ $symbol $version ]($style)"
 version_format = "${raw}"
-style = "bold yellow"
+style = "bold dimmed yellow"
 symbol = ""
 
 [golang]
-format = 'via[ $symbol $version ]($style)'
+format = "[ $symbol $version ]($style)"
 version_format = "${raw}"
-style = "bold cyan"
+style = "bold dimmed cyan"
 symbol = ""
 
 [kotlin]
-format = 'via[ $symbol $version ]($style)'
+format = "[ $symbol $version ]($style)"
 version_format = "${raw}"
-style = "bold blue"
+style = "bold dimmed blue"
 symbol = ""
 
 [haskell]
-format = 'via[ $symbol $version ]($style)'
+format = "[ $symbol $version ]($style)"
 version_format = "${raw}"
-style = "bold purple"
+style = "bold dimmed purple"
 symbol = ""
 
 [c]
-format = 'via[ $symbol $version ]($style)'
+format = "[ $symbol $version ]($style)"
 version_format = "${raw}"
-style = "bold purple"
+style = "bold dimme purple"
 symbol = ""
 
 [lua]
-format = 'via[ $symbol $version ]($style)'
+format = "[ $symbol $version ]($style)"
 version_format = "${raw}"
-style = "bold blue"
+style = "bold dimmed blue"
 symbol = "󰢱"
 
 [git_branch]
+format = "[ $symbol $branch ]($style)"
+style = "bold dimmed purple"
 symbol = ""
-style = "bold purple"
-format = "on[ $symbol $branch ]($style)"
 
 [git_status]
-style = "bold italic purple"
-
-[git_state]
-format = '[\($state( $progress_current/$progress_total)\) ]($style)'
-style = "bold italic dimmed purple"
+style = "bold dimmed italic purple"
 
 [time]
 disabled = false
@@ -168,33 +156,7 @@ format = "[ $time ]($style)"
 [cmd_duration]
 disabled = false
 style = "black bold"
-format = "[took $duration]($style)"
-
-[os]
-disabled = false
-style = "black bold"
-format = "[ $symbol ]($style)"
-
-[os.symbols]
-Windows = "󰍲"
-Ubuntu = "󰕈"
-SUSE = ""
-Raspbian = "󰐿"
-Mint = "󰣭"
-Macos = ""
-Manjaro = ""
-Linux = "󰌽"
-Gentoo = "󰣨"
-Fedora = "󰣛"
-Alpine = ""
-Amazon = ""
-Android = ""
-Arch = "󰣇"
-Artix = "󰣇"
-CentOS = ""
-Debian = "󰣚"
-Redhat = "󱄛"
-RedHatEnterprise = "󱄛"
+format = "[ took $duration ]($style)"
 
 [battery]
 display = [{ style = "black bold", threshold = 80 }]
@@ -203,12 +165,5 @@ format = "[ $symbol$percentage ]($style)"
 [sudo]
 disabled = false
 style = "bold black"
-format = "[ $symbol ]($style)"
-symbol = "sudo"
-
-[memory_usage]
-disabled = false
-format = "[ ${ram} | ${swap} ]($style)"
-threshold = 75
-style = "bold black"
-symbol = "󰍛"
+format = "[$symbol]($style)"
+symbol = " sudo "

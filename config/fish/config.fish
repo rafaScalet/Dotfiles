@@ -1,11 +1,15 @@
 status is-interactive || exit
 
+mise activate fish | source
+
 # Shell Config
-set -q XDG_CONFIG_HOME; or set -gx XDG_CONFIG_HOME $HOME/.config
+set -gx XDG_CONFIG_HOME $HOME/.config
 
-set -q CDPATH; or set -gx CDPATH ~/Projects ~/Projects/* ~
+set -gx CDPATH ~/Projects ~/Projects/* ~
 
-set -q EDITOR; or set -gx EDITOR nvim
+set -gx LS_COLORS (vivid generate catppuccin-mocha)
+
+set -gx EDITOR nvim
 
 fish_config theme choose "Catppuccin Mocha"
 
@@ -23,19 +27,19 @@ if not functions -q fisher
     curl -sL https://git.io/fisher | source && fisher update
 end
 
-set -gx SHELL_MOMMYS_LITTLE child/girl/boy/dev
+set -g SHELL_MOMMYS_LITTLE child/girl/boy/dev
 
-set -gx fish_tmux_config $HOME/.config/tmux/tmux.conf
-set -gx fish_tmux_default_session_name default
-set -gx fish_tmux_autostart true
+set -g fish_tmux_config $HOME/.config/tmux/tmux.conf
+set -g fish_tmux_default_session_name default
+set -g fish_tmux_autostart true
 
-set -gx COMMENT_FREQ 10
+set -g COMMENT_FREQ 10
 
-set -gx fifc_bat_opts --theme="Catppuccin Mocha"
-set -gx fifc_exa_opts --icons
+set -g fifc_bat_opts --theme="Catppuccin Mocha"
+set -g fifc_exa_opts --icons
 
-set -gx fzf_fd_opts --max-depth 5
-set -gx fzf_preview_dir_cmd eza --all --color=always --no-quotes --icons --group-directories-first --oneline --long
+set -g fzf_fd_opts --max-depth 5
+set -g fzf_preview_dir_cmd eza --all --color=always --no-quotes --icons --group-directories-first --oneline --long
 
 # Binds
 bind --mode insert ctrl-shift-l clear-screen
@@ -51,21 +55,6 @@ end
 
 if not test -e ~/.gitcatppuccin
     curl -fsSL -o ~/.gitcatppuccin https://raw.githubusercontent.com/catppuccin/delta/refs/heads/main/catppuccin.gitconfig
-end
-
-# Starship Config
-if type -q starship
-    function starship_transient_prompt_func
-        echo -n (set_color blue)" "
-    end
-
-    function starship_transient_rprompt_func
-        starship module time
-    end
-
-    starship init fish | source
-
-    enable_transience
 end
 
 # Abbreviations
@@ -94,9 +83,9 @@ if command -q codium
 end
 
 if command -q eza
-    alias ls="eza --git --icons --long --group-directories-first --no-quotes --no-user --no-permissions --no-time"
-    alias la="eza --git --icons --long --group-directories-first --no-quotes --all"
-    alias ll="eza --git --icons --long --group-directories-first --no-quotes"
+    alias ls="eza --git --icons --oneline --group-directories-first --no-quotes"
+    alias ll="eza --git --icons --oneline --group-directories-first --no-quotes --long"
+    alias la="eza --git --icons --oneline --group-directories-first --no-quotes --long --all"
 end
 
 if command -q bat
