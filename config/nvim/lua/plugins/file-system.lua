@@ -10,16 +10,7 @@ return {
         show_hidden = true,
       },
     })
-
-    vim.keymap.set("n", "-", ":Oil --float<CR>", { silent = true, desc = "Open up Oil.nvim" })
-
-    vim.api.nvim_create_autocmd("FileType", {
-      pattern = "oil",
-      callback = function()
-        vim.keymap.set({ "n", "i" }, "<Esc>", "<ESC>:wq<CR>", { buffer = true, silent = true })
-        vim.keymap.set("i", "<CR>", "<ESC>", { buffer = true, silent = true })
-      end,
-    })
   end,
+  keys = { { "-", ":Oil --float<CR>", desc = "Open up Oil.nvim in float mode" } },
   lazy = false,
 }

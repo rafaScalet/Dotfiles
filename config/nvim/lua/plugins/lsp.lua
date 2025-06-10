@@ -1,4 +1,3 @@
-local bunda = {}
 return {
   "mason-org/mason-lspconfig.nvim",
   lazy = false,
@@ -26,9 +25,9 @@ return {
     require("mason-lspconfig").setup({
       automatic_enable = {
         exclude = {
-          "lua_ls",
           "jdtls",
           "jsonls",
+          "lua_ls",
           "yamlls",
         },
       },
@@ -106,16 +105,17 @@ return {
     vim.lsp.enable("jdtls")
     vim.lsp.enable("yamlls")
     vim.lsp.enable("jsonls")
-    vim.lsp.enable("cspell_ls")
-    vim.lsp.enable("fish_lsp")
-    vim.lsp.enable("nushell")
+
+    vim.lsp.enable("cspell_ls") --- npm install -g @vlabo/cspell-lsp
+    vim.lsp.enable("fish_lsp") --- npm i -g fish-lsp
+    vim.lsp.enable("nushell") --- embed on nushell
   end,
   keys = {
     { "K", vim.lsp.buf.hover, desc = "Show info about the hovered keyword" },
     { "gd", vim.lsp.buf.definition, desc = "Jump to definition" },
     { "<leader>ca", vim.lsp.buf.code_action, desc = "Display code actions" },
-    { "[d", vim.diagnostic.goto_prev, {} },
-    { "]d", vim.diagnostic.goto_next, {} },
+    { "[d", vim.diagnostic.goto_prev, {}, desc = "Go to previous diagnostic" },
+    { "]d", vim.diagnostic.goto_next, {}, desc = "Go to next diagnostic" },
   },
   dependencies = {
     { "mason-org/mason.nvim", opts = {}, build = ":MasonUpdate" },

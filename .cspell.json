@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  "version": "0.2",
+  "language": "en, en-US, en-Gb, pt, pt-BR, lorem",
+  "ignorePaths": [
+    ".cspell.json",
+    "packages",
+    "config/fish/fish_*",
+    "config/bat/themes"
+  ],
+  "useGitignore": true,
+  "import": ["@cspell/dict-pt-br/cspell-ext.json"]
+}

@@ -13,29 +13,22 @@ return {
     { "<leader>fg", ":Telescope git_files<CR>", desc = "Telescope live grep" },
     { "<leader>fb", ":Telescope buffers<CR>", desc = "Telescope buffers" },
     { "<leader>fh", ":Telescope help_tags<CR>", desc = "Telescope help tags" },
+    { "<leader>fn", ":Telescope noice<CR>", desc = "Telescope Noice logs" },
   },
   config = function()
     require("telescope").setup({
       defaults = {
-        -- Mostrar arquivos ocultos
         hidden = true,
-
-        -- Ignorar diretórios
         file_ignore_patterns = {
           "node_modules/",
-          "dist/",
-          "%.git/",
-          "%.next/",
-          "%.cache/",
-          "build/",
+          "%.class",
+          "%.git",
         },
       },
-
       pickers = {
         find_files = {
-          hidden = true, -- inclui arquivos ocultos nos resultados
+          hidden = true,
         },
-
         live_grep = {
           additional_args = function()
             return { "--hidden" }

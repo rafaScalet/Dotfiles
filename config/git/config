@@ -1,7 +1,7 @@
 [user]
   name = Rafael Scalet
   email = 114953004+rafaScalet@users.noreply.github.com
-  signingkey = ~/.ssh/id_ed25519.pub
+  signingKey = ~/.ssh/id_ed25519.pub
 [init]
   defaultBranch = main
 [include]
@@ -9,12 +9,12 @@
   path = ~/.gitcatppuccin
 [core]
   pager = delta
-	excludesfile = ~/.gitignore
+	excludesFile = ~/.gitignore
   editor = nvim
 [interactive]
   diffFilter = delta --color-only
 [merge]
-  conflictstyle = zdiff3
+  conflictStyle = zdiff3
   tool = nvimdiff2
 [gpg]
   format = ssh

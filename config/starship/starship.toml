@@ -131,7 +131,7 @@ symbol = ""
 [c]
 format = "[ $symbol $version ]($style)"
 version_format = "${raw}"
-style = "bold dimme purple"
+style = "bold dimmed purple"
 symbol = ""
 
 [lua]

@@ -1,134 +1,133 @@
-// Place your key bindings in this file to override the defaults
 [
-	{
-		"key": "ctrl+r",
-		"command": "workbench.action.reloadWindow"
-	},
-	{
-		"key": "ctrl+meta+r",
-		"command": "projectManager.refreshProjects"
-	},
-	{
-		"key": "ctrl+;",
-		"command": "editor.action.commentLine",
-		"when": "editorTextFocus && !editorReadonly"
-	},
-	{
-		"key": "shift+alt+down",
-		"command": "editor.action.copyLinesDownAction",
-		"when": "editorTextFocus && !editorReadonly"
-	},
-	{
-		"key": "shift+alt+up",
-		"command": "editor.action.copyLinesUpAction",
-		"when": "editorTextFocus && !editorReadonly"
-	},
-	{
-		"key": "ctrl+alt+n",
-		"command": "explorer.newFile"
-	},
-	{
-		"key": "ctrl+meta+n",
-		"command": "explorer.newFolder"
-	},
-	{
-		"key": "ctrl+q",
-		"command": "workbench.action.quickOpenView"
-	},
-	{
-		"key": "alt+right",
-		"command": "workbench.action.focusNextGroup"
-	},
-	{
-		"key": "alt+left",
-		"command": "workbench.action.focusPreviousGroup"
-	},
-	{
-		"key": "ctrl+shift+j",
-		"command": "workbench.action.createTerminalEditor"
-	},
-	{
-		"key": "ctrl+right",
-		"command": "cursorWordPartRight",
-		"when": "editorTextFocus"
-	},
-	{
-		"key": "ctrl+left",
-		"command": "cursorWordPartLeft",
-		"when": "editorTextFocus"
-	},
-	{
-		"key": "ctrl+shift+right",
-		"command": "cursorWordPartRightSelect",
-		"when": "editorTextFocus"
-	},
-	{
-		"key": "ctrl+shift+left",
-		"command": "cursorWordPartLeftSelect",
-		"when": "editorTextFocus"
-	},
-	{
-		"key": "ctrl+backspace",
-		"command": "deleteWordPartLeft",
-		"when": "editorTextFocus"
-	},
-	{
-		"key": "ctrl+delete",
-		"command": "deleteWordPartRight",
-		"when": "editorTextFocus"
-	},
-	{
-		"key": "ctrl+u ctrl+c",
-		"command": "texty.convertToCamelCase",
-		"when": "editorTextFocus"
-	},
-	{
-		"key": "ctrl+u ctrl+shift+c",
-		"command": "texty.convertToConstantCase",
-		"when": "editorTextFocus"
-	},
-	{
-		"key": "ctrl+u ctrl+k",
-		"command": "texty.convertToKebabCase",
-		"when": "editorTextFocus"
-	},
-	{
-		"key": "ctrl+u ctrl+u",
-		"command": "texty.convertToUpperCase",
-		"when": "editorTextFocus"
-	},
-	{
-		"key": "ctrl+u ctrl+shift+u",
-		"command": "texty.convertToLowerCase",
-		"when": "editorTextFocus"
-	},
-	{
-		"key": "ctrl+u ctrl+p",
-		"command": "texty.convertToPascalCase",
-		"when": "editorTextFocus"
-	},
-	{
-		"key": "ctrl+u ctrl+shift+p",
-		"command": "texty.convertToPathCase",
-		"when": "editorTextFocus"
-	},
-	{
-		"key": "ctrl+u ctrl+s",
-		"command": "texty.convertToSnakeCase",
-		"when": "editorTextFocus"
-	},
-	{
-		"key": "ctrl+u ctrl+shift+s",
-		"command": "texty.convertToSentenceCase",
-		"when": "editorTextFocus"
-	},
-	{
-		"key": "ctrl+u ctrl+d",
-		"command": "texty.convertToDotCase",
-		"when": "editorTextFocus"
-	},
-	{
-		"key": "ctrl+insert",
-		"command": "codesnap.start"
-	},
+  {
+    "key": "ctrl+r",
+    "command": "workbench.action.reloadWindow"
+  },
+  {
+    "key": "ctrl+meta+r",
+    "command": "projectManager.refreshProjects"
+  },
+  {
+    "key": "ctrl+;",
+    "command": "editor.action.commentLine",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+alt+down",
+    "command": "editor.action.copyLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+alt+up",
+    "command": "editor.action.copyLinesUpAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+alt+n",
+    "command": "explorer.newFile"
+  },
+  {
+    "key": "ctrl+meta+n",
+    "command": "explorer.newFolder"
+  },
+  {
+    "key": "ctrl+q",
+    "command": "workbench.action.quickOpenView"
+  },
+  {
+    "key": "alt+right",
+    "command": "workbench.action.focusNextGroup"
+  },
+  {
+    "key": "alt+left",
+    "command": "workbench.action.focusPreviousGroup"
+  },
+  {
+    "key": "ctrl+shift+j",
+    "command": "workbench.action.createTerminalEditor"
+  },
+  {
+    "key": "ctrl+right",
+    "command": "cursorWordPartRight",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+left",
+    "command": "cursorWordPartLeft",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+right",
+    "command": "cursorWordPartRightSelect",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+left",
+    "command": "cursorWordPartLeftSelect",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+backspace",
+    "command": "deleteWordPartLeft",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+delete",
+    "command": "deleteWordPartRight",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+u ctrl+c",
+    "command": "texty.convertToCamelCase",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+u ctrl+shift+c",
+    "command": "texty.convertToConstantCase",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+u ctrl+k",
+    "command": "texty.convertToKebabCase",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+u ctrl+u",
+    "command": "texty.convertToUpperCase",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+u ctrl+shift+u",
+    "command": "texty.convertToLowerCase",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+u ctrl+p",
+    "command": "texty.convertToPascalCase",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+u ctrl+shift+p",
+    "command": "texty.convertToPathCase",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+u ctrl+s",
+    "command": "texty.convertToSnakeCase",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+u ctrl+shift+s",
+    "command": "texty.convertToSentenceCase",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+u ctrl+d",
+    "command": "texty.convertToDotCase",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+insert",
+    "command": "codesnap.start"
+  }
 ]

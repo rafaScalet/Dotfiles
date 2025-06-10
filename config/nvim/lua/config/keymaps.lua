@@ -12,8 +12,6 @@ vim.keymap.set("i", "jk", "<Esc>", { silent = true, desc = "Exit insert mode wit
 vim.keymap.set("n", "<Tab>", ":bnext<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<S-Tab>", ":bprev<CR>", { noremap = true, silent = true })
 
-vim.keymap.set("n", "<leader>fo", ":Format<CR>", { silent = true, desc = "Format current file" })
-
 vim.keymap.set({ "n", "v", "o" }, "B", "^", { silent = true, desc = "Move to beginning of line" })
 vim.keymap.set({ "n", "v", "o" }, "E", "$", { silent = true, desc = "Move to end of line" })
 

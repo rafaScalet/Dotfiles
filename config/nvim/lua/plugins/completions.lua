@@ -35,7 +35,6 @@ return {
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "luasnip" },
-        { name = "fish" },
       }, {
         { name = "buffer" },
         { name = "path" },
@@ -47,6 +46,5 @@ return {
     "L3MON4D3/LuaSnip",
     "saadparwaiz1/cmp_luasnip",
     "rafamadriz/friendly-snippets",
-    "mtoohey31/cmp-fish",
   },
 }

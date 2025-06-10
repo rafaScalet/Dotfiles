@@ -17,11 +17,6 @@ function fish_greeting
     fastfetch --config ~/.config/fastfetch/greeting.jsonc
 end
 
-function fish_reload
-    clear
-    exec fish
-end
-
 # Plugins config
 if not functions -q fisher
     curl -sL https://git.io/fisher | source && fisher update
@@ -45,9 +40,6 @@ set -g fzf_preview_dir_cmd eza --all --color=always --no-quotes --icons --group-
 bind --mode insert ctrl-shift-l clear-screen
 bind --mode default ctrl-shift-l clear-screen
 
-bind --mode insert ctrl-alt-r fish_reload
-bind --mode default ctrl-alt-r fish_reload
-
 # Git Config
 if not test -e ~/.gitalias
     curl -fsSL -o ~/.gitalias https://raw.githubusercontent.com/GitAlias/gitalias/refs/heads/main/gitalias.txt
@@ -69,29 +61,23 @@ abbr A "cd ~/Annotations"
 abbr D "cd ~/Dotfiles"
 abbr P "cd ~/Projects"
 abbr . "cd ."
-abbr ~ "cd ~"
-abbr .. "cd .."
 abbr -- - "cd -"
-abbr s source
-abbr n nvim
-abbr m mise
-abbr c cat
 
 # Aliases
-if command -q codium
+if type -q codium
     alias code="codium"
 end
 
-if command -q eza
+if type -q eza
     alias ls="eza --git --icons --oneline --group-directories-first --no-quotes"
     alias ll="eza --git --icons --oneline --group-directories-first --no-quotes --long"
     alias la="eza --git --icons --oneline --group-directories-first --no-quotes --long --all"
 end
 
-if command -q bat
+if type -q bat
     alias cat="bat"
 end
 
-if command -q python3
+if type -q python3
     alias python="python3"
 end

@@ -1,9 +1,7 @@
 {
   "IIFE Hello World": {
     "prefix": "iife",
-    "body": [
-      "(() => {console.log('Hello, World!')})();"
-    ],
+    "body": ["(() => {console.log('Hello, World!')})();"],
     "description": "Creates an IIFE that prints 'Hello, World!'"
   },
   "Polyglot Python and JavaScript": {

@@ -19,7 +19,6 @@ My personal dotfiles for all tools that I use. using GNU Stow to manage then. In
 - [neovim](https://neovim.io/) - a terminal based text editor.
 - oh-my-posh
 - [starship](https://starship.rs/) - a cross platform shell prompt, using my own config.
-- [starship-catppuccin](https://starship.rs/) - a starship config based on [gruvbox-rainbow](https://starship.rs/presets/gruvbox-rainbow) using [catppuccin](https://github.com/catppuccin/starship) color scheme.
 - stow
 - [tmux](https://github.com/tmux/tmux) - my keybindings and other stuffs, using [catppuccin](https://github.com/catppuccin/tmux) color scheme.
 

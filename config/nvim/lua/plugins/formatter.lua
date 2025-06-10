@@ -1,11 +1,13 @@
 return {
   "stevearc/conform.nvim",
+  lazy = false,
   config = function()
     require("conform").setup({
       formatters_by_ft = {
         lua = { "cspell", "stylua" },
         javascript = { "prettierd", "prettier", "biome", stop_after_first = true },
         typescript = { "prettierd", "prettier", "biome", stop_after_first = true },
+        json = { "prettierd", "prettier", "biome", stop_after_first = true },
         python = { "isort", "black" },
         java = { "google-java-format" },
         fish = { "fish_indent" },
@@ -15,7 +17,6 @@ return {
         lsp_format = "fallback",
       },
     })
-
     vim.api.nvim_create_user_command("Format", function(args)
       local range = nil
       if args.count ~= -1 then
@@ -28,4 +29,5 @@ return {
       require("conform").format({ async = true, lsp_format = "fallback", range = range })
     end, { range = true })
   end,
+  keys = { { "<leader>F", ":Format<CR>", desc = "Format current file" } },
 }

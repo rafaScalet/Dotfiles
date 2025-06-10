@@ -11,7 +11,6 @@
       "type": "uptime",
       "key": " ",
       "keyColor": "red"
-
     },
     {
       "type": "os",
@@ -20,7 +19,7 @@
       "format": "{pretty-name}"
     },
     {
-      "type": "wmtheme",
+      "type": "wmTheme",
       "key": " ",
       "keyColor": "green"
     },

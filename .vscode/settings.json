@@ -1,17 +1,16 @@
 {
   "files.associations": {
-    "dot-gitalias": "properties",
-    "dot-gitconfig": "properties",
     ".stowrc": "properties",
-    "dot-aliases": "shellscript",
-    "dot-bashrc": "shellscript",
-    "dot-env": "dotenv",
-    "dot-ignore": "ignore"
+    "fish_plugins": "shellscript",
+    "config": "properties",
+    "*.tmTheme": "xml",
+    "*.theme": "php"
   },
   "explorer.compactFolders": true,
   "explorer.excludeGitIgnore": true,
   "explorer.fileNesting.patterns": {
-    "readme.md": ".gitignore, .stowrc, LICENSE, bootstrap.sh",
+    ".stylua.toml": "biome.json, .cspell.json",
+    "readme.md": ".gitignore, .stowrc, LICENSE, bootstrap.sh, .stylua.toml",
     "dot-env": "readme.md",
     "dot-ignore": "readme.md"
   },
@@ -21,24 +20,5 @@
     "**/.hg": false,
     "**/.DS_Store": false,
     "**/Thumbs.db": false
-  },
-  "toggler.toggles": [
-    [
-      "absolute",
-      "relative"
-    ],
-    [
-      "high",
-      "low"
-    ],
-    [
-      "starship",
-      "ohmyposh",
-      "native"
-    ],
-    [
-      "git-bash",
-      "zen-p10K"
-    ]
-  ]
+  }
 }

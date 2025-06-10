@@ -3,13 +3,9 @@ return {
   build = ":TSUpdate",
   dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
   config = function()
-    local configs = require("nvim-treesitter.configs")
-
-    configs.setup({
+    require("nvim-treesitter.configs").setup({
       auto_install = true,
       highlight = { enable = true },
-      indent = { enable = true },
-
       incremental_selection = {
         enable = true,
         keymaps = {
@@ -19,7 +15,6 @@ return {
           node_decremental = "<leader><Backspace>",
         },
       },
-
       textobjects = {
         select = {
           enable = true,
@@ -34,9 +29,9 @@ return {
           },
           include_surrounding_whitespace = true,
           selection_modes = {
-            ["@parameter.outer"] = "v", -- charwise
-            ["@function.outer"] = "V", -- linewise
-            ["@class.outer"] = "<c-v>", -- blockwise
+            ["@parameter.outer"] = "v",
+            ["@function.outer"] = "V",
+            ["@class.outer"] = "<c-v>",
           },
         },
         swap = {

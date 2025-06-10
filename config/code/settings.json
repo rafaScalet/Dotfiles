@@ -34,13 +34,16 @@
   "extensions.ignoreRecommendations": true,
   "extensions.closeExtensionDetailsOnViewChange": true,
   "extensions.autoUpdate": false,
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
   // #endregion
   // #region Workbench
   "workbench.panel.showLabels": false,
   "workbench.colorCustomizations": {},
   "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
   "workbench.preferredLightColorTheme": "Catppuccin Latte",
-  "workbench.iconTheme": "let-icons",
+  "workbench.iconTheme": "flow-dark",
   "workbench.productIconTheme": "fluent-icons",
   "workbench.layoutControl.enabled": false,
   "workbench.startupEditor": "none",
@@ -109,11 +112,14 @@
   "explorer.fileNesting.expand": false,
   "explorer.expandSingleFolderWorkspaces": false,
   "explorer.fileNesting.patterns": {
-    "*.ts": "", "*.js": "", "*.jsx": "", "*.tsx": "",
+    "*.ts": "",
+    "*.js": "",
+    "*.jsx": "",
+    "*.tsx": "",
     "tsconfig.json": "tsconfig.*.json, *.tsbuildinfo",
     ".env": ".env.*",
     "mise.toml": "mise.*.toml",
-    "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb",
+    "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb"
   },
   // #endregion
   // #region Files
@@ -136,24 +142,6 @@
   "typescript.preferences.quoteStyle": "single",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "javascript.updateImportsOnFileMove.enabled": "always",
-  // #endregion
-  // #region Code Spell Checker
-  "cSpell.userWords": [
-    "catppuccin",
-    "dotnet",
-    "easycoast",
-    "fastfetch",
-    "fatec",
-    "javac",
-    "kotlin",
-    "lazydocker",
-    "lazygit",
-    "Mysql",
-    "println",
-    "rafascalet",
-    "scalet"
-  ],
-  "cSpell.language": "en, en-US, en-Gb, pt, pt-BR, lorem",
   // #endregion
   // #region Catppuccin
   "catppuccin.accentColor": "lavender",
