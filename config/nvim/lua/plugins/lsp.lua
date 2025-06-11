@@ -109,6 +109,20 @@ return {
     vim.lsp.enable("cspell_ls") --- npm install -g @vlabo/cspell-lsp
     vim.lsp.enable("fish_lsp") --- npm i -g fish-lsp
     vim.lsp.enable("nushell") --- embed on nushell
+
+    vim.diagnostic.config({
+      virtual_text = {
+        prefix = " ",
+      },
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = " ",
+          [vim.diagnostic.severity.WARN] = " ",
+          [vim.diagnostic.severity.INFO] = " ",
+          [vim.diagnostic.severity.HINT] = " ",
+        },
+      },
+    })
   end,
   keys = {
     { "K", vim.lsp.buf.hover, desc = "Show info about the hovered keyword" },
