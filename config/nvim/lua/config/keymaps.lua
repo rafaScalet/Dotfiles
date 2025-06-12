@@ -15,16 +15,9 @@ vim.keymap.set("n", "<S-Tab>", ":bprev<CR>", { noremap = true, silent = true })
 vim.keymap.set({ "n", "v", "o" }, "B", "^", { silent = true, desc = "Move to beginning of line" })
 vim.keymap.set({ "n", "v", "o" }, "E", "$", { silent = true, desc = "Move to end of line" })
 
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { silent = true })
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true })
-
 vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { silent = true })
 vim.keymap.set("n", "<leader>Y", '"+Y', { silent = true })
 
 vim.keymap.set("x", "<leader>p", '"_dP')
 
 vim.keymap.set("n", ";", ":", { noremap = true, desc = "command line" })
-
-vim.keymap.set("n", "<leader>l", function()
-  vim.opt.list = not vim.opt.list:get()
-end, { desc = "Toggle listchars" })

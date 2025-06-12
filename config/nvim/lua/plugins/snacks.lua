@@ -24,9 +24,92 @@ return {
         { section = "startup" },
       },
     },
-    input = { enabled = true },
+    git = { enabled = true },
+    gitbrowse = { enabled = true },
+    rename = { enabled = true },
+    -- input = { enabled = true },
     notifier = { enabled = true },
     statuscolumn = { enabled = true },
+    picker = { enabled = true },
     word = { enabled = true },
+  },
+  keys = {
+    {
+      "<leader>fc",
+      function()
+        Snacks.picker.commands()
+      end,
+      desc = "Snacks Command Line",
+    },
+    {
+      "<leader>ff",
+      function()
+        Snacks.picker.files()
+      end,
+      desc = "Snacks Find Files",
+    },
+    {
+      "<leader>fl",
+      function()
+        Snacks.picker.grep()
+      end,
+      desc = "Snacks Live Grep",
+    },
+    {
+      "<leader>fg",
+      function()
+        Snacks.picker.git_files()
+      end,
+      desc = "Snacks Git Files",
+    },
+    {
+      "<leader>fb",
+      function()
+        Snacks.picker.buffers()
+      end,
+      desc = "Snacks Buffers",
+    },
+    {
+      "<leader>fh",
+      function()
+        Snacks.picker.help()
+      end,
+      desc = "Snacks Help Tags",
+    },
+    {
+      "<leader>fn",
+      function()
+        Snacks.picker.notifications()
+      end,
+      desc = "Snacks Notifications",
+    },
+    {
+      "<leader>gw",
+      function()
+        Snacks.gitbrowse()
+      end,
+      desc = "Open Remote Repo",
+    },
+    {
+      "<leader>gW",
+      function()
+        Snacks.gitbrowse.open()
+      end,
+      desc = "Open Current File in Remote",
+    },
+    {
+      "<leader>gu",
+      function()
+        Snacks.gitbrowse.get_url()
+      end,
+      desc = "Remote Repo URL",
+    },
+    {
+      "<leader>gl",
+      function()
+        Snacks.git.blame_line()
+      end,
+      desc = "Show Git Log For Current Line",
+    },
   },
 }

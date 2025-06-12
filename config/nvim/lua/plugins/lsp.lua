@@ -133,7 +133,6 @@ return {
   },
   dependencies = {
     { "mason-org/mason.nvim", opts = {}, build = ":MasonUpdate" },
-    { "nvim-telescope/telescope.nvim", opts = {} },
     "b0o/schemastore.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     "neovim/nvim-lspconfig",
