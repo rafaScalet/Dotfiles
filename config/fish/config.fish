@@ -30,8 +30,10 @@ set -g fish_tmux_autostart true
 
 set -g COMMENT_FREQ 10
 
-set -g fifc_bat_opts --theme="Catppuccin Mocha"
-set -g fifc_exa_opts --icons
+set -g fifc_editor $EDITOR
+set -g fifc_fd_opts --hidden
+set -U fifc_bat_opts --theme="Catppuccin Mocha"
+set -U fifc_exa_opts --icons --oneline --group-directories-first --all --long --git
 
 set -g fzf_fd_opts --max-depth 5
 set -g fzf_preview_dir_cmd eza --all --color=always --no-quotes --icons --group-directories-first --oneline --long
@@ -47,6 +49,19 @@ end
 
 if not test -e ~/.gitcatppuccin
     curl -fsSL -o ~/.gitcatppuccin https://raw.githubusercontent.com/catppuccin/delta/refs/heads/main/catppuccin.gitconfig
+end
+
+# Carapace Config
+set -l carapace_tools \
+    carapace \
+    java \
+    javac \
+    jar \
+    pnpm \
+    bun
+
+for tool in $carapace_tools
+    carapace $tool fish | source
 end
 
 # Abbreviations
