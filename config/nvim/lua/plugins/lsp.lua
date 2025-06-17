@@ -8,6 +8,7 @@ return {
         "black",
         "cssls",
         "emmet_language_server",
+        "fish_lsp",
         "google-java-format",
         "html",
         "isort",
@@ -107,7 +108,6 @@ return {
     vim.lsp.enable("jsonls")
 
     vim.lsp.enable("cspell_ls") --- npm install -g @vlabo/cspell-lsp
-    vim.lsp.enable("fish_lsp") --- npm i -g fish-lsp
     vim.lsp.enable("nushell") --- embed on nushell
 
     vim.diagnostic.config({

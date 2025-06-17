@@ -4,12 +4,15 @@ bat-extras
 chafa
 eza
 fd
+ffmpeg
 fzf
 git-delta
 jq
 lazydocker
 lazygit
 ripgrep
+ripgrep-all
 the_silver_searcher
 tldr
+vivid
 yazi
