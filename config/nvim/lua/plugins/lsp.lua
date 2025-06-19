@@ -1,46 +1,34 @@
 return {
-  "mason-org/mason-lspconfig.nvim",
-  lazy = false,
+  "mason-org/mason.nvim",
   config = function()
+    require("mason").setup({})
+
     require("mason-tool-installer").setup({
       ensure_installed = {
-        "biome",
-        "black",
-        "cssls",
-        "emmet_language_server",
-        "fish_lsp",
-        "google-java-format",
-        "html",
-        "isort",
-        "jdtls",
-        "jsonls",
-        "lua_ls",
-        "stylua",
-        "tailwindcss",
-        "taplo",
-        "ts_ls",
-        "yamlls",
+        "biome", -- LSP/Formatter/Linter for JS, TS, JSX, TSX, JSON, JSONC, CSS
+        "cspell", -- Linter for Any (is a spell checker)
+        "cssls", -- LSP for CSS
+        "emmet_language_server", -- LSP for JSX, TSX, HTML, CSS (is a integration with Emmet)
+        "fish_lsp", -- LSP for Fish
+        "google-java-format", -- Formatter for Java
+        "html", -- LSP for HTML
+        "java_language_server", -- LSP/DAP for Java
+        "jsonls", -- LSP for JSON
+        "lua_ls", -- LSP for Lua
+        "stylua", -- Formatter for Lua
+        "tailwindcss", -- LSP for JSX, TSX, HTML, CSS (is a integration with tailwind)
+        "taplo", -- LSP/Formatter for TOML
+        "ts_ls", -- LSP for JS, TS, JSX, TSX
+        "yamlls", -- LSP/Formatter for YAML
       },
     })
 
     require("mason-lspconfig").setup({
       automatic_enable = {
         exclude = {
-          "jdtls",
           "jsonls",
           "lua_ls",
           "yamlls",
-        },
-      },
-    })
-
-    vim.lsp.config("jdtls", {
-      root_dir = vim.fn.getcwd(),
-      settings = {
-        java = {
-          project = {
-            sourcePaths = { "src", "src/main/java", "src/test/java" },
-          },
         },
       },
     })
@@ -50,7 +38,7 @@ return {
         yaml = {
           schemas = require("schemastore").yaml.schemas(),
           validate = true,
-          format = { enable = false },
+          format = { enable = true },
           hover = true,
           completion = true,
         },
@@ -103,12 +91,11 @@ return {
     })
 
     vim.lsp.enable("lua_ls")
-    vim.lsp.enable("jdtls")
     vim.lsp.enable("yamlls")
     vim.lsp.enable("jsonls")
 
-    vim.lsp.enable("cspell_ls") --- npm install -g @vlabo/cspell-lsp
-    vim.lsp.enable("nushell") --- embed on nushell
+    vim.lsp.enable("cspell_ls") -- npm install -g @vlabo/cspell-lsp
+    vim.lsp.enable("nushell") -- embed on nushell
 
     vim.diagnostic.config({
       virtual_text = {
@@ -128,11 +115,19 @@ return {
     { "K", vim.lsp.buf.hover, desc = "Show info about the hovered keyword" },
     { "gd", vim.lsp.buf.definition, desc = "Jump to definition" },
     { "<leader>ca", vim.lsp.buf.code_action, desc = "Display code actions" },
-    { "[d", vim.diagnostic.goto_prev, {}, desc = "Go to previous diagnostic" },
-    { "]d", vim.diagnostic.goto_next, {}, desc = "Go to next diagnostic" },
+    {
+      "[d",
+      vim.diagnostic.goto_prev,
+      desc = "Go to previous diagnostic",
+    },
+    {
+      "]d",
+      vim.diagnostic.goto_next,
+      desc = "Go to next diagnostic",
+    },
   },
   dependencies = {
-    { "mason-org/mason.nvim", opts = {}, build = ":MasonUpdate" },
+    "mason-org/mason-lspconfig.nvim",
     "b0o/schemastore.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     "neovim/nvim-lspconfig",

@@ -32,12 +32,13 @@ set -g COMMENT_FREQ 10
 
 set -g fifc_editor $EDITOR
 set -g fifc_fd_opts --hidden --exclude "**/.git"
-set -U fifc_bat_opts --theme="Catppuccin Mocha" --number
+set -U fifc_bat_opts --theme=Mocha --number
 set -U fifc_exa_opts --icons --oneline --group-directories-first --all
-set -U fifc_keybinding \cx
 
-set -g fzf_fd_opts --max-depth 5
-set -g fzf_preview_dir_cmd eza --all --color=always --no-quotes --icons --group-directories-first --oneline --long
+set -g fzf_fd_opts --max-depth 5 --hidden --exclude "**/.git"
+set -U fzf_preview_dir_cmd eza --icons --oneline --group-directories-first --all --color=always --tree
+set -U fzf_diff_highlighter delta --paging=never --width=20
+set -U fzf_preview_file_cmd bat --color=always --number --theme=Mocha
 
 # Binds
 bind --mode insert ctrl-shift-l clear-screen
@@ -51,10 +52,6 @@ end
 if not test -e ~/.gitcatppuccin
     curl -fsSL -o ~/.gitcatppuccin https://raw.githubusercontent.com/catppuccin/delta/refs/heads/main/catppuccin.gitconfig
 end
-
-# Carapace Config
-set -Ux CARAPACE_BRIDGES 'zsh,fish,bash,inshellisense'
-carapace _carapace | source
 
 # Abbreviations
 abbr dot "stow --stow"

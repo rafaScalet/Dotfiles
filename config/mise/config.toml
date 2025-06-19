@@ -1,24 +1,19 @@
 [tools]
 node = '22'
-deno = '2'
-bun = '1'
 pnpm = '10'
-yarn = '4'
 java = '21'
 maven = '3'
-gradle = '8'
 rust = '1'
 dotnet = '8'
 
-[[env]]
-_.file = '~/.env'
-_.path = '{{ cwd }}/node_modules/.bin'
-_.source = '{{ cwd }}/bin/activate'
-
-[[env]]
+[env]
 _.file = '{{ cwd }}/.env'
-_.path = '~/.local/share/nvim/mason/bin'
 _.source = '{{ cwd }}/.venv/bin/activate'
+_.path = [
+  '~/.local/share/nvim/mason/bin',
+  '{{ cwd }}/node_modules/.bin',
+  '~/.local/bin',
+]
 
 [tasks.java-execute]
 description = 'Run a simple java project'
@@ -42,7 +37,7 @@ depends = ['jar-build']
 [tasks.py-venv]
 description = 'create a python virtual environment'
 run = 'python -m venv {{arg(name="dir-name")}}'
-usage = 'arg "dir-name" default=".venv" { choices ".venv" ".env" ".VENV" ".ENV" } '
+usage = 'arg "dir-name" default=".venv"'
 alias = 'pv'
 
 [settings]

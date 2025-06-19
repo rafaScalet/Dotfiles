@@ -15,7 +15,7 @@ return {
     require("mini.statusline").setup({})
     require("mini.tabline").setup({})
     require("mini.move").setup({})
-    require("mini.basics").setup({})
+    -- require("mini.basics").setup({})
     require("mini.cursorword").setup({})
 
     require("mini.files").setup({

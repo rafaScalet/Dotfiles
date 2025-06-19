@@ -1,4 +1,5 @@
 7zip
+carapace
 bat
 bat-extras
 chafa

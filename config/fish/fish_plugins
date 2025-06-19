@@ -1,4 +1,3 @@
-gazorby/fifc
 budimanjojo/tmux.fish
 catppuccin/fish
 halostatue/fish-utils
@@ -9,9 +8,9 @@ jorgebucaran/fisher
 laughedelic/fish_logo
 meaningful-ooo/sponge
 nickeb96/puffer-fish
-patrickf1/fzf.fish
 jhillyerd/plugin-git
 small-tech/gills
 rafascalet/starship.fish
 rafascalet/reload.fish
 rafascalet/editor.fish
+patrickf1/fzf.fish
