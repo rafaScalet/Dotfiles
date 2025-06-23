@@ -49,6 +49,13 @@ return {
       desc = "Snacks Find Files",
     },
     {
+      "<leader>fr",
+      function()
+        Snacks.picker.recent()
+      end,
+      desc = "Snacks Find Recent Files",
+    },
+    {
       "<leader>fl",
       function()
         Snacks.picker.grep()

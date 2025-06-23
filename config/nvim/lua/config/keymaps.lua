@@ -20,4 +20,4 @@ vim.keymap.set("n", "<leader>Y", '"+Y', { silent = true })
 
 vim.keymap.set("x", "<leader>p", '"_dP')
 
-vim.keymap.set("n", ";", ":", { noremap = true, desc = "command line" })
+vim.keymap.set({ "n", "v" }, ";", ":", { noremap = true, desc = "command line" })

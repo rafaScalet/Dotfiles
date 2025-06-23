@@ -1,5 +1,5 @@
 add_newline = false
-format = """$username[@](bold)$hostname $directory$sudo$character"""
+format = """$sudo$directory $character"""
 right_format = """
 $cmd_duration
 $battery
@@ -21,29 +21,20 @@ $c
 $lua
 """
 
-[username]
-format = "[$user]($style)"
-show_always = true
-
-[hostname]
-ssh_only = false
-format = "[$hostname$ssh_symbol]($style)"
-ssh_symbol = "󰖟"
-style = "red bold"
-
 [character]
-error_symbol = "[](red bold)"
-success_symbol = "[](green bold)"
-vimcmd_symbol = "[](green bold)"
-vimcmd_replace_one_symbol = "[](purple bold)"
-vimcmd_replace_symbol = "[](purple bold)"
-vimcmd_visual_symbol = "[](yellow bold)"
+error_symbol = "[➜](red bold)"
+success_symbol = "[➜](green bold)"
+vimcmd_symbol = "[➜](blue bold)"
+vimcmd_replace_one_symbol = "[➜](purple bold)"
+vimcmd_replace_symbol = "[➜](purple bold)"
+vimcmd_visual_symbol = "[➜](yellow bold)"
 
 [directory]
-format = "[$path]($style)"
+format = "[$path$read_only]($style)"
 read_only_style = "cyan"
 truncation_length = 1
 truncate_to_repo = false
+read_only = "  "
 
 [shell]
 disabled = false
@@ -164,6 +155,6 @@ format = "[ $symbol$percentage ]($style)"
 
 [sudo]
 disabled = false
-style = "bold black"
+style = "bold red dimmed"
 format = "[$symbol]($style)"
-symbol = " sudo "
+symbol = " "

@@ -8,14 +8,13 @@ return {
     require("mini.comment").setup({})
     require("mini.operators").setup({})
     require("mini.pairs").setup({})
+    require("mini.tabline").setup({})
+    require("mini.statusline").setup({})
     require("mini.surround").setup({})
     require("mini.bracketed").setup({})
     require("mini.icons").setup({})
     require("mini.git").setup({})
-    require("mini.statusline").setup({})
-    require("mini.tabline").setup({})
     require("mini.move").setup({})
-    -- require("mini.basics").setup({})
     require("mini.cursorword").setup({})
 
     require("mini.files").setup({

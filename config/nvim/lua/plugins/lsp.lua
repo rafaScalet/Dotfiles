@@ -1,35 +1,18 @@
 return {
-  "mason-org/mason.nvim",
+  "mason-org/mason-lspconfig.nvim",
+  lazy = false,
   config = function()
-    require("mason").setup({})
-
-    require("mason-tool-installer").setup({
-      ensure_installed = {
-        "biome", -- LSP/Formatter/Linter for JS, TS, JSX, TSX, JSON, JSONC, CSS
-        "cspell", -- Linter for Any (is a spell checker)
-        "cssls", -- LSP for CSS
-        "emmet_language_server", -- LSP for JSX, TSX, HTML, CSS (is a integration with Emmet)
-        "fish_lsp", -- LSP for Fish
-        "google-java-format", -- Formatter for Java
-        "html", -- LSP for HTML
-        "java_language_server", -- LSP/DAP for Java
-        "jsonls", -- LSP for JSON
-        "lua_ls", -- LSP for Lua
-        "stylua", -- Formatter for Lua
-        "tailwindcss", -- LSP for JSX, TSX, HTML, CSS (is a integration with tailwind)
-        "taplo", -- LSP/Formatter for TOML
-        "ts_ls", -- LSP for JS, TS, JSX, TSX
-        "yamlls", -- LSP/Formatter for YAML
-      },
-    })
+    local manual_enable = {
+      "jsonls",
+      "lua_ls",
+      "yamlls",
+      "cspell_ls",
+      "nushell",
+    }
 
     require("mason-lspconfig").setup({
       automatic_enable = {
-        exclude = {
-          "jsonls",
-          "lua_ls",
-          "yamlls",
-        },
+        exclude = manual_enable,
       },
     })
 
@@ -90,26 +73,9 @@ return {
       },
     })
 
-    vim.lsp.enable("lua_ls")
-    vim.lsp.enable("yamlls")
-    vim.lsp.enable("jsonls")
-
-    vim.lsp.enable("cspell_ls") -- npm install -g @vlabo/cspell-lsp
-    vim.lsp.enable("nushell") -- embed on nushell
-
-    vim.diagnostic.config({
-      virtual_text = {
-        prefix = " ",
-      },
-      signs = {
-        text = {
-          [vim.diagnostic.severity.ERROR] = " ",
-          [vim.diagnostic.severity.WARN] = " ",
-          [vim.diagnostic.severity.INFO] = " ",
-          [vim.diagnostic.severity.HINT] = " ",
-        },
-      },
-    })
+    for _, lsp in ipairs(manual_enable) do
+      vim.lsp.enable(lsp)
+    end
   end,
   keys = {
     { "K", vim.lsp.buf.hover, desc = "Show info about the hovered keyword" },
@@ -127,9 +93,8 @@ return {
     },
   },
   dependencies = {
-    "mason-org/mason-lspconfig.nvim",
+    { "mason-org/mason.nvim", opts = {} },
     "b0o/schemastore.nvim",
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
     "neovim/nvim-lspconfig",
   },
 }

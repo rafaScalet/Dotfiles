@@ -2,6 +2,8 @@ status is-interactive || exit
 
 mise activate fish | source
 
+set -Ux GOPATH $HOME/.local/go
+
 # Shell Config
 set -gx XDG_CONFIG_HOME $HOME/.config
 
