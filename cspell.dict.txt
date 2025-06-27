@@ -12,6 +12,7 @@ bufferline
 catppuccin
 cdpath
 cgreen
+checkstyle
 chrisgrieser
 christoomey
 cmdheight
@@ -24,6 +25,7 @@ dadbod
 dbui
 deno
 devicons
+dockerls
 dotnet
 echasnovski
 eviline

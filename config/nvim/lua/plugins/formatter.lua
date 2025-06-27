@@ -1,13 +1,15 @@
 return {
   "stevearc/conform.nvim",
-  lazy = false,
   config = function()
     require("conform").setup({
       formatters_by_ft = {
         lua = { "stylua" },
         javascript = { "prettierd", "prettier", "biome", stop_after_first = true },
         typescript = { "prettierd", "prettier", "biome", stop_after_first = true },
+        typescriptreact = { "prettierd", "prettier", "biome", stop_after_first = true },
+        javascriptreact = { "prettierd", "prettier", "biome", stop_after_first = true },
         json = { "prettierd", "prettier", "biome", stop_after_first = true },
+        jsonc = { "prettierd", "prettier", "biome", stop_after_first = true },
         python = { "isort", "black" },
         java = { "google-java-format" },
         fish = { "fish_indent" },
@@ -29,5 +31,4 @@ return {
       require("conform").format({ async = true, lsp_format = "fallback", range = range })
     end, { range = true })
   end,
-  keys = { { "<leader>F", ":Format<CR>", desc = "Format current file" } },
 }

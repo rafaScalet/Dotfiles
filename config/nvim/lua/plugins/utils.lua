@@ -2,7 +2,6 @@ return {
   { "brenoprata10/nvim-highlight-colors", opts = {} },
   { "folke/which-key.nvim", event = "VeryLazy", opts = {} },
   { "folke/todo-comments.nvim", dependencies = { "nvim-lua/plenary.nvim" }, opts = {} },
-  { "nvzone/minty", cmd = { "Shades", "Huefy" }, dependencies = { "nvzone/volt" } },
   {
     "folke/noice.nvim",
     event = "VeryLazy",
