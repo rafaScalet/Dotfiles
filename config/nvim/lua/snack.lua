@@ -27,7 +27,7 @@ return {
     git = { enabled = true },
     gitbrowse = { enabled = true },
     rename = { enabled = true },
-    -- input = { enabled = true },
+    input = { enabled = true },
     notifier = { enabled = true },
     statuscolumn = { enabled = true },
     picker = { enabled = true },

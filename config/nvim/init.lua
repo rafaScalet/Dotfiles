@@ -21,15 +21,29 @@ vim.keymap.set("n", "<leader>L", ":Lazy<CR>", { silent = true, desc = "Open Lazy
 -- loading lazy.nvim so that mappings are correct.
 -- This is also a good place to setup other settings (vim.opt)
 
-require("config.keymaps")
-require("config.options")
-require("config.autocmd")
+require("keymaps")
+require("options")
+require("autocmd")
 
 -- Setup lazy.nvim
 require("lazy").setup({
+  -- import your plugins
   spec = {
-    -- import your plugins
-    { import = "plugins" },
+    { import = "breadcrumbs" },
+    { import = "colorscheme" },
+    { import = "completions" },
+    { import = "formatter" },
+    { import = "git" },
+    { import = "linter" },
+    { import = "lsp" },
+    { import = "mason-tools" },
+    { import = "mini" },
+    { import = "snack" },
+    { import = "sql" },
+    { import = "tmux" },
+    { import = "treesitter" },
+    { import = "troubles" },
+    { import = "utils" },
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
