@@ -6,7 +6,6 @@ return {
       "jsonls",
       "lua_ls",
       "yamlls",
-      "cspell_ls",
       "nushell",
     }
 

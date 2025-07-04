@@ -2,6 +2,17 @@ return {
   { "brenoprata10/nvim-highlight-colors", opts = {} },
   { "folke/which-key.nvim", event = "VeryLazy", opts = {} },
   { "folke/todo-comments.nvim", dependencies = { "nvim-lua/plenary.nvim" }, opts = {} },
+  { "gregorias/coerce.nvim", opts = {}, dependencies = { "gregorias/coop.nvim" } },
+  { "chaoren/vim-wordmotion" },
+  {
+    "nat-418/boole.nvim",
+    opts = {
+      mappings = {
+        increment = "<C-a>",
+        decrement = "<C-x>",
+      },
+    },
+  },
   {
     "folke/noice.nvim",
     event = "VeryLazy",
@@ -9,14 +20,6 @@ return {
     dependencies = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
-    },
-  },
-  {
-    "chrisgrieser/nvim-spider",
-    keys = {
-      { "w", "<cmd>lua require('spider').motion('w')<CR>", mode = { "n", "o", "x" } },
-      { "e", "<cmd>lua require('spider').motion('e')<CR>", mode = { "n", "o", "x" } },
-      { "b", "<cmd>lua require('spider').motion('b')<CR>", mode = { "n", "o", "x" } },
     },
   },
   {

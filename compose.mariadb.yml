@@ -12,5 +12,6 @@ services:
       - "${MARIA_PORT:-3306}:3306"
     volumes:
       - mariadb_data:/var/lib/mysql
+    network_mode: bridge
 volumes:
   mariadb_data:

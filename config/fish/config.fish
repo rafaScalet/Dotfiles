@@ -1,8 +1,9 @@
 status is-interactive || exit
 
-mise activate fish | source
+# Utils Config
+type -q mise && mise activate fish | source
 
-set -Ux GOPATH $HOME/.local/go
+set -gx GOPATH $HOME/.local/go
 
 # Shell Config
 set -gx XDG_CONFIG_HOME $HOME/.config
@@ -16,7 +17,9 @@ set -gx EDITOR nvim
 fish_config theme choose "Catppuccin Mocha"
 
 function fish_greeting
-    fastfetch --config ~/.config/fastfetch/greeting.jsonc
+    if type -q fastfetch
+        fastfetch --config ~/.config/fastfetch/greeting.jsonc
+    end
 end
 
 # Plugins config
@@ -82,6 +85,8 @@ end
 
 if type -q bat
     alias cat="bat --pager never --number"
+else if type -q bat-cat
+    alias cat='bat-cat --pager never --number'
 end
 
 if type -q python3

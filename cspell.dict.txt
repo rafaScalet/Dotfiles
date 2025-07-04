@@ -6,6 +6,7 @@ autocmd
 autoindent
 bekaboo
 bnext
+boole
 bprev
 breakindent
 brenoprata
@@ -13,6 +14,7 @@ bufferline
 catppuccin
 cdpath
 cgreen
+chaoren
 checkstyle
 chrisgrieser
 christoomey
@@ -52,6 +54,8 @@ glepnir
 globalstatus
 gopath
 gpgsign
+grafana
+gregorias
 heikemen
 hrsh
 huefy
@@ -86,6 +90,7 @@ mysql
 neofetch
 neovim
 neovims
+nodered
 noice
 noremap
 nushell
@@ -146,5 +151,6 @@ vimruntime
 winbar
 winhighlight
 winwidth
+wordmotion
 yamlls
 zdiff

@@ -1,0 +1,12 @@
+services:
+  node-red:
+    image: nodered/node-red
+    container_name: node-red
+    restart: unless-stopped
+    ports:
+      - "${NODERED_PORT:-1880}:1880"
+    volumes:
+      - nodered_data:/data
+    network_mode: bridge
+volumes:
+  nodered_data:
