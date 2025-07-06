@@ -24,6 +24,7 @@ vim.keymap.set("n", "<leader>L", ":Lazy<CR>", { silent = true, desc = "Open Lazy
 require("keymaps")
 require("options")
 require("autocmd")
+require("diagnostics")
 
 -- Setup lazy.nvim
 require("lazy").setup({
@@ -32,6 +33,7 @@ require("lazy").setup({
     { import = "breadcrumbs" },
     { import = "colorscheme" },
     { import = "completions" },
+    { import = "commandline" },
     { import = "formatter" },
     { import = "git" },
     { import = "linter" },

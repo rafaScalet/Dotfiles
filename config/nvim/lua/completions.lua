@@ -19,6 +19,7 @@ return {
     -- See :h blink-cmp-config-keymap for defining your own keymap
     keymap = { preset = "super-tab" },
     appearance = { nerd_font_variant = "mono" },
+    cmdline = { enabled = false },
     completion = {
       menu = {
         border = "rounded",
@@ -26,9 +27,7 @@ return {
       },
       documentation = {
         auto_show = true,
-        window = {
-          border = "rounded",
-        },
+        window = { border = "rounded" },
       },
     },
     sources = { default = { "lsp", "path", "snippets", "buffer" } },

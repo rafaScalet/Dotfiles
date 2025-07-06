@@ -20,18 +20,11 @@ return {
         yaml = {
           schemas = require("schemastore").yaml.schemas(),
           validate = true,
-          format = { enable = true },
-          hover = true,
-          completion = true,
         },
       },
     })
 
     vim.lsp.config("jsonls", {
-      on_attach = function(client, _)
-        client.server_capabilities.documentFormattingProvider = false
-        client.server_capabilities.documentRangeFormattingProvider = false
-      end,
       settings = {
         json = {
           schemas = require("schemastore").json.schemas(),
@@ -63,6 +56,9 @@ return {
             checkThirdParty = false,
             library = {
               vim.env.VIMRUNTIME,
+              -- adiciona os plugins do instalados ao workspace
+              -- vim.fn.stdpath("data") .. "/lazy",
+              -- vim.fn.stdpath("config") .. "/lua",
             },
           },
         })
@@ -82,12 +78,12 @@ return {
     { "<leader>ca", vim.lsp.buf.code_action, desc = "Display code actions" },
     {
       "[d",
-      vim.diagnostic.goto_prev,
+      vim.diagnostic.get_prev(),
       desc = "Go to previous diagnostic",
     },
     {
       "]d",
-      vim.diagnostic.goto_next,
+      vim.diagnostic.get_next(),
       desc = "Go to next diagnostic",
     },
   },
