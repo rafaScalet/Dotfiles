@@ -30,22 +30,9 @@ require("diagnostics")
 require("lazy").setup({
   -- import your plugins
   spec = {
-    { import = "breadcrumbs" },
-    { import = "colorscheme" },
-    { import = "completions" },
-    { import = "commandline" },
-    { import = "formatter" },
-    { import = "git" },
-    { import = "linter" },
-    { import = "lsp" },
-    { import = "mason-tools" },
-    { import = "mini" },
-    { import = "snack" },
-    { import = "sql" },
-    { import = "tmux" },
-    { import = "treesitter" },
-    { import = "troubles" },
-    { import = "utils" },
+    { import = "plugins" },
+    { import = "plugins.mason" },
+    { import = "plugins.ui" },
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
