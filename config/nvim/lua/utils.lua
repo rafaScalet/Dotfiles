@@ -4,6 +4,7 @@ return {
   { "folke/todo-comments.nvim", dependencies = { "nvim-lua/plenary.nvim" }, opts = {} },
   { "gregorias/coerce.nvim", opts = {}, dependencies = { "gregorias/coop.nvim" } },
   { "chaoren/vim-wordmotion" },
+  { "ThePrimeagen/vim-be-good" },
   {
     "nat-418/boole.nvim",
     opts = {
