@@ -103,6 +103,7 @@ oneline
 plsql
 postgres
 postgresql
+primeagen
 println
 prismals
 qflist

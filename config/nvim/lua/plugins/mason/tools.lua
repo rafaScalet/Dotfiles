@@ -4,6 +4,7 @@ return {
     ensure_installed = {
       "biome", -- LSP/Formatter/Linter for JS, TS, JSX, TSX, JSON, JSONC, CSS
       "cspell", -- Linter for Any (is a spell checker)
+      "cspell-lsp",
       "css-lsp", -- LSP for CSS
       "dockerls", -- LSP for Dockerfile
       "emmet_language_server", -- LSP for JSX, TSX, HTML, CSS (is a integration with Emmet)

@@ -1,3 +1,7 @@
+-- stylua: ignore start
+-- if true then return {} end
+-- stylua: ignore end
+
 return {
   "mistweaverco/kulala.nvim",
   keys = {
@@ -7,8 +11,8 @@ return {
   },
   ft = { "http", "rest" },
   opts = {
-    global_keymaps = false,
+    global_keymaps = true,
     global_keymaps_prefix = "<leader>R",
-    kulala_keymaps_prefix = "",
+    kulala_keymaps_prefix = "<leader>K",
   },
 }
