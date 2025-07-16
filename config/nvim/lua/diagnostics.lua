@@ -1,8 +1,8 @@
 local icons = {
-  [vim.diagnostic.severity.ERROR] = "",
-  [vim.diagnostic.severity.WARN] = "",
-  [vim.diagnostic.severity.INFO] = "",
-  [vim.diagnostic.severity.HINT] = "",
+  [vim.diagnostic.severity.ERROR] = require("icons").plain.error,
+  [vim.diagnostic.severity.WARN] = require("icons").plain.warn,
+  [vim.diagnostic.severity.INFO] = require("icons").plain.info,
+  [vim.diagnostic.severity.HINT] = require("icons").plain.hint,
 }
 
 vim.diagnostic.config({

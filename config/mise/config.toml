@@ -1,6 +1,5 @@
 [tools]
 node = '22'
-pnpm = '10'
 java = '21'
 maven = '3'
 rust = '1'
