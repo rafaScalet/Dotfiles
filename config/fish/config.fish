@@ -8,6 +8,9 @@ set -gx GOPATH $HOME/.local/go
 # Shell Config
 set -gx XDG_CONFIG_HOME $HOME/.config
 
+set -gx MANPAGER "env BATMAN_IS_BEING_MANPAGER=yes bash /usr/bin/batman"
+set -gx MANROFFOPT -c
+
 set -gx CDPATH ~/Projects ~/Projects/* ~
 
 set -gx LS_COLORS (vivid generate catppuccin-mocha)
@@ -84,9 +87,9 @@ if type -q eza
 end
 
 if type -q bat
-    alias cat="bat --pager never --number"
+    alias cat="bat --pager never --style numbers,changes"
 else if type -q bat-cat
-    alias cat='bat-cat --pager never --number'
+    alias cat="bat-cat --pager never --style numbers,changes"
 end
 
 if type -q python3

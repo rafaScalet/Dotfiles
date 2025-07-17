@@ -6,6 +6,10 @@ return {
     local parsers_path = vim.fn.stdpath("data") .. "/treesitter"
     vim.opt.runtimepath:prepend(parsers_path)
     require("nvim-treesitter.configs").setup({
+      modules = {},
+      ensure_installed = {},
+      sync_install = false,
+      ignore_install = {},
       auto_install = true,
       highlight = { enable = true },
       parser_install_dir = parsers_path,

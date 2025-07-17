@@ -15,12 +15,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-vim.keymap.set("n", "<leader>L", ":Lazy<CR>", { silent = true, desc = "Open Lazy UI" })
-
--- Make sure to setup `mapleader` and `maplocalleader` before
--- loading lazy.nvim so that mappings are correct.
--- This is also a good place to setup other settings (vim.opt)
-
+require("icons")
 require("keymaps")
 require("options")
 require("autocmd")
@@ -28,15 +23,25 @@ require("diagnostics")
 
 -- Setup lazy.nvim
 require("lazy").setup({
-  -- import your plugins
   spec = {
     { import = "plugins" },
     { import = "plugins.mason" },
     { import = "plugins.ui" },
   },
-  -- Configure any other settings here. See the documentation for more details.
-  -- colorscheme that will be used when installing plugins.
   install = { colorscheme = { "catppuccin" } },
-  -- automatically check for plugin updates
-  checker = { enabled = true },
+  checker = { enabled = true, notify = false },
+  change_detection = { notify = false },
+  ui = {
+    icons = {
+      loaded = icons.package.enabled,
+      not_loaded = icons.package.disabled,
+      cmd = icons.terminal,
+      plugin = icons.package.i,
+      event = icons.rocket,
+      require = icons.package.dependencies,
+      start = icons.play,
+      source = icons.source,
+      keyboard = icons.keyboard,
+    },
+  },
 })

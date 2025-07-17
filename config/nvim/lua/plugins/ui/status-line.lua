@@ -3,7 +3,7 @@ return {
   config = function()
     local custom_theme = require("lualine.themes.catppuccin")
 
-    local icons = require("icons").spaced
+    local lazy_status = require("lazy.status")
 
     custom_theme.normal.c.bg = ""
     custom_theme.inactive.c.bg = ""
@@ -13,7 +13,7 @@ return {
         theme = custom_theme,
         component_separators = "",
         section_separators = { left = "", right = "" },
-        disabled_filetypes = { "snacks_dashboard" },
+        disabled_filetypes = { "snacks_dashboard", "trouble", "dbee" },
       },
       sections = {
         lualine_a = { { "mode", separator = { left = "", right = "" }, right_padding = 2 } },
@@ -22,40 +22,42 @@ return {
             "buffers",
             use_mode_colors = true,
             hide_filename_extension = true,
-            max_length = vim.o.columns * 1 / 3,
+            max_length = vim.o.columns * 1 / 2,
           },
         },
         lualine_c = {
           "%=",
           {
             "diff",
-            -- icon = "Git:",
             symbols = {
-              added = icons.git_status_added,
-              modified = icons.git_status_modified,
-              removed = icons.git_status_removed,
+              added = icons.git.status.added,
+              modified = icons.git.status.modified,
+              removed = icons.git.status.removed,
             },
           },
           {
             "diagnostics",
-            -- icon = "LSP:",
             symbols = {
-              error = icons.error,
-              warn = icons.warn,
-              info = icons.info,
-              hint = icons.hint,
+              error = icons.lsp.error,
+              warn = icons.lsp.warn,
+              info = icons.lsp.info,
+              hint = icons.lsp.hint,
             },
           },
         },
         lualine_x = {},
         lualine_y = {
           {
+            lazy_status.updates,
+            cond = lazy_status.has_updates,
+          },
+          {
             "filetype",
             colored = false,
           },
           {
             "branch",
-            icon = icons.git_branch,
+            icon = icons.git.branch,
           },
         },
         lualine_z = { { "location", separator = { right = "", left = "" } } },

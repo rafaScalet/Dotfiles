@@ -1,10 +1,7 @@
--- stylua: ignore start
-if true then return {} end
--- stylua: ignore end
-
 return {
   "mfussenegger/nvim-lint",
   event = "VeryLazy",
+  enabled = false,
   config = function()
     require("lint").linters_by_ft = {
       markdown = { "vale" },
@@ -20,7 +17,7 @@ return {
 
     vim.api.nvim_create_user_command("Lint", linter, {})
 
-    vim.api.nvim_create_autocmd({ "InsertLeave", "BufWritePost" }, {
+    vim.api.nvim_create_autocmd({ "InsertLeave", "BufWritePost", "BufEnter" }, {
       callback = linter,
     })
   end,

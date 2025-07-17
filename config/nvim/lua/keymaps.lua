@@ -1,11 +1,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-vim.keymap.set("n", "<c-h>", "<CMD>wincmd h<CR>")
-vim.keymap.set("n", "<c-j>", "<CMD>wincmd j<CR>")
-vim.keymap.set("n", "<c-k>", "<CMD>wincmd k<CR>")
-vim.keymap.set("n", "<c-l>", "<CMD>wincmd l<CR>")
-
 vim.keymap.set("n", "<Left>", ":echo 'Use h'<CR>", { silent = true })
 vim.keymap.set("n", "<Down>", ":echo 'Use j'<CR>", { silent = true })
 vim.keymap.set("n", "<Up>", ":echo 'Use k'<CR>", { silent = true })
