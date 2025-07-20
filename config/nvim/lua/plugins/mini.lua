@@ -8,8 +8,6 @@ return {
     require("mini.comment").setup({})
     require("mini.operators").setup({})
     require("mini.pairs").setup({})
-    -- require("mini.tabline").setup({})
-    -- require("mini.statusline").setup({})
     require("mini.surround").setup({})
     require("mini.bracketed").setup({})
     require("mini.icons").setup({})

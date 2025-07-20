@@ -1,13 +1,8 @@
--- stylua: ignore start
--- if true then return {} end
--- stylua: ignore end
-
 return {
   {
     "kndndrj/nvim-dbee",
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-    },
+    dependencies = { "MunifTanjim/nui.nvim" },
+    cmd = "Dbee",
     build = function()
       require("dbee").install()
     end,

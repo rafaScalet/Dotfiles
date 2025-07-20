@@ -1,7 +1,3 @@
--- stylua: ignore start
--- if true then return {} end
--- stylua: ignore end
-
 return {
   "mistweaverco/kulala.nvim",
   keys = {

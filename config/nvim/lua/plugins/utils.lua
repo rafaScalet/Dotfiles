@@ -1,23 +1,16 @@
 return {
-  { "brenoprata10/nvim-highlight-colors", opts = {} },
+  { "brenoprata10/nvim-highlight-colors", opts = {}, event = { "BufReadPre", "BufNewFile" } },
   { "folke/which-key.nvim", event = "VeryLazy", opts = {} },
-  { "folke/todo-comments.nvim", dependencies = { "nvim-lua/plenary.nvim" }, opts = {} },
-  { "gregorias/coerce.nvim", opts = {}, dependencies = { "gregorias/coop.nvim" } },
   { "chaoren/vim-wordmotion" },
-  { "ThePrimeagen/vim-be-good" },
+  { "ThePrimeagen/vim-be-good", cmd = "VimBeGood" },
   {
-    "nat-418/boole.nvim",
-    opts = {
-      mappings = {
-        increment = "<C-a>",
-        decrement = "<C-x>",
-      },
-    },
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {},
+    event = { "BufReadPre", "BufNewFile" },
   },
   {
     "nvzone/showkeys",
-    cmd = "ShowkeysToggle",
-    lazy = false,
     config = function()
       require("showkeys").setup({
         timeout = 1,
@@ -25,13 +18,5 @@ return {
       })
       require("showkeys").open()
     end,
-  },
-  {
-    "VonHeikemen/searchbox.nvim",
-    dependencies = { "MunifTanjim/nui.nvim" },
-    keys = {
-      { "<C-f>", "<CMD>SearchBoxMatchAll<CR>", desc = "Search" },
-      { "<C-d>", "<CMD>SearchBoxReplace<CR>", desc = "Replace" },
-    },
   },
 }

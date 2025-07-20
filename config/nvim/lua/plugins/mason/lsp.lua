@@ -4,7 +4,6 @@ return {
   config = function()
     local manual_enable = {
       "jsonls",
-      "lua_ls",
       "yamlls",
       "nushell",
     }
@@ -33,41 +32,6 @@ return {
       },
     })
 
-    vim.lsp.config("lua_ls", {
-      on_init = function(client)
-        if client.workspace_folders then
-          local path = client.workspace_folders[1].name
-          if
-            path ~= vim.fn.stdpath("config")
-            and (vim.uv.fs_stat(path .. "/.luarc.json") or vim.uv.fs_stat(path .. "/.luarc.jsonc"))
-          then
-            return
-          end
-        end
-        client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
-          runtime = {
-            version = "LuaJIT",
-            path = {
-              "lua/?.lua",
-              "lua/?/init.lua",
-            },
-          },
-          workspace = {
-            checkThirdParty = false,
-            library = {
-              vim.env.VIMRUNTIME,
-              -- adiciona os plugins do instalados ao workspace
-              -- vim.fn.stdpath("data") .. "/lazy",
-              -- vim.fn.stdpath("config") .. "/lua",
-            },
-          },
-        })
-      end,
-      settings = {
-        Lua = {},
-      },
-    })
-
     for _, lsp in ipairs(manual_enable) do
       vim.lsp.enable(lsp)
     end
@@ -89,7 +53,16 @@ return {
   },
   dependencies = {
     { "mason-org/mason.nvim", opts = {} },
-    "b0o/schemastore.nvim",
+    { "b0o/schemastore.nvim", ft = { "json", "jsonc", "jsonl", "yaml", "yml" } },
+    {
+      "folke/lazydev.nvim",
+      ft = "lua",
+      opts = {
+        library = {
+          { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+        },
+      },
+    },
     "neovim/nvim-lspconfig",
   },
 }

@@ -1,7 +1,8 @@
 return {
   "nvim-lualine/lualine.nvim",
+  event = "VeryLazy",
   config = function()
-    local custom_theme = require("lualine.themes.catppuccin")
+    local custom_theme = require("lualine.themes.auto")
 
     local lazy_status = require("lazy.status")
 
@@ -16,7 +17,7 @@ return {
         disabled_filetypes = { "snacks_dashboard", "trouble", "dbee" },
       },
       sections = {
-        lualine_a = { { "mode", separator = { left = "", right = "" }, right_padding = 2 } },
+        lualine_a = { { "mode", separator = { left = " ", right = "" }, right_padding = 2 } },
         lualine_b = {
           {
             "buffers",
@@ -60,7 +61,7 @@ return {
             icon = icons.git.branch,
           },
         },
-        lualine_z = { { "location", separator = { right = "", left = "" } } },
+        lualine_z = { { "location", separator = { right = " ", left = "" } } },
       },
     })
   end,
