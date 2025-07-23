@@ -1,12 +1,15 @@
-_G.icons = {
+_G.I = {
   database = " ",
   terminal = " ",
   rocket = " ",
   exit = " ",
   flame = " ",
   fs = {
-    file = " ",
-    files = " ",
+    file = {
+      i = " ",
+      add = " ",
+      two = " ",
+    },
     folder = {
       fill = {
         closed = " ",
@@ -28,10 +31,12 @@ _G.icons = {
     },
   },
   lsp = {
-    error = " ",
-    hint = " ",
-    info = " ",
-    warn = " ",
+    diagnostics = {
+      error = " ",
+      hint = " ",
+      info = " ",
+      warn = " ",
+    },
   },
   package = {
     i = " ",
@@ -45,6 +50,8 @@ _G.icons = {
   },
   search = " ",
   server = " ",
-  text = " ",
+  text = " ",
+  key = " ",
+  tag = " ",
   tool = " ",
 }

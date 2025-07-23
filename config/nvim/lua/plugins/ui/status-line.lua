@@ -31,18 +31,18 @@ return {
           {
             "diff",
             symbols = {
-              added = icons.git.status.added,
-              modified = icons.git.status.modified,
-              removed = icons.git.status.removed,
+              added = I.git.status.added,
+              modified = I.git.status.modified,
+              removed = I.git.status.removed,
             },
           },
           {
             "diagnostics",
             symbols = {
-              error = icons.lsp.error,
-              warn = icons.lsp.warn,
-              info = icons.lsp.info,
-              hint = icons.lsp.hint,
+              error = I.lsp.diagnostics.error,
+              warn = I.lsp.diagnostics.warn,
+              info = I.lsp.diagnostics.info,
+              hint = I.lsp.diagnostics.hint,
             },
           },
         },
@@ -58,7 +58,7 @@ return {
           },
           {
             "branch",
-            icon = icons.git.branch,
+            icon = I.git.branch,
           },
         },
         lualine_z = { { "location", separator = { right = " ", left = "" } } },

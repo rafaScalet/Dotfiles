@@ -1,8 +1,8 @@
 local diagnostic_icons = {
-  [vim.diagnostic.severity.ERROR] = icons.lsp.error,
-  [vim.diagnostic.severity.WARN] = icons.lsp.warn,
-  [vim.diagnostic.severity.INFO] = icons.lsp.info,
-  [vim.diagnostic.severity.HINT] = icons.lsp.hint,
+  [vim.diagnostic.severity.ERROR] = I.lsp.diagnostics.error,
+  [vim.diagnostic.severity.WARN] = I.lsp.diagnostics.warn,
+  [vim.diagnostic.severity.INFO] = I.lsp.diagnostics.info,
+  [vim.diagnostic.severity.HINT] = I.lsp.diagnostics.hint,
 }
 
 vim.diagnostic.config({
