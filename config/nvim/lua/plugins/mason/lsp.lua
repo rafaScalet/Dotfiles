@@ -40,16 +40,8 @@ return {
     { "K", vim.lsp.buf.hover, desc = "Show info about the hovered keyword" },
     { "gd", vim.lsp.buf.definition, desc = "Jump to definition" },
     { "<leader>ca", vim.lsp.buf.code_action, desc = "Display code actions" },
-    {
-      "[d",
-      vim.diagnostic.get_prev(),
-      desc = "Go to previous diagnostic",
-    },
-    {
-      "]d",
-      vim.diagnostic.get_next(),
-      desc = "Go to next diagnostic",
-    },
+    { "[d", vim.diagnostic.get_prev(), desc = "Go to previous diagnostic" },
+    { "]d", vim.diagnostic.get_next(), desc = "Go to next diagnostic" },
   },
   dependencies = {
     { "mason-org/mason.nvim", opts = {} },
@@ -57,11 +49,7 @@ return {
     {
       "folke/lazydev.nvim",
       ft = "lua",
-      opts = {
-        library = {
-          { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-        },
-      },
+      opts = { library = { path = "${3rd}/luv/library", words = { "vim%.uv" } } },
     },
     "neovim/nvim-lspconfig",
   },

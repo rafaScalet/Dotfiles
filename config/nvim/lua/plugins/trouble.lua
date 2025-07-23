@@ -1,6 +1,11 @@
 return {
   "folke/trouble.nvim",
-  opts = {},
+  opts = {
+    icons = {
+      folder_open = icons.fs.folder.opened,
+      folder_closed = icons.fs.folder.fill.closed,
+    },
+  },
   cmd = "Trouble",
   keys = {
     {

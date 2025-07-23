@@ -1,5 +1,5 @@
 add_newline = false
-format = """$sudo$directory $character"""
+format = """$sudo$character"""
 right_format = """
 $cmd_duration
 $battery
@@ -157,4 +157,4 @@ format = "[ $symbol$percentage ]($style)"
 disabled = false
 style = "bold red dimmed"
 format = "[$symbol]($style)"
-symbol = " "
+symbol = "   "

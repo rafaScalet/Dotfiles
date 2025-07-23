@@ -1,2 +1,4 @@
 --theme-dark=Mocha
 --theme-light=Latte
+--style=numbers,changes
+--map-syntax='**/*git/config:Git Config'

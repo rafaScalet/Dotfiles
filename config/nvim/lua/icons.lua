@@ -3,9 +3,19 @@ _G.icons = {
   terminal = " ",
   rocket = " ",
   exit = " ",
-  file = " ",
-  files = " ",
   flame = " ",
+  fs = {
+    file = " ",
+    files = " ",
+    folder = {
+      fill = {
+        closed = " ",
+        opened = " ",
+      },
+      closed = " ",
+      opened = " ",
+    },
+  },
   keyboard = " ",
   play = " ",
   source = " ",

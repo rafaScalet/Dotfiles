@@ -1,3 +1,4 @@
+local i = icons
 return {
   "folke/snacks.nvim",
   priority = 1000,
@@ -7,15 +8,15 @@ return {
     dashboard = {
       preset = {
         keys = {
-          { icon = icons.search, key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
-          { icon = icons.file, key = "n", desc = "New File", action = ":ene | startinsert" },
-          { icon = icons.text, key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
-          { icon = icons.files, key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
-          { icon = icons.package.i, key = "L", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
-          { icon = icons.tool, key = "M", desc = "Mason", action = ":Mason" },
-          { icon = icons.database, key = "D", desc = "DataBase UI", action = ":DBUI" },
-          { icon = icons.flame, key = "G", desc = "Vim Be Good", action = ":VimBeGood" },
-          { icon = icons.exit, key = "q", desc = "Quit", action = ":qa" },
+          { icon = i.search, key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
+          { icon = i.fs.file, key = "n", desc = "New File", action = ":ene | startinsert" },
+          { icon = i.text, key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
+          { icon = i.fs.files, key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
+          { icon = i.package.i, key = "L", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
+          { icon = i.tool, key = "M", desc = "Mason", action = ":Mason" },
+          { icon = i.database, key = "D", desc = "DataBase UI", action = ":DBUI" },
+          { icon = i.flame, key = "G", desc = "Vim Be Good", action = ":VimBeGood" },
+          { icon = i.exit, key = "q", desc = "Quit", action = ":qa" },
         },
       },
       sections = {

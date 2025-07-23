@@ -1,9 +1,10 @@
+# @fish-lsp-disable 2002 2003
 status is-interactive || exit
 
 # Utils Config
 type -q mise && mise activate fish | source
 
-set -gx GOPATH $HOME/.local/go
+set -gx GOPATH $HOME/.local/share/go
 
 # Shell Config
 set -gx XDG_CONFIG_HOME $HOME/.config
@@ -48,30 +49,12 @@ set -U fzf_preview_dir_cmd eza --icons --oneline --group-directories-first --all
 set -U fzf_diff_highlighter delta --paging=never --width=20
 set -U fzf_preview_file_cmd bat --color=always --number --theme=Mocha
 
-# Binds
-bind --mode insert ctrl-shift-l clear-screen
-bind --mode default ctrl-shift-l clear-screen
-
-# Git Config
-if not test -e ~/.gitalias
-    curl -fsSL -o ~/.gitalias https://raw.githubusercontent.com/GitAlias/gitalias/refs/heads/main/gitalias.txt
-end
-
-if not test -e ~/.gitcatppuccin
-    curl -fsSL -o ~/.gitcatppuccin https://raw.githubusercontent.com/catppuccin/delta/refs/heads/main/catppuccin.gitconfig
-end
-
 # Abbreviations
 abbr dot "stow --stow"
 abbr undot "stow --delete"
 abbr redot "stow --restow"
-abbr lzg lazygit
-abbr lzd lazydocker
 abbr q exit
 abbr md "mkdir -p"
-abbr A "cd ~/Annotations"
-abbr D "cd ~/Dotfiles"
-abbr P "cd ~/Projects"
 abbr . "cd ."
 abbr -- - "cd -"
 
@@ -87,9 +70,9 @@ if type -q eza
 end
 
 if type -q bat
-    alias cat="bat --pager never --style numbers,changes"
+    alias cat="bat --pager never"
 else if type -q bat-cat
-    alias cat="bat-cat --pager never --style numbers,changes"
+    alias cat="bat-cat --pager never"
 end
 
 if type -q python3
