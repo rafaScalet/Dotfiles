@@ -7,8 +7,6 @@ type -q mise && mise activate fish | source
 set -gx GOPATH $HOME/.local/share/go
 
 # Shell Config
-set -gx XDG_CONFIG_HOME $HOME/.config
-
 set -gx MANPAGER "env BATMAN_IS_BEING_MANPAGER=yes bash /usr/bin/batman"
 set -gx MANROFFOPT -c
 
@@ -33,8 +31,7 @@ end
 
 set -g SHELL_MOMMYS_LITTLE child/girl/boy/dev
 
-set -g fish_tmux_config $HOME/.config/tmux/tmux.conf
-set -g fish_tmux_default_session_name default
+set -g fish_tmux_default_session_name Default
 set -g fish_tmux_autostart true
 
 set -g COMMENT_FREQ 10
