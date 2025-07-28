@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=https://json.schemastore.org/lazydocker.json
+commandTemplates:
+  down: '{{ .DockerCompose }} down --rmi local'
+  downWithVolumes: '{{ .DockerCompose }} down --volumes --rmi local'
+customCommands:
+  images:
+    - command: 'docker pull {{ .Image.Name }}:{{ .Image.Tag }}'
+gui:
+  containerStatusHealthStyle: short
+  theme:
+    activeBorderColor:
+      - cyan
+      - bold
+    inactiveBorderColor:
+      - white
+    selectedLineBgColor:
+      - black

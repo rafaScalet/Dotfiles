@@ -1,7 +1,9 @@
 return {
   "mfussenegger/nvim-lint",
-  event = "VeryLazy",
   enabled = false,
+  cmd = "Lint",
+  event = { "InsertLeave", "BufWritePost", "BufEnter" },
+  keys = { { "<leader>Cl", "<cmd>Lint<cr>", desc = "Linter" } },
   config = function()
     require("lint").linters_by_ft = {
       markdown = { "vale" },

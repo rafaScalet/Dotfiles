@@ -1,0 +1,32 @@
+{
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  "version": "0.2",
+  "language": "en, pt, pt_BR, lorem",
+  "dictionaries": [
+    "bash",
+    "git",
+    "java",
+    "lua",
+    "node",
+    "npm",
+    "personal",
+    "python",
+    "dotnet",
+    "docker",
+    "rust",
+    "sql",
+    "typescript",
+    "vim"
+  ],
+  "import": [
+    "@cspell/dict-pt-br/cspell-ext.json",
+    "@cspell/dict-vim/cspell-ext.json"
+  ],
+  "dictionaryDefinitions": [
+    {
+      "name": "personal",
+      "addWords": true,
+      "path": "./dictionary.txt"
+    }
+  ]
+}

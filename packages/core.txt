@@ -1,0 +1,8 @@
+fish
+git
+mise
+nvim
+stow
+tmux
+topgrade
+yay
