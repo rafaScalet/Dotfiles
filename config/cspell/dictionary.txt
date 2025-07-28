@@ -1,0 +1,9 @@
+dotnet
+fatec
+javac
+postgre
+postgres
+postgresql
+rafa
+rafascalet
+scalet

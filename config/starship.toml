@@ -1,6 +1,7 @@
 add_newline = false
-format = """$sudo$character"""
+format = """$directory\n$character"""
 right_format = """
+$sudo
 $cmd_duration
 $battery
 $git_branch
@@ -32,7 +33,7 @@ vimcmd_visual_symbol = "[➜](yellow bold)"
 [directory]
 format = "[$path$read_only]($style)"
 read_only_style = "cyan"
-truncation_length = 1
+truncation_length = 100
 truncate_to_repo = false
 read_only = "  "
 
@@ -98,7 +99,7 @@ symbol = ""
 [rust]
 format = "[ $symbol $version ]($style)"
 version_format = "${raw}"
-style = "bold dimmed yellow"
+style = "bold dimmed red"
 symbol = ""
 
 [golang]
@@ -157,4 +158,4 @@ format = "[ $symbol$percentage ]($style)"
 disabled = false
 style = "bold red dimmed"
 format = "[$symbol]($style)"
-symbol = "   "
+symbol = "  "

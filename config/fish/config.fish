@@ -1,77 +1,137 @@
-# @fish-lsp-disable 2002 2003
-status is-interactive || exit
+# @fish-lsp-disable 2002 
+source $__fish_config_dir/alias.fish
 
-# Utils Config
-type -q mise && mise activate fish | source
-
-set -gx GOPATH $HOME/.local/share/go
+set -gx ONLYOFFICE_PARAM --system-title-bar
 
 # Shell Config
+set -gx XDG_CONFIG_HOME $HOME/.config
+set -gx XDG_CACHE_HOME $HOME/.cache
+set -gx XDG_STATE_HOME $HOME/.local/state
+set -gx XDG_DATA_HOME $HOME/.local/share
+set -gx XDG_BIN_HOME $HOME/.local/bin
+set -gx DOTFILES_DIR $HOME/Dotfiles
+set -gx SCRIPTS_DIR $DOTFILES_DIR/scripts
+
+set -gx PATH $SCRIPTS_DIR $XDG_BIN_HOME $XDG_DATA_HOME/nvim/mason/bin/ $PATH
+
 set -gx MANPAGER "env BATMAN_IS_BEING_MANPAGER=yes bash /usr/bin/batman"
 set -gx MANROFFOPT -c
 
-set -gx CDPATH ~/Projects ~/Projects/* ~
+set -gx CDPATH ~/Projects ~
 
-set -gx LS_COLORS (vivid generate catppuccin-mocha)
+fish_vi_key_bindings
 
-set -gx EDITOR nvim
+# This function is masked and does nothing
+function fish_default_mode_prompt
+end
 
-fish_config theme choose "Catppuccin Mocha"
+# ATAC Config
+set -gx ATAC_KEY_BINDINGS $XDG_CONFIG_HOME/atac-vim.toml
+set -gx ATAC_THEME $XDG_CONFIG_HOME/atac-theme.toml
+
+# Everything below this line, is only executed in interactive mode
+status is-interactive || exit
+
+# Plugins Installation
+type -q fisher; or curl -sL https://git.io/fisher | source && fisher update
+
+# Shell Integrations Config
+type -q nvim; and set -gx EDITOR nvim; or set -gx EDITOR vim
+
+set -gx GOPATH $XDG_DATA_HOME/go
+set -gx PATH $GOPATH/bin $PATH
+
+set -gx CARGO_HOME $XDG_DATA_HOME/cargo
+set -gx PATH $CARGO_HOME/bin $PATH
+
+set -gx RUSTUP_HOME $XDG_DATA_HOME/rustup
 
 function fish_greeting
-    if type -q fastfetch
-        fastfetch --config ~/.config/fastfetch/greeting.jsonc
+    type -q fastfetch; and fastfetch
+end
+
+# FZF Config
+set -gx FZF_DEFAULT_OPTS "
+--bind 'ctrl-y:execute-silent(wl-copy {})'
+--bind ctrl-b:preview-up
+--bind ctrl-f:preview-down
+--bind alt-k:preview-up
+--bind alt-j:preview-down
+--bind home:preview-top
+--bind end:preview-bottom
+--bind change:first
+--style full
+--cycle
+--tmux bottom,99%
+--prompt '➜ '
+--pointer '➜'
+--scrollbar '▌▐'
+--layout reverse
+--color bg:-1,bg+:-1
+--color fg:-1,fg+:-1
+--color hl:red,hl+:red
+--color info:green,marker:yellow,header:yellow
+--color prompt:magenta,spinner:magenta
+--color pointer:red,border:blue,label:cyan
+"
+
+# Tmux Config 
+if type -q tmux
+    if not set -q TMUX; and test "$TERM_PROGRAM" != vscode
+        if not tmux has-session -t Default
+            tmux new -d -s Default
+        end
+
+        exec tmux attach -t Default
     end
 end
 
-# Plugins config
-if not functions -q fisher
-    curl -sL https://git.io/fisher | source && fisher update
+# Starship Config
+if type -q starship
+    starship init fish | source
+
+    function starship_transient_prompt_func
+        starship module character
+    end
+
+    function starship_transient_rprompt_func
+        starship module time
+    end
+
+    enable_transience
 end
 
-set -g SHELL_MOMMYS_LITTLE child/girl/boy/dev
-
-set -g fish_tmux_default_session_name Default
-set -g fish_tmux_autostart true
-
-set -g COMMENT_FREQ 10
-
-set -g fifc_editor $EDITOR
-set -g fifc_fd_opts --hidden --exclude "**/.git"
-set -U fifc_bat_opts --theme=Mocha --number
-set -U fifc_exa_opts --icons --oneline --group-directories-first --all
-
-set -g fzf_fd_opts --max-depth 5 --hidden --exclude "**/.git"
-set -U fzf_preview_dir_cmd eza --icons --oneline --group-directories-first --all --color=always --tree
-set -U fzf_diff_highlighter delta --paging=never --width=20
-set -U fzf_preview_file_cmd bat --color=always --number --theme=Mocha
+# Shell Theme Config
+if test (gsettings get org.gnome.desktop.interface color-scheme) = "'prefer-dark'"
+    fish_config theme choose "Catppuccin Mocha"
+    type -q vivid; and set -gx LS_COLORS (vivid generate catppuccin-mocha)
+else
+    fish_config theme choose "Catppuccin Latte"
+    type -q vivid; and set -gx LS_COLORS (vivid generate catppuccin-latte)
+end
 
 # Abbreviations
-abbr dot "stow --stow"
-abbr undot "stow --delete"
-abbr redot "stow --restow"
 abbr q exit
 abbr md "mkdir -p"
 abbr . "cd ."
 abbr -- - "cd -"
+abbr upgrade topgrade
+abbr e $EDITOR
+abbr lzd lazydocker
+abbr lzg lazygit
 
-# Aliases
-if type -q codium
-    alias code="codium"
-end
+# Binds
+bind --mode insert ctrl-alt-g lazygit
+bind --mode default ctrl-alt-g lazygit
 
-if type -q eza
-    alias ls="eza --git --icons --oneline --group-directories-first --no-quotes"
-    alias ll="eza --git --icons --oneline --group-directories-first --no-quotes --long"
-    alias la="eza --git --icons --oneline --group-directories-first --no-quotes --long --all"
-end
+bind --mode insert ctrl-alt-d lazydocker
+bind --mode default ctrl-alt-d lazydocker
 
-if type -q bat
-    alias cat="bat --pager never"
-else if type -q bat-cat
-    alias cat="bat-cat --pager never"
-end
+bind --mode insert ctrl-alt-b btm
+bind --mode default ctrl-alt-b btm
 
-if type -q python3
-    alias python="python3"
-end
+bind --mode insert ctrl-alt-e $EDITOR
+bind --mode default ctrl-alt-e $EDITOR
+
+bind --mode insert ctrl-alt-r "clear && exec fish"
+bind --mode default ctrl-alt-r "clear && exec fish"

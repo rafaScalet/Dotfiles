@@ -1,0 +1,19 @@
+use-si-prefix: true
+show-item-count: true
+show-mtime: true
+show-apparent-size: true
+style:
+  use-old-size-bar: true
+  selected-row:
+    background-color: black
+    text-color: blue
+  footer:
+    background-color: default
+    text-color: blue
+    number-color: white
+  header:
+    background-color: default
+    text-color: white
+  result-row:
+    number-color: yellow
+    directory-color: green

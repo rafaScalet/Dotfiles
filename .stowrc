@@ -1,3 +1,4 @@
---dir=~/Dotfiles/config
---target=$HOME
+--dir=$HOME/Dotfiles/config
+--target=$HOME/.config
 --dotfiles
+--restow

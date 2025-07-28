@@ -1,0 +1,7 @@
+gamemode
+gamescope
+mangohud
+wine
+wine-gecko
+wine-mono
+winetricks

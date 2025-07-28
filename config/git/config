@@ -16,6 +16,10 @@
   insteadOf = "rs:"
 [url "git@github.com:"]
   insteadOf = "gh:"
+[url "https://github.com/"]
+  insteadOf = "hgh:"
+[url "https://aur.archlinux.org/"]
+  insteadOf = "aur:"
 [interactive]
   diffFilter = delta --color-only
 [merge]

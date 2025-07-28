@@ -21,13 +21,9 @@
   "fileSizeAndStats.sizeMode": "Binary Mode",
   // #endregion
   // #region Project Manager
-  "projectManager.git.baseFolders": [
-    "~/Dotfiles",
-    "~/Annotations",
-    "~/Projects"
-  ],
-  "projectManager.any.baseFolders": ["~/Projects"],
-  "projectManager.any.maxDepthRecursion": 2,
+  "projectManager.git.baseFolders": ["~/Dotfiles"],
+  "projectManager.any.baseFolders": ["~/Projects/"],
+  "projectManager.any.maxDepthRecursion": 1,
   "projectManager.showProjectNameInStatusBar": false,
   // #endregion
   // #region Extensions
@@ -39,12 +35,12 @@
   },
   // #endregion
   // #region Workbench
-  "workbench.panel.showLabels": false,
   "workbench.colorCustomizations": {},
+  "workbench.panel.showLabels": false,
   "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
   "workbench.preferredLightColorTheme": "Catppuccin Latte",
-  "workbench.iconTheme": "flow-dark",
-  "workbench.productIconTheme": "fluent-icons",
+  "workbench.iconTheme": "let-icons",
+  "workbench.productIconTheme": "Tabler",
   "workbench.layoutControl.enabled": false,
   "workbench.startupEditor": "none",
   "workbench.editor.showTabs": "single",
@@ -119,7 +115,7 @@
     "tsconfig.json": "tsconfig.*.json, *.tsbuildinfo",
     ".env": ".env.*",
     "mise.toml": "mise.*.toml",
-    "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb"
+    "package.json": "package-lock.json, yarn.lock, pnpm-*.yaml, bun.lockb"
   },
   // #endregion
   // #region Files
@@ -144,8 +140,7 @@
   "javascript.updateImportsOnFileMove.enabled": "always",
   // #endregion
   // #region Catppuccin
-  "catppuccin.accentColor": "lavender",
-  "catppuccin.syncWithIconPack": true,
+  "catppuccin.accentColor": "blue",
   "catppuccin.workbenchMode": "minimal"
   // #endregion
 }

@@ -3,5 +3,6 @@ bat-extras
 bottom
 eza
 fd
+httpie
 ripgrep
 ripgrep-all

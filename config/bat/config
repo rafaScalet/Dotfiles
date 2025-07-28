@@ -1,3 +1,4 @@
+--theme=Mocha
 --theme-dark=Mocha
 --theme-light=Latte
 --style=numbers,changes

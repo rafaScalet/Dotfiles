@@ -1,0 +1,31 @@
+#! /usr/bin/env fish
+
+set selected (
+    man -k . | fzf \
+        --with-nth=..2 \
+        --bind "enter:become(
+            echo $(string trim -c \"()\" {+2}) {+1}
+        )" \
+        --preview "
+            man $(string trim -c \"()\" {+2}) {+1} | \
+            bat --language man --color always --plain
+        " \
+        --ghost ' Search for a manual page' \
+        --input-label ' Search Trough Manual Pages' \
+        --header-label ' Man Sections ' \
+        --tmux bottom,99% \
+        --preview-window 60% \
+        --header "
+1 - Programs   4 - Devices      7 - Misc
+2 - SysCalls   5 - File Format  8 - Admin
+3 - Libraries  6 - Games        9 - Kernel
+        "
+)
+
+test -z "$selected"; and return
+
+if set -q TMUX
+    tmux new-window -a -n man "man $selected"
+else
+    man $selected
+end

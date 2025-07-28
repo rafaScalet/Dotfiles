@@ -1,23 +1,25 @@
 return {
   "mfussenegger/nvim-lint",
-  event = "VeryLazy",
-  enabled = false,
+  cmd = "Lint",
+  event = { "BufWritePost" },
+  keys = { { "<leader>cl", "<cmd>Lint<cr>", desc = "Linter" } },
   config = function()
-    require("lint").linters_by_ft = {
-      markdown = { "vale" },
+    local lint = require("lint")
+
+    lint.linters_by_ft = {
+      rust = { "clippy" },
+      java = { "checkstyle" },
+      dockerfile = { "hadolint" },
+      fish = { "fish" },
     }
 
     local linter = function()
-      local lint_status, lint = pcall(require, "lint")
-      if lint_status and vim.api.nvim_buf_get_option(0, "modifiable") then
-        lint.try_lint()
-        lint.try_lint("cspell")
-      end
+      lint.try_lint()
     end
 
     vim.api.nvim_create_user_command("Lint", linter, {})
 
-    vim.api.nvim_create_autocmd({ "InsertLeave", "BufWritePost", "BufEnter" }, {
+    vim.api.nvim_create_autocmd({ "BufWritePost" }, {
       callback = linter,
     })
   end,

@@ -1,30 +1,7 @@
 return {
   "folke/snacks.nvim",
-  priority = 1000,
-  lazy = false,
   ---@type snacks.Config
   opts = {
-    dashboard = {
-      preset = {
-        keys = {
-          { icon = I.search, key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
-          { icon = I.fs.file.add, key = "n", desc = "New File", action = ":ene | startinsert" },
-          { icon = I.text, key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
-          { icon = I.fs.file.two, key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
-          { icon = I.package.i, key = "L", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
-          { icon = I.tool, key = "M", desc = "Mason", action = ":Mason" },
-          { icon = I.database, key = "D", desc = "DataBase UI", action = ":DBUI" },
-          { icon = I.flame, key = "G", desc = "Vim Be Good", action = ":VimBeGood" },
-          { icon = I.exit, key = "q", desc = "Quit", action = ":qa" },
-        },
-      },
-      sections = {
-        { section = "keys", gap = 1, padding = 1 },
-        { section = "startup" },
-      },
-    },
-    git = { enabled = true },
-    gitbrowse = { enabled = true },
     rename = { enabled = true },
     input = { enabled = true },
     notifier = { enabled = true },
@@ -32,90 +9,81 @@ return {
     picker = { enabled = true },
     word = { enabled = true },
   },
-  keys = {
-    {
-      "<leader>fc",
-      function()
-        Snacks.picker.commands()
-      end,
-      desc = "Snacks Command Line",
-    },
-    {
-      "<leader>ff",
-      function()
-        Snacks.picker.files()
-      end,
-      desc = "Snacks Find Files",
-    },
-    {
-      "<leader>fr",
-      function()
-        Snacks.picker.recent()
-      end,
-      desc = "Snacks Find Recent Files",
-    },
-    {
-      "<leader>fl",
-      function()
-        Snacks.picker.grep()
-      end,
-      desc = "Snacks Live Grep",
-    },
-    {
-      "<leader>fg",
-      function()
-        Snacks.picker.git_files()
-      end,
-      desc = "Snacks Git Files",
-    },
-    {
-      "<leader>fb",
-      function()
-        Snacks.picker.buffers()
-      end,
-      desc = "Snacks Buffers",
-    },
-    {
-      "<leader>fh",
-      function()
-        Snacks.picker.help()
-      end,
-      desc = "Snacks Help Tags",
-    },
-    {
-      "<leader>fn",
-      function()
-        Snacks.picker.notifications()
-      end,
-      desc = "Snacks Notifications",
-    },
-    {
-      "<leader>gw",
-      function()
-        Snacks.gitbrowse()
-      end,
-      desc = "Open Remote Repo",
-    },
-    {
-      "<leader>gW",
-      function()
-        Snacks.gitbrowse.open()
-      end,
-      desc = "Open Current File in Remote",
-    },
-    {
-      "<leader>gu",
-      function()
-        Snacks.gitbrowse.get_url()
-      end,
-      desc = "Remote Repo URL",
-    },
-    {
-      "<leader>gl",
-      function()
-        Snacks.git.blame_line()
-      end,
-      desc = "Show Git Log For Current Line",
-    },
-  },
+  keys = function()
+    local snacks = require("snacks")
+
+    local sev = vim.diagnostic.severity
+
+    local function diag_filter(severity)
+      return function(item)
+        return item.severity == severity
+      end
+    end
+
+    local pickers = {
+      -- stylua: ignore start
+      { "<leader>fb",   "buffers",               "Buffers" },
+      { "<leader>ff",   "files",                 "Files" },
+      { "<leader>fh",   "help",                  "Help Tags" },
+      { "<leader>fk",   "keymaps",               "Keymaps" },
+      { "<leader>fu",   "undo",                  "Undo History" },
+      { "<leader>fm",   "marks",                 "Marks" },
+      { "<leader>fn",   "notifications",         "Notifications" },
+      { "<leader>fp",   "pick",                  "Picker" },
+      { "<leader>fr",   "recent",                "Recent Files" },
+      { "<leader>fP",   "lazy",                  "Plugins Spec" },
+
+      { "<leader>fsg",  "grep",                  "Live Grep" },
+      { "<leader>fsw",  "grep_word",             "Current Word" },
+      { "<leader>fsb",  "grep_buffers",          "Opened Buffers" },
+      { "<leader>fsf",  "lines",                 "Current File" },
+
+      { "<leader>fch",  "command_history",       "History" },
+      { "<leader>fcl",  "commands",              "Line" },
+
+      { "<leader>fdaa", "diagnostics",           "All" },
+      { "<leader>fdai", "diagnostics",           "Info",             { filter = { filter = diag_filter(sev.I) } } },
+      { "<leader>fdah", "diagnostics",           "Hint",             { filter = { filter = diag_filter(sev.N) } } },
+      { "<leader>fdaw", "diagnostics",           "Warn",             { filter = { filter = diag_filter(sev.W) } } },
+      { "<leader>fdae", "diagnostics",           "Erro",             { filter = { filter = diag_filter(sev.E) } } },
+      { "<leader>fdba", "diagnostics_buffer",    "All" },
+      { "<leader>fdbi", "diagnostics_buffer",    "Info",             { filter = { filter = diag_filter(sev.I) } } },
+      { "<leader>fdbh", "diagnostics_buffer",    "Hint",             { filter = { filter = diag_filter(sev.N) } } },
+      { "<leader>fdbw", "diagnostics_buffer",    "Warn",             { filter = { filter = diag_filter(sev.W) } } },
+      { "<leader>fdbe", "diagnostics_buffer",    "Erro",             { filter = { filter = diag_filter(sev.E) } } },
+
+      { "<leader>fgL",  "git_log_file",          "Log File" },
+      { "<leader>fgS",  "git_stash",             "Stash" },
+      { "<leader>fgb",  "git_branches",          "Branches" },
+      { "<leader>fgd",  "git_diff",              "Hunks" },
+      { "<leader>fgf",  "git_files",             "Files" },
+      { "<leader>fgl",  "git_log",               "Log" },
+      { "<leader>fgs",  "git_status",            "Status" },
+      { "<leader>fgg",  "git_grep",              "Grep" },
+
+      { "<leader>flc",  "lsp_config",            "Config" },
+      { "<leader>fls",  "lsp_symbols",           "Symbols" },
+      { "<leader>flr",  "lsp_references",        "References" },
+      { "<leader>fld",  "lsp_definitions",       "Definitions" },
+      { "<leader>flD",  "lsp_declarations",      "Declarations" },
+      { "<leader>fli",  "lsp_implementations",   "Implementations" },
+      { "<leader>flt",  "lsp_type_definitions",  "Types" },
+      { "<leader>flw",  "lsp_workspace_symbols", "Workspace Symbols" },
+      -- stylua: ignore end
+    }
+
+    local keys = {}
+    for _, picker in ipairs(pickers) do
+      local key, fn, desc, opts = unpack(picker)
+      table.insert(keys, {
+        key,
+        function()
+          snacks.picker[fn](opts)
+        end,
+        desc = desc,
+      })
+    end
+
+    return keys
+  end,
 }

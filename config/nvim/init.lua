@@ -16,10 +16,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("icons")
+require("diagnostics")
 require("keymaps")
 require("options")
-require("autocmd")
-require("diagnostics")
+require("commands")
 
 -- Setup lazy.nvim
 require("lazy").setup({
