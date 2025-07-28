@@ -1,0 +1,9 @@
+atac
+fish
+mise
+nvim
+opencode-bin
+stow
+tmux
+topgrade
+yay

@@ -1,0 +1,5 @@
+snapper
+snapper-support
+grub-btrfs
+snap-pac
+inotify-tools

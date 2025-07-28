@@ -1,0 +1,44 @@
+#! /usr/bin/env fish
+
+if not set -q TMUX
+    echo "not in a tmux session"
+    exit 1
+end
+
+set sessions
+set current_tmux_session (tmux display-message -p '#S')
+set tmux_sessions (tmux ls -F '#S')
+set dir_sessions (printf '%s\n' (ls ~/Projects/; ls ~) | sort)
+
+for session in $tmux_sessions
+    if test "$session" != "$current_tmux_session"
+        set sessions $sessions "$session *"
+    end
+end
+
+for session in $dir_sessions
+    if not contains $session $tmux_sessions
+        set sessions $sessions $session
+    end
+end
+
+set selected (
+    printf '%s\n' $sessions | fzf \
+        --input-label "" \
+        --bind 'enter:become(echo {1})' \
+        --bind 'tab:down' \
+        --bind 'shift-tab:up' \
+        --no-sort \
+        --border-label ' Let-Sessions ' \
+        --ghost ' Search for a session' \
+        --list-label ' Sessions ' \
+        --tmux || true
+)
+
+test -z "$selected"; and return
+
+if not tmux has-session -t $selected 2>/dev/null
+    tmux new-session -d -s $selected -c (fd $selected ~ -1)
+end
+
+tmux switch-client -t $selected

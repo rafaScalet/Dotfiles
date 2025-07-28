@@ -1,12 +1,11 @@
-carapace
+fastfetch
 fzf
-mise
+pacman-contrib
 pkgfile
 tldr
-tmux
-topgrade-bin
+trash-cli
 usage
 vivid
 watchexec
-yay-bin
+wl-clipboard
 zip
