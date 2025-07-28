@@ -1,6 +1,6 @@
 services:
   postgres:
-    image: postgres
+    image: docker.io/library/postgres
     container_name: postgres
     restart: unless-stopped
     environment:

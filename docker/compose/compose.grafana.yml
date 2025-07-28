@@ -1,6 +1,6 @@
 services:
   grafana:
-    image: grafana/grafana
+    image: docker.io/grafana/grafana
     container_name: grafana
     restart: unless-stopped
     ports:

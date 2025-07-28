@@ -1,6 +1,6 @@
 services:
   node-red:
-    image: nodered/node-red
+    image: docker.io/nodered/node-red
     container_name: node-red
     restart: unless-stopped
     ports:

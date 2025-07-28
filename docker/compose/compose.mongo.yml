@@ -1,6 +1,6 @@
 services:
   mongo:
-    image: mongo
+    image: docker.io/library/mongo
     container_name: mongo
     restart: unless-stopped
     environment:
