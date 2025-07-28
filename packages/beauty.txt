@@ -1,3 +1,4 @@
+bibata-cursor-theme-bin
 hardcode-fixer-git
 papirus-folders-catppuccin-git
 papirus-icon-theme

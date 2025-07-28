@@ -1,0 +1,25 @@
+#! /usr/bin/env fish
+
+if not test -e package.json
+    tmux display-message "package.json not found"
+    return
+end
+
+set scripts (jq -r '.scripts | to_entries[] | "\(.key)"' package.json)
+set get_script "npm pkg get 'scripts.{}'"
+
+set selected (
+    printf '%s\n' $scripts | fzf \
+        --preview "$get_script | sed 's/\"//g'" \
+        --preview-window down,1 \
+        --ghost ' Search for a script' \
+        --input-label '' \
+        --border-label ' Node Scripts ' \
+        --list-label ' Scripts List ' \
+        --preview-label ' Script Value ' \
+        --tmux || true
+)
+
+test -z "$selected"; and return
+
+tmux new-window -n "node:$selected" -S "npm run $selected; read -P 'Press enter to close'"

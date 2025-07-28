@@ -1,27 +1,21 @@
 return {
-  "Bekaboo/dropbar.nvim",
-  event = { "BufReadPre", "BufWrite" },
-  keys = {
+  "SmiteshP/nvim-navbuddy",
+  enabled = false,
+  event = { "LspAttach" },
+  dependencies = {
     {
-      "<leader>;",
-      function()
-        require("dropbar.api").pick()
-      end,
-      desc = "Pick symbols in winbar",
+      "SmiteshP/nvim-navic",
+      opts = {
+        lsp = { auto_attach = true },
+        icons = I.lsp.kind,
+      },
     },
-    {
-      "[;",
-      function()
-        require("dropbar.api").goto_context_start()
-      end,
-      desc = "Go to start of current context",
-    },
-    {
-      "];",
-      function()
-        require("dropbar.api").select_next_context()
-      end,
-      desc = "Select next context",
-    },
+    { "MunifTanjim/nui.nvim" },
   },
+  opts = {
+    lsp = { auto_attach = true },
+    icons = I.lsp.kind,
+    window = { border = "rounded" },
+  },
+  keys = { { "<leader>nv", "<CMD>Navbuddy<CR>", desc = "NavBuddy UI" } },
 }

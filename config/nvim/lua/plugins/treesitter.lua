@@ -7,9 +7,20 @@ return {
     vim.opt.runtimepath:prepend(parsers_path)
     require("nvim-treesitter.configs").setup({
       modules = {},
-      ensure_installed = {},
-      sync_install = false,
+      ensure_installed = {
+        "awk",
+        "bash",
+        "diff",
+        "gitcommit",
+        "markdown",
+        "markdown_inline",
+        "query",
+        "regex",
+        "vim",
+        "vimdoc",
+      },
       ignore_install = {},
+      sync_install = false,
       auto_install = true,
       highlight = { enable = true },
       parser_install_dir = parsers_path,
@@ -25,29 +36,20 @@ return {
       textobjects = {
         select = {
           enable = true,
-          lookahead = true,
           keymaps = {
-            ["af"] = { query = "@function.outer", desc = "Select the entire function" },
-            ["if"] = { query = "@function.inner", desc = "Select the inner content of a function" },
-            ["ac"] = { query = "@class.outer", desc = "select the entire class" },
+            ["af"] = { query = "@function.outer", desc = "Select around part of a function region" },
+            ["if"] = { query = "@function.inner", desc = "Select inner part of a function region" },
+            ["ac"] = { query = "@class.outer", desc = "Select around part of a class region" },
             ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
-            ["as"] = { query = "@local.scope", query_group = "locals", desc = "Select language scope" },
-            ["aC"] = { query = "@comment.outer", desc = "Select the entire comment" },
-          },
-          include_surrounding_whitespace = true,
-          selection_modes = {
-            ["@parameter.outer"] = "v",
-            ["@function.outer"] = "V",
-            ["@class.outer"] = "<c-v>",
           },
         },
         swap = {
           enable = true,
           swap_next = {
-            ["<leader>a"] = "@parameter.inner",
+            ["<leader>csn"] = { query = "@parameter.inner", desc = "Next Parameter" },
           },
           swap_previous = {
-            ["<leader>A"] = "@parameter.inner",
+            ["<leader>csp"] = { query = "@parameter.inner", desc = "Prev Parameter" },
           },
         },
       },
