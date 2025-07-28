@@ -1,24 +1,28 @@
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
+    useConfig: false
+
 gui:
+  nerdFontsVersion: "3"
   theme:
     activeBorderColor:
-      - '#b4befe'
-      - bold
-    inactiveBorderColor:
-      - '#a6adc8'
-    optionsTextColor:
-      - '#89b4fa'
+      - cyan
     selectedLineBgColor:
-      - '#313244'
-    cherryPickedCommitBgColor:
-      - '#45475a'
-    cherryPickedCommitFgColor:
-      - '#b4befe'
-    unstagedChangesColor:
-      - '#f38ba8'
-    defaultFgColor:
-      - '#cdd6f4'
-    searchingActiveBorderColor:
-      - '#f9e2af'
+      - black
+
+  branchColorPatterns:
+    '^(main|master|dev|develop|development)$': magenta
+    '^(docs|documentation)$/': blue
+    '^(feat|feature)$/': yellow
+    '^(refc|refac|refactor|refactoring)$/': green
+    '^(bug|bugfix|hotfyx)$/': red
+    '^(test|testing)$/': cyan
+    '^(chore)$/': black
 
   authorColors:
-    '*': '#b4befe'
+    '*': cyan
+    'Rafael Scalet': magenta
+    'Murilo Santos': blue
+    'Angelo Ferraz Modanez': yellow

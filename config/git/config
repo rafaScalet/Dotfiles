@@ -5,30 +5,37 @@
 [init]
   defaultBranch = main
 [include]
-  path = ~/.gitalias
-  path = ~/.gitcatppuccin
+  path = alias.gitconfig
+  path = catppuccin.gitconfig
 [core]
   pager = delta
 	excludesFile = ~/.gitignore
   editor = nvim
+  preloadIndex = true
+[url "git@github.com:rafaScalet/"]
+  insteadOf = "rs:"
+[url "git@github.com:"]
+  insteadOf = "gh:"
 [interactive]
   diffFilter = delta --color-only
 [merge]
   conflictStyle = zdiff3
   tool = nvimdiff2
+[status]
+  showStash = true
+  showUntrackedFiles = all
+[diff]
+  context = 3
+  renames = copies
+  interHunkContext = 10
 [gpg]
   format = ssh
 [gpg "ssh"]
   allowedSignersFile = ~/.gitallowed
 [commit]
   gpgsign = true
+  verbose = true
 [delta]
   navigate = true
+  line-numbers = true
   features = catppuccin-mocha
-[alias]
-  lc = log --pretty=format:'%Cred%h%Creset %C(bold)%cr%Creset %Cgreen<%an>%Creset %s' --max-count=30
-  sf = show --name-only
-  incoming = !(git fetch --quiet && git log --pretty=format:'%C(yellow)%h %C(white)-%C(red)%an %C(white)-%C(cyan)%d%Creset %s %C(white)- %ar%Creset' ..@{u})
-  outgoing = !(git fetch --quiet && git log --pretty=format:'%C(yellow)%h %C(white)- %C(red)%an %C(white)- %C(cyan)%d%Creset %s %C(white)- %ar%Creset' @{u}..)
-  unstage = reset HEAD --
-  amend = commit --all --no-edit --amend
