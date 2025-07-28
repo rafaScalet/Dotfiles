@@ -1,8 +1,8 @@
 return {
   {
-    "gregorias/coerce.nvim",
+    "johmsalas/text-case.nvim",
     opts = {},
-    dependencies = { "gregorias/coop.nvim" },
+    keys = { "ga" },
   },
   {
     "nat-418/boole.nvim",
@@ -16,5 +16,12 @@ return {
       { "<C-a>", "<cmd>Boole increment<cr>" },
       { "<C-x>", "<cmd>Boole decrement<cr>" },
     },
+  },
+  {
+    "gregorias/coerce.nvim",
+    opts = {},
+    enabled = false,
+    dependencies = { "gregorias/coop.nvim" },
+    keys = { "cr" },
   },
 }

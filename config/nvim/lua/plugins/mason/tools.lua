@@ -13,7 +13,7 @@ return {
       "hadolint", -- Linter for Dockerfile
       "html-lsp", -- LSP for HTML
       "java-language-server", -- LSP/DAP for Java
-      "json-lsp", -- LSP for JSON
+      "json-lsp", -- LSP/Formatter for JSON
       "lua-language-server", -- LSP for Lua
       "markdown-oxide", -- LSP for markdown
       "prisma-language-server", -- LSP for Prisma

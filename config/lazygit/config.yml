@@ -14,12 +14,12 @@ gui:
 
   branchColorPatterns:
     '^(main|master|dev|develop|development)$': magenta
-    '^(docs|documentation)$/': blue
-    '^(feat|feature)$/': yellow
-    '^(refc|refac|refactor|refactoring)$/': green
-    '^(bug|bugfix|hotfyx)$/': red
-    '^(test|testing)$/': cyan
-    '^(chore)$/': black
+    '^(docs|documentation)/': blue
+    '^(feat|feature)/': yellow
+    '^(refc|refac|refactor|refactoring)/': green
+    '^(bug|bugfix|hotfyx)/': red
+    '^(test|testing)/': cyan
+    '^(chore)/': black
 
   authorColors:
     '*': cyan

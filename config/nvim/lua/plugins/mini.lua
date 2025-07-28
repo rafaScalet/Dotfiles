@@ -11,6 +11,7 @@ return {
     require("mini.surround").setup({})
     require("mini.bracketed").setup({})
     require("mini.icons").setup({})
+    require("mini.basics").setup({})
     MiniIcons.mock_nvim_web_devicons()
     require("mini.git").setup({})
     require("mini.move").setup({})

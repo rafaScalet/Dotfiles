@@ -8,8 +8,8 @@ return {
     require("nvim-treesitter.configs").setup({
       modules = {},
       ensure_installed = {},
+      ignore_install = { "gitcommit" },
       sync_install = false,
-      ignore_install = {},
       auto_install = true,
       highlight = { enable = true },
       parser_install_dir = parsers_path,

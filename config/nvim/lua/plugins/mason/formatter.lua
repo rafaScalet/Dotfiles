@@ -15,6 +15,7 @@ return {
         python = { "isort", "black" },
         java = { "google-java-format" },
         fish = { "fish_indent" },
+        rust = { "rustfmt" },
       },
       format_on_save = {
         timeout_ms = 1000,

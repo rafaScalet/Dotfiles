@@ -2,24 +2,9 @@ return {
   "mason-org/mason-lspconfig.nvim",
   lazy = false,
   config = function()
-    local manual_enable = {
-      "jsonls",
-      "yamlls",
-      "nushell",
-    }
-
     require("mason-lspconfig").setup({
       automatic_enable = {
-        exclude = manual_enable,
-      },
-    })
-
-    vim.lsp.config("yamlls", {
-      settings = {
-        yaml = {
-          schemas = require("schemastore").yaml.schemas(),
-          validate = true,
-        },
+        exclude = { "jsonls" },
       },
     })
 
@@ -27,14 +12,13 @@ return {
       settings = {
         json = {
           schemas = require("schemastore").json.schemas(),
+          format = { enable = true },
           validate = { enable = true },
         },
       },
     })
 
-    for _, lsp in ipairs(manual_enable) do
-      vim.lsp.enable(lsp)
-    end
+    vim.lsp.enable({ "nushell", "jsonls", "rust-analyzer" })
   end,
   keys = {
     { "K", vim.lsp.buf.hover, desc = "Show info about the hovered keyword" },
@@ -45,12 +29,12 @@ return {
   },
   dependencies = {
     { "mason-org/mason.nvim", opts = {} },
-    { "b0o/schemastore.nvim", ft = { "json", "jsonc", "jsonl", "yaml", "yml" } },
+    { "b0o/schemastore.nvim" },
+    { "neovim/nvim-lspconfig" },
     {
       "folke/lazydev.nvim",
       ft = "lua",
       opts = { library = { path = "${3rd}/luv/library", words = { "vim%.uv" } } },
     },
-    "neovim/nvim-lspconfig",
   },
 }
