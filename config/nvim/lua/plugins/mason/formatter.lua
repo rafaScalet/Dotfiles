@@ -2,6 +2,7 @@ return {
   "stevearc/conform.nvim",
   event = { "BufWritePre" },
   cmd = { "ConformInfo", "Format" },
+  keys = { { "<leader>Cf", "<cmd>Format<cr>", desc = "Formatter" } },
   config = function()
     require("conform").setup({
       formatters_by_ft = {
@@ -15,6 +16,7 @@ return {
         python = { "isort", "black" },
         java = { "google-java-format" },
         fish = { "fish_indent" },
+        rust = { "rustfmt" },
       },
       format_on_save = {
         timeout_ms = 1000,
