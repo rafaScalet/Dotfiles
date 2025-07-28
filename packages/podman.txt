@@ -1,5 +1,0 @@
-podman                             Tool and library for running OCI-based containers in pods
-podman-compose                     A script to run docker-compose.yml using podman
-podman-desktop                     Manage Podman and other container engines from a single UI and tray.
-podman-docker                      Emulate Docker CLI using podman
-podman-tui                         Podman Terminal User Interface

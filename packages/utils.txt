@@ -1,0 +1,12 @@
+carapace
+fzf
+mise
+pkgfile
+tldr
+tmux
+topgrade-bin
+usage
+vivid
+watchexec
+yay-bin
+zip

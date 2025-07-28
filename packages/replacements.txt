@@ -1,0 +1,7 @@
+bat
+bat-extras
+bottom
+eza
+fd
+ripgrep
+ripgrep-all
