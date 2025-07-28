@@ -1,0 +1,50 @@
+#! /usr/bin/env fish
+
+set scripts
+set get_script
+set package_manager
+
+if test -e deno.json
+    set scripts (jq -r '.tasks | to_entries[] | "\(.key)"' deno.json)
+    set get_script "jq -r '.tasks.\"{}\"' deno.json"
+    set package_manager deno
+else if test -e package.json
+    set scripts (jq -r '.scripts | to_entries[] | "\(.key)"' package.json)
+    set get_script "jq -r '.scripts.\"{}\"' package.json"
+
+    set package_manager (jq -r '.packageManager | split("@")[0]' package.json)
+
+    if test -z "$package_manager"
+        if test -e package-lock.json
+            set package_manager npm
+        else if test -e pnpm-lock.yaml -oe pnpm-workspace.yaml
+            set package_manager pnpm
+        else if test -e yarn.lock
+            set package_manager yarn
+        else if test -e bun.lock -oe bun.lockb -oe bunfig.toml
+            set package_manager bun
+        else
+            tmux display-message "failed to determine package manager"
+            return
+        end
+    end
+else
+    tmux display-message "package.json or deno.json not found"
+    return
+end
+
+set selected (
+    printf '%s\n' $scripts | fzf \
+        --preview "$get_scripts" \
+        --preview-window down,1 \
+        --ghost ' Search for a script' \
+        --input-label '' \
+        --border-label " $(echo $package_manager | string replace -r '^(.)' '\U$1') Scripts " \
+        --list-label ' Scripts List ' \
+        --preview-label ' Script Value ' \
+        --tmux || true
+)
+
+test -z "$selected"; and return
+
+tmux new-window -n "$package_manager:$selected" -S "$package_manager run $selected; read -P 'Press enter to close'"

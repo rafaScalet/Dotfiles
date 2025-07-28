@@ -1,0 +1,3 @@
+hunspell
+hunspell-en_us
+hunspell-pt-br

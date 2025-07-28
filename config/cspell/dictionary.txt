@@ -1,0 +1,6 @@
+dotnet
+fatec
+javac
+rafa
+rafascalet
+scalet

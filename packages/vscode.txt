@@ -8,11 +8,12 @@ cardinal90.multi-cursor-case-preserve
 catppuccin.catppuccin-vsc
 datasert.vscode-texty
 editorconfig.editorconfig
+expo.vscode-expo-tools
 hideoo.toggler
 meganrogge.template-string-converter
-miguelsolorio.fluent-icons
 mikestead.dotenv
 mintlify.document
+ms-python.debugpy
 ms-python.python
 naumovs.color-highlight
 redhat.java
@@ -25,3 +26,4 @@ tamasfe.even-better-toml
 usernamehw.errorlens
 vscodevim.vim
 yoavbls.pretty-ts-errors
+zguolee.tabler-icons
