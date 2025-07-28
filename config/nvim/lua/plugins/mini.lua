@@ -3,28 +3,40 @@ return {
   lazy = false,
   version = false,
   config = function()
-    require("mini.extra").setup({})
+    -- Mini Text Editing
     require("mini.ai").setup({})
-    require("mini.comment").setup({})
-    require("mini.operators").setup({})
-    require("mini.pairs").setup({})
-    require("mini.surround").setup({})
-    require("mini.bracketed").setup({})
-    require("mini.icons").setup({})
-    MiniIcons.mock_nvim_web_devicons()
-    require("mini.git").setup({})
-    require("mini.move").setup({})
-    require("mini.cursorword").setup({})
-
-    require("mini.files").setup({
+    require("mini.comment").setup({
       mappings = {
-        close = "<ESC>",
-        synchronize = "<CR>",
-      },
-      options = {
-        use_as_default_explorer = true,
+        -- stylua: ignore start
+        comment        = "<leader>mc",
+        comment_line   = "<leader>mcc",
+        comment_visual = "<leader>mc",
+        textobject     = "<leader>mc",
+        -- stylua: ignore end
       },
     })
+    require("mini.move").setup({})
+    require("mini.pairs").setup({})
+    require("mini.surround").setup({
+      mappings = {
+        -- stylua: ignore start
+        add            = "<leader>msa", -- Add surrounding in Normal and Visual modes
+        delete         = "<leader>msd", -- Delete surrounding
+        find           = "<leader>msf", -- Find surrounding (to the right)
+        find_left      = "<leader>msF", -- Find surrounding (to the left)
+        highlight      = "<leader>msh", -- Highlight surrounding
+        replace        = "<leader>msr", -- Replace surrounding
+        update_n_lines = "<leader>msn", -- Update `n_lines`
+        -- stylua: ignore end
+      },
+    })
+
+    -- Mini General Workflow
+    require("mini.basics").setup({})
+    require("mini.files").setup({})
+    require("mini.icons").setup({})
+
+    MiniIcons.mock_nvim_web_devicons()
 
     vim.api.nvim_create_autocmd("User", {
       pattern = "MiniFilesActionRename",
@@ -34,13 +46,19 @@ return {
     })
   end,
   keys = {
-    { "<leader>gg", ":Git ", desc = "Invoke Git Command" },
     {
-      "-",
+      "<leader>mff",
       function()
         MiniFiles.open(vim.api.nvim_buf_get_name(0))
       end,
-      desc = "Open MiniFiles",
+      desc = "Open Files In Current Path",
+    },
+    {
+      "<leader>mfr",
+      function()
+        MiniFiles.open()
+      end,
+      desc = "Open Files In Root Path",
     },
   },
 }

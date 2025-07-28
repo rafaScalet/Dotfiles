@@ -7,9 +7,9 @@ return {
     vim.opt.runtimepath:prepend(parsers_path)
     require("nvim-treesitter.configs").setup({
       modules = {},
-      ensure_installed = {},
-      sync_install = false,
+      ensure_installed = { "diff", "gitcommit", "regex", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
       ignore_install = {},
+      sync_install = false,
       auto_install = true,
       highlight = { enable = true },
       parser_install_dir = parsers_path,
@@ -23,31 +23,13 @@ return {
         },
       },
       textobjects = {
-        select = {
-          enable = true,
-          lookahead = true,
-          keymaps = {
-            ["af"] = { query = "@function.outer", desc = "Select the entire function" },
-            ["if"] = { query = "@function.inner", desc = "Select the inner content of a function" },
-            ["ac"] = { query = "@class.outer", desc = "select the entire class" },
-            ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
-            ["as"] = { query = "@local.scope", query_group = "locals", desc = "Select language scope" },
-            ["aC"] = { query = "@comment.outer", desc = "Select the entire comment" },
-          },
-          include_surrounding_whitespace = true,
-          selection_modes = {
-            ["@parameter.outer"] = "v",
-            ["@function.outer"] = "V",
-            ["@class.outer"] = "<c-v>",
-          },
-        },
         swap = {
           enable = true,
           swap_next = {
-            ["<leader>a"] = "@parameter.inner",
+            ["<leader>Sn"] = { query = "@parameter.inner", desc = "Next Parameter" },
           },
           swap_previous = {
-            ["<leader>A"] = "@parameter.inner",
+            ["<leader>Sp"] = { query = "@parameter.inner", desc = "Prev Parameter" },
           },
         },
       },

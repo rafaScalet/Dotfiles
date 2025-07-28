@@ -1,0 +1,16 @@
+use-si-prefix: true
+style:
+  use-old-size-bar: true
+  selected-row:
+    background-color: black
+  footer:
+    background-color: default
+    text-color: blue
+    number-color: white
+  header:
+    hidden: true
+    background-color: default
+    text-color: white
+  result-row:
+    number-color: yellow
+    directory-color: green
