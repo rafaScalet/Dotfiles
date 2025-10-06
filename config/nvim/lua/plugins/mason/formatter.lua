@@ -17,7 +17,10 @@ return {
         java = { "google-java-format" },
         fish = { "fish_indent" },
         rust = { "rustfmt" },
-        xml = { "xmlformatter" },
+        xml = { "xmlformat" },
+        dockerfile = { "dockerfmt" },
+        nginx = { "nginxfmt" },
+        nix = { "nixpkgs_fmt", "nixfmt" },
       },
       format_on_save = {
         timeout_ms = 1000,

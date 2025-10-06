@@ -1,9 +1,14 @@
+catppuccin
 dotnet
 fatec
 javac
+nixos
+nixpkgs
+pkgs
 postgre
 postgres
 postgresql
 rafa
 rafascalet
 scalet
+topgrade

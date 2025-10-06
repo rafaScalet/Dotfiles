@@ -1,6 +1,7 @@
 add_newline = false
-format = """$directory\n$character"""
+format = """$character"""
 right_format = """
+$nix_shell
 $sudo
 $cmd_duration
 $battery
@@ -11,6 +12,7 @@ $nodejs
 $bun
 $deno
 $java
+$gradle
 $php
 $python
 $dotnet
@@ -36,6 +38,12 @@ read_only_style = "cyan"
 truncation_length = 100
 truncate_to_repo = false
 read_only = "  "
+
+[nix_shell]
+format = '[$symbol$state (\($name\))]($style) '
+disabled = false
+symbol = " "
+style = "bold dimmed blue"
 
 [shell]
 disabled = false
@@ -131,6 +139,12 @@ format = "[ $symbol $version ]($style)"
 version_format = "${raw}"
 style = "bold dimmed blue"
 symbol = "󰢱"
+
+[gradle]
+format = "[ $symbol $version ]($style)"
+version_format = "${raw}"
+style = "bold dimmed cyan"
+symbol = ""
 
 [git_branch]
 format = "[ $symbol $branch ]($style)"

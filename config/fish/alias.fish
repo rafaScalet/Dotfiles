@@ -8,7 +8,7 @@ if type -q sudo
 end
 
 if type -q eza
-    alias eza="eza --git --icons --oneline --group --group-directories-first --no-quotes"
+    alias eza="eza --git --icons --oneline --group --group-directories-first --no-quotes --header --octal-permissions"
 
     alias ls="eza"
     alias ll="eza --long"
@@ -19,17 +19,9 @@ if type -q eza
 end
 
 if type -q bat
-    alias cat="bat --pager never"
+    alias cat="bat"
 else if type -q bat-cat
-    alias cat="bat-cat --pager never"
-end
-
-if type -q fastfetch
-    alias fetch="fastfetch -c examples/7.jsonc"
-end
-
-if type -q http
-    alias hp="http --format-options json.indent:2"
+    alias cat="bat-cat"
 end
 
 function prv --argument-names file
@@ -37,11 +29,15 @@ function prv --argument-names file
         echo "Need a file"
     end
 
-    set mime (file --mime-type -b $file)
+    set mime (
+        type -q file; and file --mime-type -b $file; or type -q xdg-mime; and xdg-mime query filetype $file
+    )
 
     switch $mime
         case application/pdf
             pdftoppm -png -singlefile $file | chafa -
+        case application/zip
+            ouch list $file
         case 'application/*'
             cat $file
         case 'image/*'

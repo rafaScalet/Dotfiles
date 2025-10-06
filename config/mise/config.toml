@@ -1,15 +1,27 @@
 [tools]
 node = 'lts'
+bun = 'latest'
+deno = 'latest'
 java = 'lts'
 maven = 'latest'
-deno = 'latest'
-bun = 'latest'
+gradle = 'latest'
+spring-boot = 'latest'
+python = 'latest'
+pipx = 'latest'
+uv = 'latest'
+go = 'latest'
+yq = 'latest'
+jq = 'latest'
+android-sdk = 'latest'
+kotlin = 'latest'
+flutter = 'latest'
 
 [env]
 _.file = '{{ cwd }}/.env'
 _.source = '{{ cwd }}/.venv/bin/activate'
 _.path = [
   '{{ cwd }}',
+  '{{ cwd }}/result/bin',
   '{{ cwd }}/target/debug',
   '{{ cwd }}/target/release',
   '{{ cwd }}/node_modules/.bin',
@@ -58,4 +70,8 @@ alias = 'pf'
 
 [settings]
 idiomatic_version_file_enable_tools = ["node", "java"]
+all_compile = false
 experimental = true
+node.gpg_verify = false
+python.venv_stdlib = true
+python.venv_auto_create = true

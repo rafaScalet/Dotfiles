@@ -46,6 +46,7 @@ bind("n", "<leader>br", "<cmd>e#<cr>", { desc = "Buffer Recent" })
 
 bind({ "n", "x" }, "<leader>y", '"+y', { desc = "Copy To The Clipboard" })
 bind("n", "<leader>Y", '"+Y', { desc = "Copy Line To The Clipboard" })
+bind("n", "<leader>p", '"+p', { desc = "Paste from the Clipboard" })
 
 bind({ "n", "v", "o" }, "B", "^", { desc = "Move to beginning of line" })
 bind({ "n", "v", "o" }, "E", "$", { desc = "Move to end of line" })

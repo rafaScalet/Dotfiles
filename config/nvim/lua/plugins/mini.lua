@@ -47,18 +47,11 @@ return {
   end,
   keys = {
     {
-      "<leader>mff",
+      "<leader>E",
       function()
         MiniFiles.open(vim.api.nvim_buf_get_name(0))
       end,
-      desc = "Current Path",
-    },
-    {
-      "<leader>mfr",
-      function()
-        MiniFiles.open()
-      end,
-      desc = "Root Path",
+      desc = "File Explorer",
     },
   },
 }

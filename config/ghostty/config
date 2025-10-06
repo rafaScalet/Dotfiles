@@ -1,4 +1,4 @@
-theme = light:Catppuccin Latte,dark:Catppuccin Mocha
+theme = light:catppuccin-latte,dark:catppuccin-mocha
 confirm-close-surface = false
 font-family = JetBrainsMono Nerd Font Propo
 title = " "

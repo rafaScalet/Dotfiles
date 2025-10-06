@@ -3,16 +3,14 @@ pre_sudo = true
 no_retry = true
 run_in_tmux = true
 tmux_session_mode = "attach_always"
+disable = ["nix", "system"]
 
-[firmware]
-upgrade = true
-
-[mandb]
-enable = true
+[linux]
+nix_arguments = "--impure --flake /home/scalet/Dotfiles/nixos#nix-btw"
 
 [commands]
 "Neovim Mason" = "nvim --headless +MasonToolsUpdateSync +messages +qa"
 "Neovim TreeSitter" = "nvim --headless +TSUpdateSync +messages +qa"
 
 [git]
-repos = ["~/Projects/*/", "~/.packages/*/", "~/Dotfiles/"]
+repos = ["~/Projects/*/", "~/Dotfiles/"]

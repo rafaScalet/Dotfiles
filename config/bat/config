@@ -3,3 +3,4 @@
 --theme-light=Latte
 --style=numbers,changes
 --map-syntax='**/*git/config:Git Config'
+--pager=never

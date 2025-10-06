@@ -1,33 +1,20 @@
 # @fish-lsp-disable 2002 
 source $__fish_config_dir/alias.fish
 
-set -gx ONLYOFFICE_PARAM --system-title-bar
-
-# Shell Config
-set -gx XDG_CONFIG_HOME $HOME/.config
-set -gx XDG_CACHE_HOME $HOME/.cache
-set -gx XDG_STATE_HOME $HOME/.local/state
-set -gx XDG_DATA_HOME $HOME/.local/share
-set -gx XDG_BIN_HOME $HOME/.local/bin
-set -gx DOTFILES_DIR $HOME/Dotfiles
-set -gx SCRIPTS_DIR $DOTFILES_DIR/scripts
-
-set -gx PATH $SCRIPTS_DIR $XDG_BIN_HOME $XDG_DATA_HOME/nvim/mason/bin/ $PATH
-
-set -gx MANPAGER "env BATMAN_IS_BEING_MANPAGER=yes bash /usr/bin/batman"
-set -gx MANROFFOPT -c
-
-set -gx CDPATH ~/Projects ~
-
 fish_vi_key_bindings
 
-# This function is masked and does nothing
+# Don't show the vi mode in the prompt
 function fish_default_mode_prompt
 end
 
-# ATAC Config
-set -gx ATAC_KEY_BINDINGS $XDG_CONFIG_HOME/atac-vim.toml
-set -gx ATAC_THEME $XDG_CONFIG_HOME/atac-theme.toml
+# Don't prompt a "hello" message
+function fish_greeting
+end
+
+# Mise Config, needs to be outside the interactive session
+if type -q mise
+    mise activate fish | source
+end
 
 # Everything below this line, is only executed in interactive mode
 status is-interactive || exit
@@ -36,19 +23,6 @@ status is-interactive || exit
 type -q fisher; or curl -sL https://git.io/fisher | source && fisher update
 
 # Shell Integrations Config
-type -q nvim; and set -gx EDITOR nvim; or set -gx EDITOR vim
-
-set -gx GOPATH $XDG_DATA_HOME/go
-set -gx PATH $GOPATH/bin $PATH
-
-set -gx CARGO_HOME $XDG_DATA_HOME/cargo
-set -gx PATH $CARGO_HOME/bin $PATH
-
-set -gx RUSTUP_HOME $XDG_DATA_HOME/rustup
-
-function fish_greeting
-    type -q fastfetch; and fastfetch
-end
 
 # FZF Config
 set -gx FZF_DEFAULT_OPTS "
@@ -101,6 +75,14 @@ if type -q starship
     enable_transience
 end
 
+if type -q tv
+    tv init fish | source
+end
+
+if type -q nix-your-shell
+    nix-your-shell fish | source
+end
+
 # Shell Theme Config
 if test (gsettings get org.gnome.desktop.interface color-scheme) = "'prefer-dark'"
     fish_config theme choose "Catppuccin Mocha"
@@ -116,9 +98,12 @@ abbr md "mkdir -p"
 abbr . "cd ."
 abbr -- - "cd -"
 abbr upgrade topgrade
-abbr e $EDITOR
+abbr v $EDITOR
 abbr lzd lazydocker
 abbr lzg lazygit
+
+abbr -a --position anywhere -- --help '--help | bat -Pplhelp'
+abbr -a --position anywhere -- -h '-h | bat -Pplhelp'
 
 # Binds
 bind --mode insert ctrl-alt-g lazygit

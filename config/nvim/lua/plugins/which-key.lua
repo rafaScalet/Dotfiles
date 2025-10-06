@@ -7,7 +7,7 @@ return {
     preset = "helix",
     icons = { mappings = false },
     spec = {
-      { "<leader>", group = "Leader" },
+      { "<leader>", group = "Leader", mode = { "n", "v" } },
 
       -- Git
       { "<leader>g", group = "Git" },
@@ -22,17 +22,17 @@ return {
       { "<leader>lc", group = "Code" },
 
       -- Code
-      { "<leader>c", group = "Code" },
+      { "<leader>c", group = "Code", mode = { "n", "v" } },
       { "<leader>cs", group = "Swap" },
       { "<leader>ca", group = "Text Case" },
       { "<leader>cal", group = "LSP Rename" },
       { "<leader>caw", group = "Current Word Rename" },
       { "<leader>cc", group = "Comment" },
-      { "<leader>cm", group = "Surround" },
+      { "<leader>cm", group = "Surround", mode = { "n", "v" } },
 
       -- Utils
       { "<leader>b", group = "Buffer" },
-      { "<leader>F", group = "Flash" },
+      { "<leader>F", group = "Flash", mode = { "n", "v" } },
 
       -- Find (Snacks.nvim)
       { "<leader>f", group = "Find" },
