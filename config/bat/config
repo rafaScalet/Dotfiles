@@ -3,4 +3,5 @@
 --theme-light=Latte
 --style=numbers,changes
 --map-syntax='**/*git/config:Git Config'
+--map-syntax='**/flake.lock:JSON'
 --pager=never

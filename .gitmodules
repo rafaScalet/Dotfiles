@@ -1,0 +1,6 @@
+[submodule "config/bat/syntaxes/tmux"]
+  path = config/bat/syntaxes/tmux
+  url = https://github.com/gerardroche/sublime-tmux.git
+[submodule "config/bat/syntaxes/yarn"]
+  path = config/bat/syntaxes/yarn
+  url = https://github.com/alexkuz/sublime-yarn-lock.git
