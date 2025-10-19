@@ -29,13 +29,25 @@
       system = "x86_64-linux";
       overlays = [
         nur.overlays.default
-        (_: prev: { unstable = import unstable { inherit (prev) system; }; })
         (_: _: { spicetify = spicetify.legacyPackages.${system}; })
+        (_: prev: {
+          unstable = import unstable {
+            inherit (prev) system;
+            config = prev.config;
+            overlays = prev.overlays;
+          };
+        })
       ];
     in {
       nixosConfigurations.nix-btw = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
+          {
+            nixpkgs = {
+              config.allowUnfree = true;
+              inherit overlays;
+            };
+          }
           ./nixos/system.nix
           ./nixos/gnome.nix
           ./nixos/env.nix
@@ -44,8 +56,6 @@
           nixos-cli.nixosModules.nixos-cli
           spicetify.nixosModules.spicetify
           {
-            nixpkgs.overlays = overlays;
-
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";

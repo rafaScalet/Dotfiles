@@ -35,8 +35,6 @@
     shell = pkgs.fish;
   };
 
-  nixpkgs.config.allowUnfree = true;
-
   boot.loader.limine.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -44,6 +42,8 @@
   networking.networkmanager.enable = true;
 
   time.timeZone = "America/Sao_Paulo";
+
+  hardware.graphics.enable = true;
 
   i18n = {
     defaultLocale = "pt_BR.UTF-8";
@@ -139,8 +139,19 @@
     colorScheme = "mocha";
   };
 
+  programs.steam = {
+    enable = true;
+    gamescopeSession.enable = true;
+  };
+
+  programs = {
+    gamemode.enable = true;
+    gamescope.enable = true;
+  };
+
   environment.systemPackages = with pkgs.unstable;
     [
+      adwsteamgtk
       arduino-cli
       atac
       bat-extras.batman
@@ -152,6 +163,7 @@
       carapace-bridge
       catppuccin-papirus-folders
       chafa
+      deja-dup
       delta
       dysk
       emojify
@@ -167,8 +179,10 @@
       gnome-boxes
       httpie
       hyperfine
+      jstest-gtk
       lazydocker
       lima
+      lutris
       magnetic-catppuccin-gtk
       mise
       mission-center
@@ -179,11 +193,14 @@
       nix-your-shell
       nushell
       nvd
+      obsidian
       onlyoffice-desktopeditors
       ouch
       pinta
+      pitivi
       planify
       poppler-utils
+      protonplus
       ripgrep
       ripgrep-all
       rustup
