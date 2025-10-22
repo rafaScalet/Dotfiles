@@ -25,6 +25,7 @@
     flavor = "mocha";
     tty.enable = true;
     limine.enable = true;
+    plymouth.enable = true;
   };
 
   users.users.scalet = {
@@ -37,6 +38,7 @@
 
   boot.loader.limine.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.plymouth.enable = true;
 
   networking.hostName = "nix-btw";
   networking.networkmanager.enable = true;
@@ -120,6 +122,7 @@
     tmux.enable = true;
     vivid.enable = true;
     thunderbird.enable = true;
+    localsend.enable = true;
   };
 
   programs.gnupg.agent = {
@@ -163,7 +166,7 @@
       carapace-bridge
       catppuccin-papirus-folders
       chafa
-      deja-dup
+      collision
       delta
       dysk
       emojify
@@ -212,7 +215,6 @@
       treefmt
       unzip
       usql
-      varia
       wget
       wl-clipboard
       xdg-ninja

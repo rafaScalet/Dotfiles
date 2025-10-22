@@ -15,6 +15,7 @@ jq = 'latest'
 android-sdk = 'latest'
 kotlin = 'latest'
 flutter = 'latest'
+watchexec = "latest"
 
 [env]
 _.file = '{{ cwd }}/.env'
