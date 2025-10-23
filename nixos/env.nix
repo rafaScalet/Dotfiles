@@ -1,8 +1,9 @@
-{ ... }: {
+{ pkgs, ... }: {
   environment.variables = rec {
     # For some reason on NixOS 25.05 this is necessary for gnome applications
-    GSK_RENDERER = "opengl";
+    # GSK_RENDERER = "opengl";
 
+    # XDG base specification
     XDG_CACHE_HOME = "$HOME/.cache";
     XDG_CONFIG_HOME = "$HOME/.config";
     XDG_DATA_HOME = "$HOME/.local/share";
@@ -11,8 +12,6 @@
 
     DOTFILES_DIR = "$HOME/Dotfiles";
     SCRIPTS_DIR = "$DOTFILES_DIR/scripts";
-
-    ONLYOFFICE_PARAM = [ "--system-title-bar" ];
 
     MANPAGER = "env BATMAN_IS_BEING_MANPAGER=yes batman --pager=less";
     MANROFFOPT = [ "-c" ];
@@ -27,6 +26,11 @@
 
     GOPATH = "${XDG_DATA_HOME}/go";
     GOBIN = "${GOPATH}/bin";
+
+    # required for tools installed outside the Nix store to see the C library headers.
+    # (e.g. arduino-language-server installed via mason.nvim)
+    CPATH = "${pkgs.glibc.dev}/include";
+    LIBRARY_PATH = "${pkgs.glibc}/lib";
 
     PATH = [
       "${XDG_BIN_HOME}"

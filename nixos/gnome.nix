@@ -25,11 +25,9 @@ let
   tuple = tuple: lib.gvariant.mkTuple tuple;
   double = double: lib.gvariant.mkDouble double;
 
-  extensionsPkgs =
-    builtins.map (name: pkgs.unstable.gnomeExtensions.${name}) extensions;
+  extensionsPkgs = builtins.map (name: pkgs.gnomeExtensions.${name}) extensions;
   extensionsUuid =
-    builtins.map (name: pkgs.unstable.gnomeExtensions.${name}.extensionUuid)
-    extensions;
+    builtins.map (name: pkgs.gnomeExtensions.${name}.extensionUuid) extensions;
 in {
   programs.dconf.profiles.user.databases = [{
     lockAll = true;

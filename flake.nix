@@ -1,11 +1,10 @@
 {
   description = "My NixOS Setup";
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-25.05";
-    unstable.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -19,33 +18,29 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    catppuccin.url = "github:catppuccin/nix/release-25.05";
+    catppuccin = {
+      url = "github:catppuccin/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    spicetify.url = "github:Gerg-L/spicetify-nix";
+    spicetify = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-  outputs = { self, nixpkgs, unstable, home-manager, nur, catppuccin, nixos-cli
-    , spicetify }:
-    let
-      system = "x86_64-linux";
-      overlays = [
-        nur.overlays.default
-        (_: _: { spicetify = spicetify.legacyPackages.${system}; })
-        (_: prev: {
-          unstable = import unstable {
-            inherit (prev) system;
-            config = prev.config;
-            overlays = prev.overlays;
-          };
-        })
-      ];
-    in {
+  outputs = { self, ... }@inputs:
+    let system = "x86_64-linux";
+    in with inputs; {
       nixosConfigurations.nix-btw = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           {
             nixpkgs = {
               config.allowUnfree = true;
-              inherit overlays;
+              overlays = [
+                nur.overlays.default
+                (_: _: { spicetify = spicetify.legacyPackages.${system}; })
+              ];
             };
           }
           ./nixos/system.nix
