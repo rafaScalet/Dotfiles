@@ -1,4 +1,5 @@
 nektos/gh-act
+dlvhdr/gh-dash
 gennaro-tedesco/gh-f
 gennaro-tedesco/gh-i
 yusukebe/gh-markdown-preview

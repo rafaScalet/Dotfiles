@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 let
   dotfiles = "${config.home.homeDirectory}/Dotfiles";
 
@@ -14,11 +14,6 @@ let
 in {
   home.username = "scalet";
   home.homeDirectory = "/home/scalet";
-
-  programs.gh = {
-    enable = true;
-    extensions = with pkgs; [ gh-dash gh-markdown-preview gh-i gh-f gh-s ];
-  };
 
   xdg.configFile = builtins.listToAttrs (map (name: {
     inherit name;

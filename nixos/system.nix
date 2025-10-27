@@ -110,6 +110,8 @@
 
     libvirtd.enable = true;
     kvmgt.enable = true;
+
+    spiceUSBRedirection.enable = true;
   };
 
   programs = {
@@ -123,6 +125,7 @@
     vivid.enable = true;
     thunderbird.enable = true;
     localsend.enable = true;
+    virt-manager.enable = true;
   };
 
   programs.gnupg.agent = {
@@ -154,9 +157,9 @@
 
   environment.systemPackages = with pkgs; [
     adwsteamgtk
-    alacritty
     arduino-cli
     atac
+    atuin
     bat-extras.batman
     bibata-cursors
     bottom
@@ -178,6 +181,7 @@
     fzf
     gcc
     gdu
+    gh
     ghostty
     glab
     glibc
@@ -193,6 +197,7 @@
     magnetic-catppuccin-gtk
     mise
     mission-center
+    mkcert
     newsflash
     nix-health
     nix-output-monitor
@@ -203,7 +208,10 @@
     nvd
     obsidian
     onlyoffice-desktopeditors
+    openapi-tui
+    opencode
     ouch
+    pgcli
     pinta
     pitivi
     planify

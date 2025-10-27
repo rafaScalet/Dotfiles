@@ -13,7 +13,7 @@ gui:
       - black
 
   branchColorPatterns:
-    "^(main|master|dev|develop|development)$": magenta
+    "^(main|master|dev|develop|development|stage)$": magenta
     "^(docs|documentation)/": blue
     "^(feat|feature)/": yellow
     "^(refc|refac|refactor|refactoring)/": green

@@ -36,7 +36,7 @@ in {
         enabled-extensions = extensionsUuid;
         disable-user-extensions = false;
         favorite-apps = [
-          "com.mitchellh.ghostty.desktop"
+          "kitty.desktop"
           "brave-browser.desktop"
           "obsidian.desktop"
           "io.github.alainm23.planify.desktop"
@@ -173,8 +173,8 @@ in {
     yelp
   ];
 
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
 
   services.gnome.sushi.enable = true;
 
