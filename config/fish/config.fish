@@ -83,6 +83,10 @@ if type -q nix-your-shell
     nix-your-shell fish | source
 end
 
+if type -q atuin
+    atuin init fish | source
+end
+
 # Shell Theme Config
 if test (gsettings get org.gnome.desktop.interface color-scheme) = "'prefer-dark'"
     fish_config theme choose "Catppuccin Mocha"

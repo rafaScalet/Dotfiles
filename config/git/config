@@ -20,6 +20,8 @@
   insteadOf = "hgh:"
 [url "https://aur.archlinux.org/"]
   insteadOf = "aur:"
+[url "git@github.com:catppuccin/"]
+  insteadOf = "cat:"
 [interactive]
   diffFilter = delta --color-only
 [merge]
