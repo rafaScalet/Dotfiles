@@ -63,7 +63,7 @@ toggle_element = "Shift-T"    # Only used in tables (Query params, headers, cook
 duplicate_element = "Shift-Y"
 
 [keybindings.request_selected]
-param_next_tab = "Ctrl-F"
+param_next_tab = "t"
 
 change_url = "Shift-U"
 change_method = "Shift-M"
@@ -79,6 +79,7 @@ export_request = "Ctrl-e"
 [keybindings.request_selected.param_tabs]
 change_auth_method = "Shift-A"
 change_body_content_type = "Shift-B"
+change_message_type = "Shift-M"
 
 [keybindings.request_selected.result_tabs]
 scroll_up = "Ctrl-k"
@@ -88,4 +89,4 @@ scroll_right = "Ctrl-l"
 
 yank_response_part = "Shift-Y" # Used to yank the current result tab (e.g. body, headers, cookies)
 
-result_next_tab = "Shift-F" # Will use param_next_tab depending on the selected view
+result_next_tab = "Ctrl-t" # Will use param_next_tab depending on the selected view

@@ -6,7 +6,7 @@
   defaultBranch = main
 [include]
   path = alias.gitconfig
-  path = catppuccin.gitconfig
+  path = delta.gitconfig
 [core]
   pager = delta
 	excludesFile = ~/.gitignore
@@ -42,6 +42,4 @@
   gpgsign = true
   verbose = true
 [delta]
-  navigate = true
-  line-numbers = true
-  features = catppuccin-mocha
+  features = catppuccin

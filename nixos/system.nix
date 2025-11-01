@@ -88,6 +88,7 @@
     config = {
       config_location = "/home/scalet/Dotfiles";
       use_nvd = true;
+      no_confirm = true;
       apply = {
         use_nom = true;
         ignore_dirty_tree = true;
@@ -197,6 +198,7 @@
     magnetic-catppuccin-gtk
     mise
     mission-center
+    goose-cli
     mkcert
     newsflash
     nix-health
@@ -214,6 +216,7 @@
     pgcli
     pinta
     pitivi
+    tree-sitter
     planify
     poppler-utils
     protonplus

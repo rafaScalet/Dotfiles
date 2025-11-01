@@ -27,6 +27,10 @@
     GOPATH = "${XDG_DATA_HOME}/go";
     GOBIN = "${GOPATH}/bin";
 
+    # ATAC config, needs to be done via environment variables. LOL
+    ATAC_KEY_BINDINGS = "${XDG_CONFIG_HOME}/atac-vim.toml";
+    ATAC_THEME = "${XDG_CONFIG_HOME}/atac-theme.toml";
+
     # required for tools installed outside the Nix store to see the C library headers.
     # (e.g. arduino-language-server installed via mason.nvim)
     CPATH = "${pkgs.glibc.dev}/include";

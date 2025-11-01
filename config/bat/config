@@ -1,6 +1,6 @@
---theme=Mocha
---theme-dark=Mocha
---theme-light=Latte
+--theme='Catppuccin Mocha'
+--theme-dark='Catppuccin Mocha'
+--theme-light='Catppuccin Latte'
 --style=numbers,changes
 --map-syntax='**/*git/config:Git Config'
 --map-syntax='**/flake.lock:JSON'

@@ -1,0 +1,13 @@
+connections:
+  postgres:
+    protocol: postgres
+    username: docker
+    password: postgres
+    hostname: localhost
+    port: 5432
+    database: example
+  sqlite: file:local.db
+init: |
+  \echo welcome scalet, master of all data
+  \set SYNTAX_HL_STYLE catppuccin-mocha
+  \set PROMPT1 '\033[1;35m%S%N%M%>%/ \033[3;1;32m%R%#\033[0m '
