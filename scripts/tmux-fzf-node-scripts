@@ -1,8 +1,11 @@
 #! /usr/bin/env fish
 
-set scripts
+set command
 set get_script
 set package_manager
+set runtime
+set scripts
+set selected
 
 if test -e deno.json
     set scripts (jq -r '.tasks | to_entries[] | "\(.key)"' deno.json)
@@ -23,15 +26,13 @@ else if test -e package.json
             set package_manager yarn
         else if test -e bun.lock -oe bun.lockb -oe bunfig.toml
             set package_manager bun
-        else
-            tmux display-message "failed to determine package manager"
-            return
         end
     end
-else
-    tmux display-message "package.json or deno.json not found"
-    return
 end
+
+set scripts $scripts "repl:node" "repl:deno" "repl:bun"
+
+set scripts $scripts "cmd:install" "cmd:list"
 
 set selected (
     printf '%s\n' $scripts | fzf \
@@ -46,5 +47,24 @@ set selected (
 )
 
 test -z "$selected"; and return
+
+if string match -q 'repl:*' $selected
+    set runtime (string split ':' $selected | tail -n1)
+
+    tmux new-window -n "$selected" -S "$runtime"
+
+    return
+end
+
+if string match -q 'cmd:*' $selected
+    if test -z "$package_manager"
+        tmux display-message "failed to determine package manager to use, you need to generate the lock file first!"
+        return
+    end
+
+    set command (string split ':' $selected | tail -n1)
+
+    tmux new-window -n "$package_manager:$selected" -S "$package_manager $command; read -P 'Press enter to close'"
+end
 
 tmux new-window -n "$package_manager:$selected" -S "$package_manager run $selected; read -P 'Press enter to close'"

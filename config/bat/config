@@ -3,5 +3,6 @@
 --theme-light='Catppuccin Latte'
 --style=numbers,changes
 --map-syntax='**/*git/config:Git Config'
---map-syntax='**/flake.lock:JSON'
+--map-syntax='deno.lock:JSON'
+--map-syntax='bun.lock:JSON'
 --pager=never
