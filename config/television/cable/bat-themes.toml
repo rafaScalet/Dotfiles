@@ -1,0 +1,10 @@
+[metadata]
+name = "bat-themes"
+description = "A channel to display all available bat themes"
+requirements = ["bat"]
+
+[source]
+command = ["bat --list-themes"]
+
+[preview]
+command = "bat -pn --color always --theme '{}' $XDG_CONFIG_HOME/television/config.toml"

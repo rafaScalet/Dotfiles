@@ -88,13 +88,8 @@ if type -q atuin
 end
 
 # Shell Theme Config
-if test (gsettings get org.gnome.desktop.interface color-scheme) = "'prefer-dark'"
-    fish_config theme choose "Catppuccin Mocha"
-    type -q vivid; and set -gx LS_COLORS (vivid generate catppuccin-mocha)
-else
-    fish_config theme choose "Catppuccin Latte"
-    type -q vivid; and set -gx LS_COLORS (vivid generate catppuccin-latte)
-end
+fish_config theme choose "Catppuccin Mocha"
+type -q vivid; and set -gx LS_COLORS (vivid generate catppuccin-mocha)
 
 # Abbreviations
 abbr q exit

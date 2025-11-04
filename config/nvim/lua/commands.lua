@@ -26,6 +26,13 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   end,
 })
 
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "**/swag.conf" },
+  callback = function()
+    vim.bo.filetype = "nginx"
+  end,
+})
+
 vim.api.nvim_create_autocmd({ "TermOpen" }, {
   callback = function()
     vim.opt.number = false

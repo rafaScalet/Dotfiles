@@ -1,0 +1,10 @@
+[metadata]
+name = "groups"
+description = "A channel to browse all the groups available"
+requirements = ["cut", "tail", "sort"]
+
+[source]
+command = "getent group | sort | cut -d: -f1"
+
+[preview]
+command = "getent group {}"

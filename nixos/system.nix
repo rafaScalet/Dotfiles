@@ -121,7 +121,6 @@
     git.enable = true;
     lazygit.enable = true;
     nix-ld.enable = true;
-    starship.enable = true;
     tmux.enable = true;
     vivid.enable = true;
     thunderbird.enable = true;
@@ -166,6 +165,7 @@
     bottom
     brave
     cacert
+    starship
     carapace
     carapace-bridge
     catppuccin-papirus-folders
@@ -173,6 +173,7 @@
     clang
     collision
     delta
+    denaro
     dysk
     emojify
     eza
@@ -188,6 +189,7 @@
     glibc
     glow
     gnome-boxes
+    goose-cli
     httpie
     hyperfine
     jstest-gtk
@@ -198,13 +200,13 @@
     magnetic-catppuccin-gtk
     mise
     mission-center
-    goose-cli
     mkcert
     newsflash
     nix-health
     nix-output-monitor
     nix-search-tv
     nix-your-shell
+    nss
     nur.repos.grafcube.antidot
     nushell
     nvd
@@ -216,7 +218,6 @@
     pgcli
     pinta
     pitivi
-    tree-sitter
     planify
     poppler-utils
     protonplus
@@ -228,6 +229,7 @@
     tokei
     topgrade
     trash-cli
+    tree-sitter
     treefmt
     unzip
     usql

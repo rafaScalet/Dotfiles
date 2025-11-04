@@ -1,0 +1,7 @@
+[metadata]
+name = "usql-drivers"
+description = "A channel to browse all the usql drivers"
+requirements = ["usql"]
+
+[source]
+command = "usql -c '\\drivers' | tail -n +2"

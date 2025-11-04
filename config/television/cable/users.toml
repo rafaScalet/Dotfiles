@@ -1,0 +1,10 @@
+[metadata]
+name = "users"
+description = "A channel to browse all the users available"
+requirements = ["getent", "sort", "cut", "get-user-info"]
+
+[source]
+command = "getent passwd | sort | cut -d: -f1"
+
+[preview]
+command = "get-user-info {}"

@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+USER_TARGET=${1:-$USER}
+
+INFO=$(getent passwd "$USER_TARGET")
+
+if [ -z "$INFO" ]; then
+  echo "user '$USER_TARGET' not found"
+  exit 1
+fi
+
+IFS=':' read -r LOGIN PASS D_UID GID NAME D_HOME D_SHELL <<< "$INFO"
+
+BLUE="\033[1;34m"
+RESET="\033[0m"
+
+echo -e "${BLUE}User:${RESET} $LOGIN"
+echo -e "${BLUE}UID:${RESET} $D_UID"
+echo -e "${BLUE}GID:${RESET} $GID"
+echo -e "${BLUE}Description:${RESET} ${NAME:-n/a}"
+echo -e "${BLUE}Home:${RESET} $D_HOME"
+echo -e "${BLUE}Shell:${RESET} $D_SHELL"
+
