@@ -221,6 +221,7 @@
     planify
     poppler-utils
     protonplus
+    rar
     ripgrep
     ripgrep-all
     rustup

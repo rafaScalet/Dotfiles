@@ -49,7 +49,13 @@ set selected (
 test -z "$selected"; and return
 
 if string match -q 'repl:*' $selected
-    set runtime (string split ':' $selected | tail -n1)
+    set runtime (
+        if string match -q '*:bun' $selected
+            echo "bun repl"
+        else
+            string split ':' $selected | tail -n1
+        end
+    )
 
     tmux new-window -n "$selected" -S "$runtime"
 
