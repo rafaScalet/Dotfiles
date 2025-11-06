@@ -17,7 +17,6 @@ return {
       default = { "buffer", "env", "lsp", "path", "snippets" },
       providers = { env = { module = "blink-cmp-env" } },
     },
-
     fuzzy = { implementation = "prefer_rust_with_warning" },
   },
   opts_extend = { "sources.default" },

@@ -158,7 +158,6 @@
   environment.systemPackages = with pkgs; [
     adwsteamgtk
     arduino-cli
-    atac
     atuin
     bat-extras.batman
     bibata-cursors
@@ -166,8 +165,6 @@
     brave
     cacert
     starship
-    carapace
-    carapace-bridge
     catppuccin-papirus-folders
     chafa
     clang
@@ -185,10 +182,8 @@
     gdu
     gh
     ghostty
-    glab
     glibc
     glow
-    gnome-boxes
     goose-cli
     httpie
     hyperfine
@@ -200,22 +195,16 @@
     magnetic-catppuccin-gtk
     mise
     mission-center
-    mkcert
     newsflash
-    nix-health
     nix-output-monitor
     nix-search-tv
     nix-your-shell
-    nss
     nur.repos.grafcube.antidot
     nushell
     nvd
     obsidian
     onlyoffice-desktopeditors
-    openapi-tui
-    opencode
     ouch
-    pgcli
     pinta
     pitivi
     planify

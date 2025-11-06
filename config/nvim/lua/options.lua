@@ -5,6 +5,8 @@ vim.opt.softtabstop = 2
 
 vim.opt.winborder = "rounded"
 
+vim.opt.laststatus = 3
+
 vim.opt.wrap = true
 
 vim.opt.smarttab = true

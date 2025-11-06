@@ -29,7 +29,6 @@ return {
         theme = custom_theme,
         component_separators = "",
         section_separators = "",
-        disabled_filetypes = { "snacks_dashboard", "trouble", "dbee" },
         always_divide_middle = false,
       },
       sections = {
