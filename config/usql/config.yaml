@@ -7,6 +7,13 @@ connections:
     port: 5432
     database: example
   local: file:local.db
+  easycoast:
+    protocol: postgres
+    username: postgres
+    password: teste01@
+    hostname: localhost
+    port: 5432
+    database: easy_coast
 init: |
   \echo 'welcome \033[1;34mscalet\033[0m, master of all data'
   \set SYNTAX_HL_STYLE catppuccin-mocha

@@ -40,8 +40,12 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.plymouth.enable = true;
 
-  networking.hostName = "nix-btw";
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "nix-btw";
+    networkmanager.enable = true;
+    firewall.enable = true;
+    nftables.enable = true;
+  };
 
   time.timeZone = "America/Sao_Paulo";
 
@@ -181,6 +185,7 @@
     gcc
     gdu
     gh
+    networkmanagerapplet
     ghostty
     glibc
     glow
@@ -220,9 +225,9 @@
     topgrade
     trash-cli
     tree-sitter
-    treefmt
     unzip
     usql
+    vscodium
     wget
     wl-clipboard
     xdg-ninja
