@@ -13,7 +13,6 @@ hideoo.toggler
 meganrogge.template-string-converter
 mikestead.dotenv
 mintlify.document
-ms-python.debugpy
 ms-python.python
 naumovs.color-highlight
 redhat.java

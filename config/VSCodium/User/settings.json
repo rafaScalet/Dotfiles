@@ -34,6 +34,9 @@
     "asvetliakov.vscode-neovim": 1
   },
   // #endregion
+  // #region Amazon Q
+  "amazonQ.telemetry": false,
+  // #endregion
   // #region Workbench
   "workbench.colorCustomizations": {},
   "workbench.panel.showLabels": false,
@@ -58,9 +61,9 @@
   // #region Window
   "window.zoomLevel": 0,
   "window.commandCenter": false,
-  "window.menuBarVisibility": "toggle",
+  "window.menuBarVisibility": "visible",
   "window.autoDetectColorScheme": true,
-  "window.titleBarStyle": "native",
+  "window.titleBarStyle": "custom",
   "window.title": "${folderName}",
   "window.customTitleBarVisibility": "auto",
   "window.newWindowProfile": "Default",
@@ -115,7 +118,9 @@
     "tsconfig.json": "tsconfig.*.json, *.tsbuildinfo",
     ".env": ".env.*",
     "mise.toml": "mise.*.toml",
-    "package.json": "package-lock.json, yarn.lock, pnpm-*.yaml, bun.lockb"
+    "package.json": "package-lock.json, yarn.lock, pnpm-*.yaml, bun.lockb",
+    ".gitignore": ".gitmodules",
+    "flake.nix": "flake.lock"
   },
   // #endregion
   // #region Files
