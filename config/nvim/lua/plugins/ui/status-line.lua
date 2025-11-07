@@ -18,7 +18,7 @@ return {
       local reg = vim.fn.reg_recording()
 
       if reg ~= "" then
-        return "Recording @" .. reg
+        return "@" .. reg
       else
         return ""
       end
@@ -32,8 +32,8 @@ return {
         always_divide_middle = false,
       },
       sections = {
-        lualine_a = { { "mode", separator = { left = "", right = "" } } },
-        lualine_b = { { recording } },
+        lualine_a = {},
+        lualine_b = { { "mode", icon = I.terminal }, { recording, icon = I.play } },
         lualine_c = {
           "%=",
           {
@@ -55,10 +55,11 @@ return {
           },
         },
         lualine_x = {},
-        lualine_y = { { "branch", icon = I.git.branch } },
-        lualine_z = {
-          { "filename", separator = { right = "", left = "" }, symbols = { modified = "", readonly = "" } },
+        lualine_y = {
+          { "branch", icon = I.git.branch },
+          { "filename", symbols = { modified = "", readonly = "" }, icon = I.fs.file.i },
         },
+        lualine_z = {},
       },
     })
   end,

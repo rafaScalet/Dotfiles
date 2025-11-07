@@ -51,6 +51,30 @@ vim.api.nvim_create_user_command("MakeExec", function()
   print("Made " .. file_name .. " executable")
 end, {})
 
+vim.api.nvim_create_user_command("PrintPath", function(opts)
+  local args = opts.args ~= "" and opts.args or "relative"
+
+  local handlers = {
+    absolute = vim.fn.expand("%:p:/"),
+    home = vim.fn.expand("%:p:~"),
+    relative = vim.fn.expand("%:p:."),
+  }
+
+  local value = handlers[args]
+
+  if not value then
+    vim.notify("Uso: :PrintPath [absolute|home|relative]", vim.log.levels.WARN, { title = "PrintPath" })
+    return
+  end
+
+  vim.notify(value, vim.log.levels.INFO, { title = "PrintPath" })
+end, {
+  nargs = "*",
+  complete = function(_, _, _)
+    return { "absolute", "home", "relative" }
+  end,
+})
+
 function SortOperator(type_or_range, opts)
   local start_pos, end_pos
 

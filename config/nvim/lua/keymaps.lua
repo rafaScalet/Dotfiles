@@ -12,6 +12,10 @@ bind("i", "kk", "<Esc>", { desc = "Exit insert mode with 'kk'" })
 bind({ "x", "v", "n" }, "<leader>co", "<cmd>Sort<cr>", { desc = "Sort" })
 bind("n", "<leader>cx", "<cmd>MakeExec<cr>", { desc = "Make File Executable" })
 
+bind({ "n", "v" }, "<leader>pp", "<cmd>PrintPath relative<cr>", { desc = "Relative to CWD" })
+bind({ "n", "v" }, "<leader>ph", "<cmd>PrintPath home<cr>", { desc = "Relative to Home" })
+bind({ "n", "v" }, "<leader>pa", "<cmd>PrintPath absolute<cr>", { desc = "Absolute" })
+
 bind("n", "<leader>x", "<cmd>source<cr>", { desc = "Source File (lua)" })
 bind("n", "<leader>X", "<cmd>.lua<cr>", { desc = "Execute line (lua)" })
 
@@ -46,7 +50,7 @@ bind("n", "<leader>br", "<cmd>e#<cr>", { desc = "Buffer Recent" })
 
 bind({ "n", "x" }, "<leader>y", '"+y', { desc = "Copy To The Clipboard" })
 bind("n", "<leader>Y", '"+Y', { desc = "Copy Line To The Clipboard" })
-bind("n", "<leader>p", '"+p', { desc = "Paste from the Clipboard" })
+bind("n", "<leader>P", '"+p', { desc = "Paste from the Clipboard" })
 
 bind({ "n", "v", "o" }, "B", "^", { desc = "Move to beginning of line" })
 bind({ "n", "v", "o" }, "E", "$", { desc = "Move to end of line" })
