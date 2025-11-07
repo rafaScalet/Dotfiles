@@ -84,7 +84,7 @@ if type -q nix-your-shell
 end
 
 if type -q atuin
-    atuin init fish | source
+    atuin init fish | sed 's/-k\ //' | source
 end
 
 # Shell Theme Config
