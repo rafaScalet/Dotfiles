@@ -219,6 +219,7 @@
     ripgrep
     ripgrep-all
     rustup
+    scrcpy
     television
     tlrc
     tokei

@@ -26,46 +26,39 @@ _.path = [
   '{{ cwd }}/node_modules/.bin',
 ]
 
-[tasks.java-execute]
+[tasks."java:execute"]
 description = 'Run a simple java project'
 run = 'java -cp dist {{arg(name="class-name")}}'
 usage = 'arg "class-name" default="Main"'
-alias = 'je'
-depends = ['java-build']
+depends = ['java:build']
 
-[tasks.java-build]
+[tasks."java:build"]
 description = 'Builds a simple java project'
 run = 'javac -d dist $(find src -name "*.java")'
-alias = 'jb'
 
-[tasks.jar-build]
+[tasks."java:jar:build"]
 run = 'jar cfm "$(basename "$PWD").jar" "$(find -iname manifest.mf)" -C dist .'
 description = 'generates a .jar file for a simple java project'
-alias = 'Jb'
 
-[tasks.jar-execute]
+[tasks."java:jar:execute"]
 run = 'java -jar "$(basename "$PWD")".jar'
 description = 'Execute the jar file for a simple java project'
-alias = 'Je'
-depends = ['jar-build']
+depends = ['java:jar:build']
 
-[tasks.py-venv]
+[tasks."python:venv"]
 description = 'create a python virtual environment'
 run = 'python -m venv {{arg(name="dir-name")}}'
 usage = 'arg "dir-name" default=".venv"'
-alias = 'pv'
 
-[tasks.py-requirements]
+[tasks."python:requirements"]
 description = 'install dependencies from requirements file'
 run = 'pip install -r {{arg(name="requirements-file")}}'
 usage = 'arg "requirements-file" default="requirements.txt"'
-alias = 'pr'
 
-[tasks.py-freeze]
+[tasks."python:freeze"]
 description = 'freeze deps from pip'
 run = 'pip freeze > {{arg(name="requirements-file")}}'
 usage = 'arg "requirements-file" default="requirements.txt"'
-alias = 'pf'
 
 [settings]
 idiomatic_version_file_enable_tools = ["node", "java"]

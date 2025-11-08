@@ -60,8 +60,6 @@
 
     DOCKER_CONFIG = "${XDG_CONFIG_HOME}/docker";
 
-    MAVEN_OPTS = ''-Dmaven.repo.local="${XDG_DATA_HOME}/maven"'';
-
     USQL_HISTORY = "${XDG_DATA_HOME}/usql/history";
 
     ANDROID_USER_HOME = "${XDG_DATA_HOME}/android";
