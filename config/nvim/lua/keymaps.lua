@@ -41,12 +41,13 @@ bind("n", "<localLeader>DV", dt.virtual_lines, { desc = "Toggle Virtual Lines" }
 
 bind("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "Buffer Delete" })
 bind("n", "<leader>bD", "<cmd>bdelete!<cr>", { desc = "Buffer Force Delete" })
-bind("n", "<leader>bn", "<cmd>bnext<cr>", { desc = "Buffer Next" })
-bind("n", "<leader>bp", "<cmd>bprev<cr>", { desc = "Buffer Previous" })
+bind("n", "<leader>bN", "<cmd>bnext<cr>", { desc = "Buffer Next" })
+bind("n", "<leader>bP", "<cmd>bprev<cr>", { desc = "Buffer Previous" })
 bind("n", "<leader>bf", "<cmd>bfirst<cr>", { desc = "Buffer First" })
 bind("n", "<leader>bl", "<cmd>blast<cr>", { desc = "Buffer Last" })
 bind("n", "<leader>bm", "<cmd>bmodified<cr>", { desc = "Buffer Modified" })
 bind("n", "<leader>br", "<cmd>e#<cr>", { desc = "Buffer Recent" })
+bind("n", "<leader>bn", "<cmd>enew<cr>", { desc = "Buffer New" })
 
 bind({ "n", "x" }, "<leader>y", '"+y', { desc = "Copy To The Clipboard" })
 bind("n", "<leader>Y", '"+Y', { desc = "Copy Line To The Clipboard" })

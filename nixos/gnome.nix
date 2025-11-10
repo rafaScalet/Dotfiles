@@ -126,6 +126,7 @@ in {
         hot-sensors = [ "_memory_usage_" "_processor_usage_" ];
         icon-style = int 1;
         menu-centered = true;
+        monitor-cmd = "missioncenter";
         battery-slot = int 1;
         use-higher-precision = true;
         update-time = int 1;

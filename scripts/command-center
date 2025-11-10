@@ -1,0 +1,157 @@
+#!/usr/bin/env fish
+
+set subcommands
+set command
+set node_package_manager
+
+if test -e "Cargo.toml" -o -e "Cargo.lock"
+    set subcommands (
+        cargo --list | tail -n +2 | awk '{printf "cargo:%-20s %s\n", $1, substr($0, index($0,$2))}'
+        cargo --list | tail -n +3 | awk '{printf "cargo:watch:%-20s %s\n", $1, substr($0, index($0,$2))}'
+    ) $subcommands
+
+else if test -e "deno.json" -o -e "deno.lock"
+    set subcommands (
+        jq -r '.tasks | to_entries[] | "deno:task:\(.key) \(.value)"' deno.json
+        deno --help | string match -r '^[[:space:]]{4,}[a-z]+' | string replace -r '^[[:space:]]+' '' | string replace -r '^' 'deno:'
+    ) $subcommands
+
+else if test -e "package.json"
+    if test -e "pnpm-lock.yaml" -o -e "pnpm-workspace.yaml"
+        set node_package_manager pnpm
+        set subcommands (
+            pnpm --help | awk '
+                BEGIN { OFS=""; last=""; n=0 }
+                /^[ \t]*[[:alnum:]_,-]+[ \t]*(,[ \t]*[[:alnum:]_ -]+)*[ \t]{2,}/ {
+                  line=$0
+                  match(line, /^[ \t]*([^ \t].*?)[ \t]{2,}(.*)$/, m)
+                  cmd=m[1]; desc=m[2]
+                  gsub(/^[ \t]+|[ \t]+$/, "", cmd)
+                  gsub(/^[ \t]+|[ \t]+$/, "", desc)
+                  nsplit=split(cmd, parts, ",")
+                  primary=parts[nsplit]
+                  gsub(/^[ \t]+|[ \t]+$/, "", primary)
+                  order[++n]=primary
+                  text[primary]=desc
+                  last=primary
+                  next
+                }
+                /^[ \t]+/ {
+                  if (last != "") {
+                    cont=$0
+                    gsub(/^[ \t]+/, "", cont)
+                    text[last]=text[last]" "cont
+                  }
+                  next
+                }
+                END {
+                  for (i=1;i<=n;i++) {
+                    k=order[i]
+                    if (k ~ /^--/) continue
+                    printf "pnpm:%-20s %s\n", k, text[k]
+                  }
+                }
+            '
+        ) (jq -r ".scripts | to_entries[] | \"pnpm:recursive:\(.key) \(.value)\"" package.json) $subcommands
+
+    else if test -e "yarn.lock"
+        set node_package_manager yarn
+        set subcommands (
+            yarn --help \
+                | string match -r '^\s*- [a-zA-Z0-9:-]+' \
+                | string replace -r '^\s*-\s*' 'yarn:' \
+                | string replace -r '\s*/.*$' ''
+        ) $subcommands
+
+    else if test -e "package-lock.json"
+        set node_package_manager npm
+        set subcommands (
+            npm --help \
+                | sed -n '/All commands:/,/Specify configs/p' \
+                | grep -oE '[a-z0-9-]+' \
+                | grep -vE 'All|Specify|configs' \
+                | sed 's/^/npm:/'
+        ) $subcommands
+
+    else if test -e "bun.lock" -o -e "bun.lockb" -o -e "bunfig.toml"
+        set node_package_manager bun
+        set subcommands (
+            bun \
+            | sed 's/\x1B\[[0-9;]*[A-Za-z]//g' \
+            | awk '/^Commands:/{flag=1;next}/^Learn more/{flag=0}flag' \
+            | sed '/^  </d' \
+            | awk '
+                /^ {4,}[a-zA-Z0-9_-]/{
+                    print prev " " $1 " " substr($0, index($0,$2))
+                    prev=""
+                    next
+                }
+                /^[[:space:]]{2}[a-zA-Z0-9_-]/{
+                    if(prev!="")
+                        print prev
+                    prev=$0
+                    next
+                }
+                {
+                    if(prev!="")
+                        print prev
+                    prev=""
+                }
+                END{
+                    if(prev!="")
+                        print prev
+                }' \
+            | sed -E 's/^  ([a-zA-Z0-9_-]+)(.*)$/bun:\1\2/' \
+            | sed '/^$/d'
+        )
+    end
+
+    set subcommands (jq -r ".scripts | to_entries[] | \"$node_package_manager:run:\(.key) \(.value)\"" package.json) $subcommands
+
+else if test -e "pom.xml"
+    set subcommands (complete -C 'mvn ' | sed 's/^/mvn:/') $subcommands
+end
+
+set subcommands $subcommands (
+    mise tasks | tail -n +2 | string replace -r '^' 'mise:'
+    mise tasks | tail -n +2 | string replace -r '^' 'mise:watch:'
+) 'repl:node' 'repl:deno' 'repl:bun' 'repl:python'
+
+set selected (
+    printf '%s\n' $subcommands | fzf \
+        --with-nth 1 \
+        --tmux \
+        --ansi \
+        --preview 'echo {2..}' \
+        --bind 'enter:become(echo {1})' \
+        --ghost ' Search for a (command|subcommand|script) to exec' \
+        --border-label ' Command Center UwU ' \
+        --list-label ' Available Commands ' \
+        --preview-label ' Command Description ' \
+        --preview-window bottom:1:wrap
+)
+
+test -z "$selected"; and return
+
+switch $selected
+    case 'repl:bun'
+        set command bun repl
+    case 'repl:*'
+        set command (string split -f 2 ':' $selected)
+    case 'cargo:watch:*'
+        set command cargo watch --exec (string split -f 3 -m 2 ':' $selected)
+    case 'mise:*'
+        set command (string split -m 1 ':' $selected)
+    case 'pnpm:recursive:*'
+        set command pnpm run --recursive (string split -f 3 -m 2 ':' $selected)
+    case 'mvn:*'
+        set command (string split -m 1 ':' $selected)
+    case '*'
+        set command (string split -m 2 ':' $selected)
+end
+
+if set -q TMUX
+    tmux new-window -n "$selected" -S "$command; read -P 'Press enter to close'"
+end
+
+$command

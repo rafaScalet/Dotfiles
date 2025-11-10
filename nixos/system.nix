@@ -168,6 +168,7 @@
     bottom
     brave
     cacert
+    cht-sh
     starship
     catppuccin-papirus-folders
     chafa

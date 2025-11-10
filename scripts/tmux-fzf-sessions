@@ -38,7 +38,7 @@ set selected (
 test -z "$selected"; and return
 
 if not tmux has-session -t $selected 2>/dev/null
-    tmux new-session -d -s $selected -c (fd $selected ~ -1 -d 2)
+    tmux new-session -d -s $selected -c (fd $selected ~ -1 -d 2 --type directory)
 end
 
 tmux switch-client -t $selected
