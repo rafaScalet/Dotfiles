@@ -36,14 +36,14 @@ depends = ['java:build']
 description = 'Builds a simple java project'
 run = 'javac -d dist $(find src -name "*.java")'
 
-[tasks."java:jar:build"]
+[tasks."jar:build"]
 run = 'jar cfm "$(basename "$PWD").jar" "$(find -iname manifest.mf)" -C dist .'
 description = 'generates a .jar file for a simple java project'
 
-[tasks."java:jar:execute"]
+[tasks."jar:execute"]
 run = 'java -jar "$(basename "$PWD")".jar'
 description = 'Execute the jar file for a simple java project'
-depends = ['java:jar:build']
+depends = ['jar:build']
 
 [tasks."python:venv"]
 description = 'create a python virtual environment'

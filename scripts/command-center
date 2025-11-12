@@ -113,8 +113,13 @@ else if test -e "pom.xml"
 end
 
 set subcommands $subcommands (
-    mise tasks | tail -n +2 | string replace -r '^' 'mise:'
-    mise tasks | tail -n +2 | string replace -r '^' 'mise:watch:'
+    mise tasks | tail -n +1 | string replace -r '^' 'mise:'
+    mise tasks | tail -n +1 | string replace -r '^' 'mise:watch:'
+    ouch --help \
+        | grep "Supported formats:" \
+        | sed -E 's/Supported formats: //; s/ *\([^)]*\)//g; s/ and /,/g; s/\//,/g; s/\.//g' \
+        | tr ',' '\n' \
+        | awk '{print "ouch:" $1}'
 ) 'repl:node' 'repl:deno' 'repl:bun' 'repl:python'
 
 set selected (
@@ -140,8 +145,13 @@ switch $selected
         set command (string split -f 2 ':' $selected)
     case 'cargo:watch:*'
         set command cargo watch --exec (string split -f 3 -m 2 ':' $selected)
+    case 'mise:watch:*'
+        set command (string split -m 2 ':' $selected)
     case 'mise:*'
         set command (string split -m 1 ':' $selected)
+    case 'ouch:*'
+        set format (string split -f 2 ':' $selected)
+        set command "ouch --gitignore compress . (basename (pwd)).$format --yes"
     case 'pnpm:recursive:*'
         set command pnpm run --recursive (string split -f 3 -m 2 ':' $selected)
     case 'mvn:*'
@@ -150,8 +160,4 @@ switch $selected
         set command (string split -m 2 ':' $selected)
 end
 
-if set -q TMUX
-    tmux new-window -n "$selected" -S "$command; read -P 'Press enter to close'"
-end
-
-$command
+tmux new-window -n "$selected" -S "$command; read -P 'Press enter to close'"
