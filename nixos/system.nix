@@ -36,9 +36,11 @@
     shell = pkgs.fish;
   };
 
-  boot.loader.limine.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.plymouth.enable = true;
+  boot = {
+    loader.limine.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+    plymouth.enable = true;
+  };
 
   networking = {
     hostName = "nix-btw";
