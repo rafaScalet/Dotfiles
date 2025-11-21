@@ -1,6 +1,8 @@
 config/fish/fish_variables
 config/fish/*/*
 
+config/yazi/plugins
+
 config/VSCodium/*
 !config/VSCodium/User
 config/VSCodium/User/*/
