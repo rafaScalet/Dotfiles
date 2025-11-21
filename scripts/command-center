@@ -119,8 +119,8 @@ set subcommands $subcommands (
         | grep "Supported formats:" \
         | sed -E 's/Supported formats: //; s/ *\([^)]*\)//g; s/ and /,/g; s/\//,/g; s/\.//g' \
         | tr ',' '\n' \
-        | awk '{print "ouch:" $1}'
-) 'repl:node' 'repl:deno' 'repl:bun' 'repl:python'
+        | awk '{print "ouch:" $1 " compres the CWD to the " $1 " format"}'
+) 'repl:node' 'repl:deno' 'repl:bun' 'repl:python' 'repl:nix' 'repl:rust' 'repl:java'
 
 set selected (
     printf '%s\n' $subcommands | fzf \
@@ -141,6 +141,12 @@ test -z "$selected"; and return
 switch $selected
     case 'repl:bun'
         set command bun repl
+    case 'repl:nix'
+        set command nix repl
+    case 'repl:java'
+        set command jshell
+    case 'repl:rust'
+        set command evcxr
     case 'repl:*'
         set command (string split -f 2 ':' $selected)
     case 'cargo:watch:*'
