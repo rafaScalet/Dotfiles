@@ -5,4 +5,5 @@
 --map-syntax='**/*git/config:Git Config'
 --map-syntax='deno.lock:JSON'
 --map-syntax='bun.lock:JSON'
+--map-syntax='*.dconf:TOML'
 --pager=never

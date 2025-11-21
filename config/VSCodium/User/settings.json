@@ -36,6 +36,11 @@
   // #endregion
   // #region Amazon Q
   "amazonQ.telemetry": false,
+  "amazonQ.workspaceIndex": true,
+  "amazonQ.suppressPrompts": {
+    "amazonQChatPairProgramming": true,
+    "amazonQChatDisclaimer": true
+  },
   // #endregion
   // #region Workbench
   "workbench.colorCustomizations": {},

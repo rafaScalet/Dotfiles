@@ -8,8 +8,7 @@
   path = alias.gitconfig
   path = delta.gitconfig
 [core]
-  pager = delta
-	excludesFile = ~/.gitignore
+  pager = emojify | delta
   editor = nvim
   preloadIndex = true
 [url "git@github.com:rafaScalet/"]

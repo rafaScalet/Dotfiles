@@ -50,6 +50,11 @@ description = 'create a python virtual environment'
 run = 'python -m venv {{arg(name="dir-name")}}'
 usage = 'arg "dir-name" default=".venv"'
 
+[tasks."python:serve"]
+description = 'serve files using python'
+run = 'python -m http.server 1234 --directory {{arg(name="dir-name")}}'
+usage = 'arg "dir-name" default="."'
+
 [tasks."python:requirements"]
 description = 'install dependencies from requirements file'
 run = 'pip install -r {{arg(name="requirements-file")}}'
