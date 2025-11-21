@@ -7,7 +7,8 @@ let
 
   createSymlink = path: config.lib.file.mkOutOfStoreSymlink path;
 
-  hiddenApps = [ "bottom" "fish" "nixos-manual" "nvim" ];
+  hiddenApps =
+    [ "bottom" "fish" "nixos-manual" "nvim" "scrcpy" "scrcpy-console" "yazi" ];
 
   configs = builtins.attrNames (builtins.readDir dotfilesConfig);
   dockerComposes = builtins.attrNames (builtins.readDir dotfileDockerCompose);

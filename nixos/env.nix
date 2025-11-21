@@ -52,7 +52,7 @@
 
     GRADLE_USER_HOME = "${XDG_DATA_HOME}/gradle";
 
-    HISTFILE = "${XDG_STATE_HOME}/bash/history";
+    HISTFILE = "${XDG_STATE_HOME}/bash_history";
 
     PYTHON_HISTORY = "${XDG_DATA_HOME}/python/history";
 
@@ -60,7 +60,7 @@
 
     DOCKER_CONFIG = "${XDG_CONFIG_HOME}/docker";
 
-    USQL_HISTORY = "${XDG_DATA_HOME}/usql/history";
+    USQL_HISTORY = "${XDG_STATE_HOME}/usql_history";
 
     ANDROID_USER_HOME = "${XDG_DATA_HOME}/android";
   };

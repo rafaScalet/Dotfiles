@@ -51,8 +51,6 @@
 
   time.timeZone = "America/Sao_Paulo";
 
-  hardware.graphics.enable = true;
-
   i18n = {
     defaultLocale = "pt_BR.UTF-8";
     extraLocales = [ "en_US.UTF-8/UTF-8" "pt_BR.UTF-8/UTF-8" ];
@@ -113,6 +111,7 @@
 
   virtualisation = {
     docker.enable = true;
+    docker.extraPackages = with pkgs; [ docker-init ];
     podman.enable = true;
 
     libvirtd.enable = true;
@@ -151,33 +150,24 @@
     colorScheme = "mocha";
   };
 
-  programs.steam = {
-    enable = true;
-    gamescopeSession.enable = true;
-  };
-
-  programs = {
-    gamemode.enable = true;
-    gamescope.enable = true;
-  };
-
   environment.systemPackages = with pkgs; [
-    adwsteamgtk
-    arduino-cli
+    atac
     atuin
     bat-extras.batman
     bibata-cursors
     bottom
     brave
-    cacert
-    cht-sh
-    starship
     catppuccin-papirus-folders
+    catppuccin-whiskers
+    celeste
     chafa
+    cht-sh
     clang
     collision
     delta
     denaro
+    docker-color-output
+    dtool
     dysk
     emojify
     eza
@@ -188,21 +178,21 @@
     gcc
     gdu
     gh
-    networkmanagerapplet
     ghostty
     glibc
     glow
     goose-cli
     httpie
     hyperfine
-    jstest-gtk
+    inspector
+    jwt-cli
     kitty
     lazydocker
     lima
-    lutris
     magnetic-catppuccin-gtk
     mise
     mission-center
+    networkmanagerapplet
     newsflash
     nix-output-monitor
     nix-search-tv
@@ -217,18 +207,20 @@
     pitivi
     planify
     poppler-utils
-    protonplus
     rar
     ripgrep
     ripgrep-all
     rustup
     scrcpy
+    starship
     television
+    textpieces
     tlrc
     tokei
     topgrade
     trash-cli
     tree-sitter
+    units
     unzip
     usql
     vscodium
@@ -236,7 +228,9 @@
     wl-clipboard
     xdg-ninja
     xdg-utils
+    yazi
     zip
+    zoxide
   ];
 
   system.stateVersion = "24.11";

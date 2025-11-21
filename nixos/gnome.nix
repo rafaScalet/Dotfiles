@@ -2,20 +2,21 @@
 { pkgs, lib, ... }:
 let
   extensions = [
+    "alphabetical-app-grid"
+    "blur-my-shell"
+    "caffeine"
+    "clipboard-indicator"
+    "color-picker"
+    "dash-to-dock"
+    "happy-appy-hotkey"
+    "just-perfection"
+    "keep-pinned-apps-in-appgrid"
+    "lock-keys"
     "paperwm"
+    "quick-settings-tweaker"
+    "search-light"
     "user-themes"
     "vitals"
-    "color-picker"
-    "clipboard-indicator"
-    "just-perfection"
-    "lock-keys"
-    "blur-my-shell"
-    "search-light"
-    "alphabetical-app-grid"
-    "caffeine"
-    "quick-settings-tweaker"
-    "happy-appy-hotkey"
-    "keep-pinned-apps-in-appgrid"
   ];
 
   extension = "org/gnome/shell/extensions";
@@ -43,6 +44,7 @@ in {
           "spotify.desktop"
           "onlyoffice-desktopeditors.desktop"
           "org.gnome.Nautilus.desktop"
+          "thunderbird.desktop"
           "net.lutris.Lutris.desktop"
         ];
       };
@@ -90,16 +92,7 @@ in {
           (double 0.18039216101169586)
           (double 0.52)
         ];
-        blur-brightness = double 0.6;
-        blur-sigma = int 30;
-        border-color = tuple [
-          (double 0.5372549295425415)
-          (double 0.7058823108673096)
-          (double 0.9803921580314636)
-          (double 1.0)
-        ];
         border-radius = double 3.0;
-        border-thickness = int 2;
         entry-font-size = int 1;
         monitor-count = int 2;
         popup-at-cursor-monitor = true;
@@ -170,7 +163,6 @@ in {
     gnome-logs
     gnome-system-monitor
     gnome-tour
-    totem
     yelp
   ];
 
@@ -179,6 +171,5 @@ in {
 
   services.gnome.sushi.enable = true;
 
-  environment.systemPackages = with pkgs;
-    [ papers showtime gnome-tweaks dconf-editor ] ++ extensionsPkgs;
+  environment.systemPackages = extensionsPkgs;
 }
