@@ -33,7 +33,6 @@ return {
 
     -- Mini General Workflow
     require("mini.basics").setup({})
-    require("mini.files").setup({})
     require("mini.icons").setup({})
 
     MiniIcons.mock_nvim_web_devicons()
@@ -45,13 +44,13 @@ return {
       end,
     })
   end,
-  keys = {
-    {
-      "<leader>E",
-      function()
-        MiniFiles.open(vim.api.nvim_buf_get_name(0))
-      end,
-      desc = "File Explorer",
-    },
-  },
+  -- keys = {
+  --   {
+  --     "<leader>E",
+  --     function()
+  --       MiniFiles.open(vim.api.nvim_buf_get_name(0))
+  --     end,
+  --     desc = "File Explorer",
+  --   },
+  -- },
 }

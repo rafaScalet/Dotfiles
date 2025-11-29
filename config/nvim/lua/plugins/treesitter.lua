@@ -63,4 +63,20 @@ return {
     opts = { use_default_keymaps = true },
     keys = { { "<leader>cp", "<cmd>TSJToggle<cr>", desc = "Tree Collapse" } },
   },
+  {
+    "bennypowers/nvim-regexplainer",
+    opts = {
+      mappings = {
+        toggle = "<leader>crr",
+        show = "<leader>crs",
+        hide = "<leader>crh",
+        show_split = "<leader>crp",
+        show_popup = "<leader>cru",
+      },
+    },
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "MunifTanjim/nui.nvim",
+    },
+  },
 }

@@ -21,6 +21,7 @@ return {
         dockerfile = { "dockerfmt" },
         nginx = { "nginxfmt" },
         nix = { "nixpkgs_fmt", "nixfmt" },
+        toml = { "taplo" },
       },
       format_on_save = {
         timeout_ms = 1000,

@@ -13,6 +13,13 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 })
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "**/*git/ignore", "**/*.gitignore" },
+  callback = function()
+    vim.bo.filetype = "gitignore"
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "**/Dockerfile*",
   callback = function()
     vim.bo.filetype = "dockerfile"

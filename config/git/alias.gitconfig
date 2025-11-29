@@ -231,6 +231,9 @@
   # log with items appearing in topological order, i.e. descendant commits are shown before their parents.
   lto = log --topo-order
 
+  # log with signature information
+  lss = log --show-signature
+
   # log list - Show log list with our preferred options, a.k.a. `log-list`
   ll = log-list
 
@@ -1230,6 +1233,9 @@
 
   # Clean a working tree using the most powerful options.
   cleanest = clean -dffx
+
+  # Clean only ignored files
+  clean-ignore = clean -dffX
 
   # Clean a working tree using typical options then checkout.
   cleanout = !git clean -df && git checkout -- .

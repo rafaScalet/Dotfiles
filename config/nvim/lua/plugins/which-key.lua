@@ -29,9 +29,12 @@ return {
       { "<leader>caw", group = "Current Word Rename" },
       { "<leader>cc", group = "Comment" },
       { "<leader>cm", group = "Surround", mode = { "n", "v" } },
+      { "<leader>cz", group = "Fold" },
+      { "<leader>cr", group = "Regex" },
 
       -- Utils
       { "<leader>b", group = "Buffer" },
+      { "<leader>p", group = "Paths" },
       { "<leader>F", group = "Flash", mode = { "n", "v" } },
 
       -- Find (Snacks.nvim)
@@ -58,6 +61,7 @@ return {
       { "<localLeader>", group = "Toggles" },
       { "<localLeader>g", group = "Git" },
       { "<localLeader>D", group = "Diagnostic" },
+      { "<localLeader>L", group = "LSP" },
     },
   },
 }

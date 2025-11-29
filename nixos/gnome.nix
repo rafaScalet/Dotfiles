@@ -8,12 +8,11 @@ let
     "clipboard-indicator"
     "color-picker"
     "dash-to-dock"
-    "happy-appy-hotkey"
     "just-perfection"
     "keep-pinned-apps-in-appgrid"
     "lock-keys"
     "paperwm"
-    "quick-settings-tweaker"
+    "unite"
     "search-light"
     "user-themes"
     "vitals"
@@ -74,15 +73,21 @@ in {
         default-focus-mode = int 1;
         window-gap = int 25;
       };
-      "${extension}/happy-appy-hotkey" = {
-        app-0 = "Settings";
-        app-1 = "Mission Center";
-        app-2 = "Disk Usage Analyzer";
-        hotkey-0 = [ "<Shift><Super>exclam" ];
-        hotkey-1 = [ "<Shift><Super>at" ];
-        hotkey-2 = [ "<Shift><Super>numbersign" ];
-        hotkey-unbound-cycle = [ "<Super>0" ];
-        number = int 3;
+      "${extension}/unite" = {
+        app-menu-ellipsize-mode = "end";
+        enable-titlebar-actions = true;
+        greyscale-tray-icons = false;
+        hide-activities-button = "always";
+        hide-app-menu-icon = true;
+        hide-window-titlebars = "always";
+        reduce-panel-spacing = false;
+        show-appmenu-button = false;
+        show-desktop-name = false;
+        show-window-buttons = "always";
+        show-window-title = "never";
+        use-activities-text = false;
+        window-buttons-placement = "last";
+        window-buttons-theme = "catppuccin";
       };
       "${extension}/search-light" = {
         animation-speed = int 100;
@@ -99,7 +104,7 @@ in {
         preferred-monitor = int 0;
         scale-height = double 0.1;
         scale-width = double 0.1;
-        show-panel-icon = true;
+        show-panel-icon = false;
         use-animations = true;
         window-effect-color = [
           (double 1.0)
@@ -116,7 +121,8 @@ in {
         notify-on-copy = true;
       };
       "${extension}/vitals" = {
-        hot-sensors = [ "_memory_usage_" "_processor_usage_" ];
+        hot-sensors =
+          [ "_memory_usage_" "_processor_usage_" "_temperature_processor_0_" ];
         icon-style = int 1;
         menu-centered = true;
         monitor-cmd = "missioncenter";

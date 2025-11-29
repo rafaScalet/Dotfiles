@@ -122,11 +122,14 @@ set subcommands $subcommands (
         | awk '{print "ouch:" $1 " compres the CWD to the " $1 " format"}'
 ) 'repl:node' 'repl:deno' 'repl:bun' 'repl:python' 'repl:nix' 'repl:rust' 'repl:java'
 
+set subcommands $subcommands 'cmd:ls' 'cmd:tokei' 'cmd:la' 'cmd:tree'
+
 set selected (
     printf '%s\n' $subcommands | fzf \
         --with-nth 1 \
         --tmux \
         --ansi \
+        --no-sort \
         --preview 'echo {2..}' \
         --bind 'enter:become(echo {1})' \
         --ghost ' Search for a (command|subcommand|script) to exec' \
@@ -162,6 +165,10 @@ switch $selected
         set command pnpm run --recursive (string split -f 3 -m 2 ':' $selected)
     case 'mvn:*'
         set command (string split -m 1 ':' $selected)
+    case 'cmd:tree'
+        set command ls --tree
+    case 'cmd:*'
+        set command (string split -f2 ':' $selected)
     case '*'
         set command (string split -m 2 ':' $selected)
 end

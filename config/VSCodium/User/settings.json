@@ -21,8 +21,12 @@
   "fileSizeAndStats.sizeMode": "Binary Mode",
   // #endregion
   // #region Project Manager
-  "projectManager.git.baseFolders": ["~/Dotfiles"],
-  "projectManager.any.baseFolders": ["~/Projects/"],
+  "projectManager.git.baseFolders": [
+    "~/Dotfiles"
+  ],
+  "projectManager.any.baseFolders": [
+    "~/Projects/"
+  ],
   "projectManager.any.maxDepthRecursion": 1,
   "projectManager.showProjectNameInStatusBar": false,
   // #endregion
@@ -47,7 +51,7 @@
   "workbench.panel.showLabels": false,
   "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
   "workbench.preferredLightColorTheme": "Catppuccin Latte",
-  "workbench.iconTheme": "let-icons",
+  "workbench.iconTheme": "catppuccin noctis icons",
   "workbench.productIconTheme": "Tabler",
   "workbench.layoutControl.enabled": false,
   "workbench.startupEditor": "none",
@@ -66,12 +70,12 @@
   // #region Window
   "window.zoomLevel": 0,
   "window.commandCenter": false,
-  "window.menuBarVisibility": "visible",
+  "window.menuBarVisibility": "toggle",
   "window.autoDetectColorScheme": true,
-  "window.titleBarStyle": "custom",
+  "window.titleBarStyle": "native",
   "window.title": "${folderName}",
-  "window.customTitleBarVisibility": "auto",
   "window.newWindowProfile": "Default",
+  "window.customTitleBarVisibility": "auto",
   // #endregion
   // #region Editor
   "editor.wordWrap": "on",
@@ -151,6 +155,7 @@
   // #endregion
   // #region Catppuccin
   "catppuccin.accentColor": "blue",
-  "catppuccin.workbenchMode": "minimal"
+  "catppuccin.workbenchMode": "minimal",
+  "catppuccin-noctis-icons.hidesExplorerArrows": false,
   // #endregion
 }

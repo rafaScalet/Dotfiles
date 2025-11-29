@@ -11,6 +11,8 @@
   pager = emojify | delta
   editor = nvim
   preloadIndex = true
+[clean]
+  requireForce = false
 [url "git@github.com:rafaScalet/"]
   insteadOf = "rs:"
 [url "git@github.com:"]
@@ -21,6 +23,8 @@
   insteadOf = "aur:"
 [url "git@github.com:catppuccin/"]
   insteadOf = "cat:"
+[url "git@github.com/RenatoLuizCardoso/FATEC-Itu-AMS-ADS-ProjetoIntegrador-2025-"]
+  insteadOf = "pi:"
 [interactive]
   diffFilter = delta --color-only
 [merge]

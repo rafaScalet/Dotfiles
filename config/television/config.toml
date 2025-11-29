@@ -16,7 +16,7 @@
 # General settings
 # ----------------------------------------------------------------------------
 tick_rate = 50
-default_channel = "files"
+default_channel = "channels"
 # History settings
 # ---------------
 # Maximum number of entries to keep in the global history (default: 100)

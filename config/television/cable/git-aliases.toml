@@ -1,0 +1,10 @@
+[metadata]
+name = "git-aliases"
+description = "A channel to display all aliases from git"
+requirements = ["git", "bat", "shfmt", "awk"]
+
+[source]
+command = "git config --get-regexp '^alias\\.' | cut -c 7- | awk -F ' ' '{print $1}'"
+
+[preview]
+command = "git config --get alias.{} | shfmt | bat --color always -plbash"

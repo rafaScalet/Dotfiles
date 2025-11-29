@@ -3,12 +3,12 @@ return {
   opts = {
     -- stylua: ignore start
     ensure_installed = {
-      "arduino-language-server",       -- LSP for arduino
+      -- "arduino-language-server",       -- LSP for arduino
       "bash-language-server",          -- LSP for Bash
       "biome",                         -- LSP/Formatter/Linter for JS, TS, JSX, TSX, JSON, JSONC, CSS
       "black",                         -- Formatter for python
       "checkstyle",                    -- Linter for java
-      "clangd",                        -- LSP for C, C++
+      -- "clangd",                        -- LSP for C, C++
       "cspell-lsp",                    -- LSP for Any (is a LSP wrapper for cspell)
       "css-lsp",                       -- LSP for CSS
       "css-variables-language-server", -- LSP for CSS (support for variables)

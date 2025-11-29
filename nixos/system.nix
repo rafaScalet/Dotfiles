@@ -159,7 +159,6 @@
     brave
     catppuccin-papirus-folders
     catppuccin-whiskers
-    celeste
     chafa
     cht-sh
     clang
@@ -167,6 +166,7 @@
     delta
     denaro
     docker-color-output
+    doggo
     dtool
     dysk
     emojify
@@ -192,6 +192,7 @@
     magnetic-catppuccin-gtk
     mise
     mission-center
+    mtr
     networkmanagerapplet
     newsflash
     nix-output-monitor
@@ -214,7 +215,6 @@
     scrcpy
     starship
     television
-    textpieces
     tlrc
     tokei
     topgrade

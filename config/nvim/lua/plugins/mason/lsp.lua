@@ -21,7 +21,17 @@ return {
       end,
     })
 
+    vim.lsp.config("lua_ls", {
+      settings = {
+        Lua = {
+          hint = { enable = true },
+        },
+      },
+    })
+
     vim.lsp.enable({ "nushell", "denols", "dartls" })
+
+    vim.lsp.inlay_hint.enable(true)
   end,
   keys = {
     -- stylua: ignore start
@@ -44,6 +54,16 @@ return {
     { "<leader>lds", vim.diagnostic.open_float,   desc = "Show Diagnostic" },
     { "<leader>ldl", vim.diagnostic.setloclist,   desc = "Show Diagnostics In Location List" },
     { "<leader>ldq", vim.diagnostic.setqflist,    desc = "Show Diagnostics In Quickfix List" },
+
+    {
+      "<localLeader>Lh",
+      function()
+        local enabled = vim.lsp.inlay_hint.is_enabled()
+        vim.lsp.inlay_hint.enable(not enabled)
+        vim.notify((enabled and "no%s" or "  %s"):format("inlay_hint (LSP)"))
+      end,
+      desc = "Toggle Inlay Hints"
+    },
     -- stylua: ignore end
   },
   dependencies = {
@@ -51,5 +71,7 @@ return {
     { "mason-org/mason-lspconfig.nvim", opts = {} },
     { "folke/lazydev.nvim", ft = "lua", opts = {} },
     { "b0o/schemastore.nvim" },
+    { "mfussenegger/nvim-jdtls" },
+    { "mrcjkb/rustaceanvim", version = "^6", lazy = false },
   },
 }
