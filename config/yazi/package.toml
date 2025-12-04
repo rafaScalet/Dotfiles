@@ -5,8 +5,8 @@ hash = "3996fc74044bc44144b323686f887e1"
 
 [[plugin.deps]]
 use = "ndtoan96/ouch"
-rev = "41d68cd"
-hash = "c7790dd555aee4adf4d125e200ea8611"
+rev = "cfb9140"
+hash = "b5067143415bd2d46c0dfa57319ddcef"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"

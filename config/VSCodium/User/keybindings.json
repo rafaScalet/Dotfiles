@@ -129,5 +129,29 @@
   {
     "key": "ctrl+insert",
     "command": "codesnap.start"
+  },
+  {
+    "key": "ctrl+a i",
+    "command": "workbench.view.extension.amazonq"
+  },
+  {
+    "key": "ctrl+a e",
+    "command": "workbench.view.explorer",
+    "when": "viewContainer.workbench.view.explorer.enabled"
+  },
+  {
+    "key": "ctrl+shift+e",
+    "command": "-workbench.view.explorer",
+    "when": "viewContainer.workbench.view.explorer.enabled"
+  },
+  {
+    "key": "ctrl+a x",
+    "command": "workbench.view.extensions",
+    "when": "viewContainer.workbench.view.extensions.enabled"
+  },
+  {
+    "key": "ctrl+shift+x",
+    "command": "-workbench.view.extensions",
+    "when": "viewContainer.workbench.view.extensions.enabled"
   }
 ]

@@ -56,7 +56,7 @@
   "workbench.layoutControl.enabled": false,
   "workbench.startupEditor": "none",
   "workbench.editor.showTabs": "single",
-  "workbench.activityBar.location": "default",
+  "workbench.activityBar.location": "hidden",
   "workbench.editorAssociations": {
     "*.svg": "default"
   },
