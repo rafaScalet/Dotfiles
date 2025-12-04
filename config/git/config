@@ -23,7 +23,7 @@
   insteadOf = "aur:"
 [url "git@github.com:catppuccin/"]
   insteadOf = "cat:"
-[url "git@github.com/RenatoLuizCardoso/FATEC-Itu-AMS-ADS-ProjetoIntegrador-2025-"]
+[url "git@github.com:RenatoLuizCardoso/FATEC-Itu-AMS-ADS-ProjetoIntegrador-2025-"]
   insteadOf = "pi:"
 [interactive]
   diffFilter = delta --color-only

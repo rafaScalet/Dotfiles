@@ -120,7 +120,7 @@ set subcommands $subcommands (
         | sed -E 's/Supported formats: //; s/ *\([^)]*\)//g; s/ and /,/g; s/\//,/g; s/\.//g' \
         | tr ',' '\n' \
         | awk '{print "ouch:" $1 " compres the CWD to the " $1 " format"}'
-) 'repl:node' 'repl:deno' 'repl:bun' 'repl:python' 'repl:nix' 'repl:rust' 'repl:java'
+) 'repl:node' 'repl:deno' 'repl:bun' 'repl:python' 'repl:nix' 'repl:rust' 'repl:java' 'repl:php'
 
 set subcommands $subcommands 'cmd:ls' 'cmd:tokei' 'cmd:la' 'cmd:tree'
 
@@ -150,6 +150,8 @@ switch $selected
         set command jshell
     case 'repl:rust'
         set command evcxr
+    case 'repl:php'
+        set command php -a
     case 'repl:*'
         set command (string split -f 2 ':' $selected)
     case 'cargo:watch:*'
