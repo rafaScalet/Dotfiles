@@ -23,6 +23,7 @@ $haskell
 $c
 $lua
 """
+command_timeout = 600
 
 [character]
 error_symbol = "[➜](red bold)"

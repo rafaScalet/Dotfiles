@@ -36,6 +36,27 @@ return {
   keys = {
     -- stylua: ignore start
     { "<leader>li",  "<cmd>LspInfo<cr>",          desc = "Show info about active LSPs" },
+    {
+      "<leader>lI",
+      function()
+        local clients = vim.lsp.get_clients({ bufnr = 0 })
+        local title = "LSP Active Buffer"
+
+        if vim.tbl_isempty(clients) then
+          vim.notify("No LSP attached to this buffer", vim.log.levels.INFO, { title = title })
+          return
+        end
+
+        local lsp_list = {}
+
+        for _, c in ipairs(clients) do
+          table.insert(lsp_list, "- " .. c.name)
+        end
+
+        vim.notify(table.concat(lsp_list, "\n"), vim.log.levels.INFO, { title = title })
+      end,
+      desc = "Show running LSPs for active buffer",
+    },
     { "<leader>lR",  "<cmd>LspRestart<cr>",       desc = "Restart all LSPs" },
     { "<leader>ls",  "<cmd>LspStop",              desc = "Stop all LSPs" },
     { "<leader>lh",  vim.lsp.buf.hover,           desc = "Show Info Hover" },
@@ -62,7 +83,7 @@ return {
         vim.lsp.inlay_hint.enable(not enabled)
         vim.notify((enabled and "no%s" or "  %s"):format("inlay_hint (LSP)"))
       end,
-      desc = "Toggle Inlay Hints"
+      desc = "Toggle Inlay Hints",
     },
     -- stylua: ignore end
   },

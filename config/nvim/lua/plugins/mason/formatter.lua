@@ -13,6 +13,8 @@ return {
         javascriptreact = { "prettierd", "prettier", "biome", stop_after_first = true },
         json = { "prettierd", "prettier", "biome", stop_after_first = true },
         jsonc = { "prettierd", "prettier", "biome", stop_after_first = true },
+        html = { "prettierd", "prettier", "biome", stop_after_first = true },
+        css = { "prettierd", "prettier", "biome", stop_after_first = true },
         python = { "isort", "black" },
         java = { "google-java-format" },
         fish = { "fish_indent" },
