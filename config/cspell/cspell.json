@@ -2,19 +2,21 @@
   "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
   "version": "0.2",
   "language": "en, pt, pt_BR, lorem",
-  "useGitignore": true,
   "dictionaries": [
     "bash",
+    "docker",
+    "dotnet",
+    "games",
     "git",
     "java",
     "lua",
     "node",
     "npm",
     "personal",
+    "programs",
     "python",
-    "dotnet",
-    "docker",
     "rust",
+    "shellscript",
     "sql",
     "typescript",
     "vim"
@@ -27,7 +29,17 @@
     {
       "name": "personal",
       "addWords": true,
-      "path": "./dictionary.txt"
+      "path": "./dictionaries/personal.txt"
+    },
+    {
+      "name": "games",
+      "addWords": true,
+      "path": "./dictionaries/games.txt"
+    },
+    {
+      "name": "programs",
+      "addWords": true,
+      "path": "./dictionaries/programs.txt"
     }
   ]
 }

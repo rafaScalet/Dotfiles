@@ -36,31 +36,13 @@ return {
   keys = {
     -- stylua: ignore start
     { "<leader>li",  "<cmd>LspInfo<cr>",          desc = "Show info about active LSPs" },
-    {
-      "<leader>lI",
-      function()
-        local clients = vim.lsp.get_clients({ bufnr = 0 })
-        local title = "LSP Active Buffer"
-
-        if vim.tbl_isempty(clients) then
-          vim.notify("No LSP attached to this buffer", vim.log.levels.INFO, { title = title })
-          return
-        end
-
-        local lsp_list = {}
-
-        for _, c in ipairs(clients) do
-          table.insert(lsp_list, "- " .. c.name)
-        end
-
-        vim.notify(table.concat(lsp_list, "\n"), vim.log.levels.INFO, { title = title })
-      end,
-      desc = "Show running LSPs for active buffer",
-    },
     { "<leader>lR",  "<cmd>LspRestart<cr>",       desc = "Restart all LSPs" },
     { "<leader>ls",  "<cmd>LspStop",              desc = "Stop all LSPs" },
     { "<leader>lh",  vim.lsp.buf.hover,           desc = "Show Info Hover" },
     { "<leader>lr",  vim.lsp.buf.references,      desc = "List References" },
+
+    { "<leader>laa", "<cmd>LspActive all<cr>",    desc = "all" },
+    { "<leader>lab", "<cmd>LspActive buffer<cr>", desc = "active buffer" },
 
     { "<leader>lca", vim.lsp.buf.code_action,     desc = "Code Actions" },
     { "<leader>lcr", vim.lsp.buf.rename,          desc = "Rename Symbol" },
@@ -89,8 +71,24 @@ return {
   },
   dependencies = {
     { "mason-org/mason.nvim", opts = {} },
-    { "mason-org/mason-lspconfig.nvim", opts = {} },
-    { "folke/lazydev.nvim", ft = "lua", opts = {} },
+    {
+      "mason-org/mason-lspconfig.nvim",
+      opts = {
+        automatic_enable = {
+          exclude = {
+            "rust_analyzer",
+          },
+        },
+      },
+    },
+    {
+      "folke/lazydev.nvim",
+      opts = {
+        library = {
+          "~/.config/yazi/plugins/types.yazi/",
+        },
+      },
+    },
     { "b0o/schemastore.nvim" },
     { "mfussenegger/nvim-jdtls" },
     { "mrcjkb/rustaceanvim", version = "^6", lazy = false },

@@ -1,20 +1,33 @@
 require("full-border"):setup()
 require("git"):setup()
+require("gvfs"):setup()
 
 Header.redraw = function()
-	return {}
+  return {}
 end
 
 Status:children_add(function()
-	local h = cx.active.current.hovered
-	if not h or ya.target_family() ~= "unix" then
-		return ""
-	end
+  local h = cx.active.current.hovered
+  if not h or ya.target_family() ~= "unix" then
+    return ""
+  end
 
-	return ui.Line({
-		ui.Span(ya.user_name(h.cha.uid) or tostring(h.cha.uid)):fg("magenta"),
-		":",
-		ui.Span(ya.group_name(h.cha.gid) or tostring(h.cha.gid)):fg("magenta"),
-		" ",
-	})
+  return ui.Line({
+    ui.Span(ya.user_name(h.cha.uid) or tostring(h.cha.uid)):fg("magenta"),
+    ":",
+    ui.Span(ya.group_name(h.cha.gid) or tostring(h.cha.gid)):fg("magenta"),
+    " ",
+  })
 end, 500, Status.RIGHT)
+
+Status:children_add(function()
+  local h = cx.active.current.hovered
+  if not h or ya.target_family() ~= "unix" then
+    return ""
+  end
+
+  return ui.Line({
+    " ",
+    ui.Span(tostring(h.mime(h) or "")):fg("blue"),
+  })
+end, 10000, Status.LEFT)

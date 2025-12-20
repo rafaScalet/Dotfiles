@@ -3,6 +3,8 @@
 set subcommands
 set command
 set node_package_manager
+set repls "node node" "deno deno" "bun bun repl" "python python" "nix nix repl" "rust evcxr" "java jshell" "php php -a"
+set cmds ls la tokei tree
 
 if test -e "Cargo.toml" -o -e "Cargo.lock"
     set subcommands (
@@ -120,9 +122,14 @@ set subcommands $subcommands (
         | sed -E 's/Supported formats: //; s/ *\([^)]*\)//g; s/ and /,/g; s/\//,/g; s/\.//g' \
         | tr ',' '\n' \
         | awk '{print "ouch:" $1 " compres the CWD to the " $1 " format"}'
-) 'repl:node' 'repl:deno' 'repl:bun' 'repl:python' 'repl:nix' 'repl:rust' 'repl:java' 'repl:php'
-
-set subcommands $subcommands 'cmd:ls' 'cmd:tokei' 'cmd:la' 'cmd:tree'
+    for repl in $repls
+        set r (string split -m 1 " " $repl)
+        echo "repl:$r[1] $r[1] repl using the '$r[2]' command"
+    end
+    for cmd in $cmds
+        echo "cmd:$cmd $(type $cmd)"
+    end
+)
 
 set selected (
     printf '%s\n' $subcommands | fzf \
@@ -167,8 +174,6 @@ switch $selected
         set command pnpm run --recursive (string split -f 3 -m 2 ':' $selected)
     case 'mvn:*'
         set command (string split -m 1 ':' $selected)
-    case 'cmd:tree'
-        set command ls --tree
     case 'cmd:*'
         set command (string split -f2 ':' $selected)
     case '*'

@@ -1,0 +1,13 @@
+atac
+dotnet
+evcxr
+fastfetch
+ghostty
+javac
+jshell
+lazydocker
+lazygit
+tokei
+topgrade
+usql
+yazi

@@ -20,6 +20,7 @@ return {
       { "<leader>ld", group = "Diagnostic" },
       { "<leader>lg", group = "Go To" },
       { "<leader>lc", group = "Code" },
+      { "<leader>la", group = "Active" },
 
       -- Code
       { "<leader>c", group = "Code", mode = { "n", "v" } },

@@ -1,8 +1,7 @@
+ansi
 catppuccin
-dotnet
 easycoast
 fatec
-javac
 nixos
 nixpkgs
 pkgs
@@ -12,4 +11,3 @@ postgresql
 rafa
 rafascalet
 scalet
-topgrade
