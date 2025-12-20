@@ -76,7 +76,7 @@ in {
       "${extension}/unite" = {
         app-menu-ellipsize-mode = "end";
         enable-titlebar-actions = true;
-        greyscale-tray-icons = false;
+        greyscale-tray-icons = true;
         hide-activities-button = "always";
         hide-app-menu-icon = true;
         hide-window-titlebars = "always";
