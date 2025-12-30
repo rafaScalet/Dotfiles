@@ -4,6 +4,3 @@
 [submodule "config/bat/syntaxes/yarn"]
   path = config/bat/syntaxes/yarn
   url = https://github.com/alexkuz/sublime-yarn-lock.git
-[submodule "config/alacritty/alacritty-theme"]
-  path = config/alacritty/alacritty-theme
-  url = https://github.com/alacritty/alacritty-theme.git
