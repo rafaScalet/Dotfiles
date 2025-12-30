@@ -1,6 +1,6 @@
 # This is the configuration.nix, the name system.nix is just to be beauty
 { pkgs, ... }: {
-  imports = [ /etc/nixos/hardware-configuration.nix ];
+  imports = [ ./hardware-configuration.nix ];
 
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
@@ -45,8 +45,12 @@
   networking = {
     hostName = "nix-btw";
     networkmanager.enable = true;
-    firewall.enable = true;
     nftables.enable = true;
+
+    firewall = {
+      enable = true;
+      # allowedTCPPorts = [ ];
+    };
   };
 
   time.timeZone = "America/Sao_Paulo";
@@ -73,6 +77,8 @@
         monospace = [ "JetBrainsMono Nerd Font" ];
       };
     };
+    fontDir.enable = true;
+    enableDefaultPackages = true;
   };
 
   services.xserver = {
@@ -83,24 +89,11 @@
 
   services.printing.enable = true;
 
+  services.gvfs.enable = true;
+
   services.openssh.enable = true;
 
   services.fwupd.enable = true;
-
-  services.nixos-cli = {
-    enable = true;
-    config = {
-      config_location = "/home/scalet/Dotfiles";
-      use_nvd = true;
-      no_confirm = true;
-      apply = {
-        use_nom = true;
-        ignore_dirty_tree = true;
-        imply_impure_with_tag = true;
-        use_git_commit_msg = true;
-      };
-    };
-  };
 
   services.pipewire = {
     enable = true;
@@ -121,7 +114,7 @@
   };
 
   programs = {
-    bat.enable = true;
+    mtr.enable = true;
     fish.enable = true;
     git.enable = true;
     lazygit.enable = true;
@@ -131,6 +124,11 @@
     thunderbird.enable = true;
     localsend.enable = true;
     virt-manager.enable = true;
+    trippy.enable = true;
+    zoxide.enable = true;
+    yazi.enable = true;
+    television.enable = true;
+    niri.enable = true;
   };
 
   programs.gnupg.agent = {
@@ -144,6 +142,21 @@
     vimAlias = true;
   };
 
+  programs.nh = {
+    enable = true;
+    flake = "/home/scalet/Dotfiles";
+  };
+
+  programs.nix-index = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
+  programs.bat = {
+    enable = true;
+    extraPackages = with pkgs.bat-extras; [ batman ];
+  };
+
   programs.spicetify = {
     enable = true;
     theme = pkgs.spicetify.themes.catppuccin;
@@ -153,20 +166,20 @@
   environment.systemPackages = with pkgs; [
     atac
     atuin
-    bat-extras.batman
     bibata-cursors
     bottom
     brave
+    cachix
     catppuccin-papirus-folders
     catppuccin-whiskers
     chafa
     cht-sh
-    clang
     collision
     delta
     denaro
     docker-color-output
     doggo
+    dprint
     dtool
     dysk
     emojify
@@ -192,15 +205,11 @@
     magnetic-catppuccin-gtk
     mise
     mission-center
-    mtr
     networkmanagerapplet
     newsflash
-    nix-output-monitor
     nix-search-tv
     nix-your-shell
-    nur.repos.grafcube.antidot
     nushell
-    nvd
     obsidian
     onlyoffice-desktopeditors
     ouch
@@ -220,6 +229,7 @@
     topgrade
     trash-cli
     tree-sitter
+    treefmt
     units
     unzip
     usql
@@ -228,9 +238,7 @@
     wl-clipboard
     xdg-ninja
     xdg-utils
-    yazi
     zip
-    zoxide
   ];
 
   system.stateVersion = "24.11";

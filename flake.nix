@@ -8,16 +8,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nur = {
-      url = "github:nix-community/NUR";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nixos-cli = {
-      url = "github:nix-community/nixos-cli";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     catppuccin = {
       url = "github:catppuccin/nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -38,10 +28,8 @@
           {
             nixpkgs = {
               config.allowUnfree = true;
-              overlays = [
-                nur.overlays.default
-                (_: _: { spicetify = spicetify.legacyPackages.${system}; })
-              ];
+              overlays =
+                [ (_: _: { spicetify = spicetify.legacyPackages.${system}; }) ];
             };
           }
           ./nixos/system.nix
@@ -50,7 +38,6 @@
           ./nixos/games.nix
           catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
-          nixos-cli.nixosModules.nixos-cli
           spicetify.nixosModules.spicetify
           {
             home-manager.useGlobalPkgs = true;
