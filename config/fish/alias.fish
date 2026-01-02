@@ -19,9 +19,9 @@ if type -q eza
 end
 
 if type -q bat
-    alias cat="bat"
+    alias cat="bat -P"
 else if type -q bat-cat
-    alias cat="bat-cat"
+    alias cat="bat-cat -P"
 end
 
 function prv --argument-names file

@@ -24,6 +24,7 @@ return {
         nginx = { "nginxfmt" },
         nix = { "nixpkgs_fmt", "nixfmt" },
         toml = { "taplo" },
+        kdl = { "kdlfmt" },
       },
       format_on_save = {
         timeout_ms = 1000,
