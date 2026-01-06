@@ -17,6 +17,17 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    quickshell = {
+      url = "github:quickshell-mirror/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    qml-niri = {
+      url = "github:imiric/qml-niri/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.quickshell.follows = "quickshell";
+    };
   };
   outputs = { self, ... }@inputs:
     let system = "x86_64-linux";
@@ -28,12 +39,13 @@
           {
             nixpkgs = {
               config.allowUnfree = true;
-              overlays =
-                [ (_: _: { spicetify = spicetify.legacyPackages.${system}; }) ];
+              overlays = [
+                (_: _: { spicetify = spicetify.legacyPackages.${system}; })
+                (_: _: { qs = qml-niri.packages.${system}.quickshell; })
+              ];
             };
           }
           ./nixos/system.nix
-          ./nixos/gnome.nix
           ./nixos/env.nix
           ./nixos/games.nix
           catppuccin.nixosModules.catppuccin

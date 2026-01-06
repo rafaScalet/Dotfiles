@@ -29,7 +29,7 @@ return {
       },
     })
 
-    vim.lsp.enable({ "nushell", "denols", "dartls" })
+    vim.lsp.enable({ "nushell", "denols", "dartls", "qmlls" })
 
     vim.lsp.inlay_hint.enable(true)
   end,

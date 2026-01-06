@@ -131,6 +131,13 @@
     niri.enable = true;
   };
 
+  xdg = {
+    portal = {
+      enable = true;
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    };
+  };
+
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
@@ -164,8 +171,8 @@
   };
 
   environment.systemPackages = with pkgs; [
-    atac
     atuin
+    xwayland-satellite
     bibata-cursors
     bottom
     brave
@@ -174,10 +181,7 @@
     catppuccin-whiskers
     chafa
     cht-sh
-    collision
     delta
-    denaro
-    docker-color-output
     doggo
     dprint
     dtool
@@ -187,34 +191,32 @@
     fastfetch
     fd
     fragments
+    fuzzel
     fzf
     gcc
     gdu
     gh
-    ghostty
     glibc
+    swaybg
     glow
+    qs
     goose-cli
     httpie
     hyperfine
-    inspector
     jwt-cli
     kitty
     lazydocker
-    lima
     magnetic-catppuccin-gtk
     mise
     mission-center
-    networkmanagerapplet
-    newsflash
     nix-search-tv
+    brightnessctl
     nix-your-shell
     nushell
     obsidian
     onlyoffice-desktopeditors
     ouch
     pinta
-    pitivi
     planify
     poppler-utils
     rar

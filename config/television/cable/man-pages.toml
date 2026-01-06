@@ -1,7 +1,7 @@
 [metadata]
 name = "man-pages"
 description = "Browse and preview system manual pages"
-requirements = ["apropos", "man", "col"]
+requirements = ["apropos", "man", "col", "batman"]
 
 [source]
 # List all man pages using apropos
@@ -9,7 +9,7 @@ command = "apropos ."
 
 [preview]
 # Show the man page for the selected entry
-command = "man '{0}' | col -bx"
+command = "man '{0}' | bat -plman --color=always"
 env = { "MANWIDTH" = "80" }
 
 [keybindings]
@@ -17,8 +17,7 @@ enter = "actions:open"
 
 [actions.open]
 description = "Open the selected man page in the system pager"
-command = "man '{0}'"
-mode = "execute"
+command = "tmux neww -n 'man' -S man '{0}'"
 
 [ui.preview_panel]
 header = "{0}"
