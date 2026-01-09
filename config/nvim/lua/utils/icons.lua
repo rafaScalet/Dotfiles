@@ -1,4 +1,4 @@
-_G.I = {
+return {
   database = " ",
   terminal = " ",
   rocket = " ",
@@ -9,6 +9,8 @@ _G.I = {
       i = " ",
       add = " ",
       two = " ",
+      readonly = " ",
+      modified = " ",
     },
     folder = {
       fill = {
@@ -18,6 +20,22 @@ _G.I = {
       closed = " ",
       opened = " ",
     },
+  },
+  listchars = {
+    space = "·",
+    tab = "» ",
+    trail = "•",
+    extends = "⟩",
+    precedes = "⟨",
+    eol = "↲",
+    nbsp = "␣",
+  },
+  fillchars = {
+    eob = "~",
+    fold = " ",
+    foldsep = " ",
+    foldopen = "",
+    foldclose = "",
   },
   keyboard = " ",
   play = " ",

@@ -1,0 +1,16 @@
+--- @meta
+---
+--- @class keymaps.opts Options for the keymap group
+--- @field prefix? string Prefix used before "rhs" (ex: "<leader>")
+--- @field mode? string | string[] Mode used for this keymap, { "n" } and "n" are equivalent
+--- @field group? string Group name used by which-key plugin
+--- @field desc? keymaps.opts.desc Description options for this keymap group, such as prefix or suffix
+--- @field cmd_wrapper? keymaps.cmd-wrapper Command to "wrap" the given "lhs"
+---
+--- @class keymaps.opts.desc
+--- @field prefix? string
+--- @field suffix? string
+---
+--- @alias keymaps.spec { [1]: string, [2]: keymaps.rhs, [3]: string, mode?: string | string[] }
+--- @alias keymaps.rhs string | function | table
+--- @alias keymaps.cmd-wrapper fun(value: keymaps.rhs): string | function

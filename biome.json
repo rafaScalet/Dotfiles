@@ -18,5 +18,7 @@
     "enabled": true,
     "indentStyle": "space"
   },
-  "linter": { "enabled": false }
+  "linter": {
+    "enabled": false
+  }
 }

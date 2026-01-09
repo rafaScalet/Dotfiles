@@ -1,3 +1,5 @@
+local icons = require("utils.icons")
+
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
@@ -27,8 +29,6 @@ vim.opt.confirm = true
 
 vim.opt.mouse = "a"
 
-vim.opt.cmdheight = 0
-
 vim.opt.signcolumn = "yes"
 
 vim.opt.ignorecase = true
@@ -41,12 +41,5 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 vim.opt.list = false
-vim.opt.listchars = {
-  space = "·",
-  tab = "» ",
-  trail = "•",
-  extends = "⟩",
-  precedes = "⟨",
-  eol = "↲",
-  nbsp = "␣",
-}
+vim.opt.listchars = icons.listchars
+vim.opt.fillchars = icons.fillchars

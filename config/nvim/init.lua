@@ -1,47 +1,53 @@
--- Bootstrap lazy.nvim
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-  if vim.v.shell_error ~= 0 then
-    vim.api.nvim_echo({
-      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
-      { "\nPress any key to exit..." },
-    }, true, {})
-    vim.fn.getchar()
-    os.exit(1)
-  end
-end
-vim.opt.rtp:prepend(lazypath)
+vim.g.no_plugin_maps = true
 
-require("icons")
-require("diagnostics")
-require("keymaps")
-require("options")
-require("commands")
+local plugins = require("utils.lazy")
+local loader = require("utils.loader")
 
--- Setup lazy.nvim
-require("lazy").setup({
-  spec = {
-    { import = "plugins" },
-    { import = "plugins.mason" },
-    { import = "plugins.ui" },
-  },
-  install = { colorscheme = { "catppuccin" } },
-  checker = { enabled = true, notify = false },
-  change_detection = { notify = false },
-  ui = {
-    icons = {
-      loaded = I.package.enabled,
-      not_loaded = I.package.disabled,
-      cmd = I.terminal,
-      plugin = I.package.i,
-      event = I.rocket,
-      require = I.package.dependencies,
-      start = I.play,
-      source = I.source,
-      keyboard = I.keyboard,
-    },
-  },
+plugins.add({
+  { "saghen/blink.cmp", version = "1.*" }, -- Completion plugin
+  "bydlw98/blink-cmp-env", -- Plugin for blink to add Env Var completions
+  "rafamadriz/friendly-snippets", -- Snippets, alo integrates with blink.cmp
+  "stevearc/conform.nvim", -- Plugin to define formatters
+  "mfussenegger/nvim-lint", -- Plugin to define linters
+  "neovim/nvim-lspconfig", -- Default configs for a bunch of LSPs
+  "folke/lazydev.nvim", -- Better Config for Lua, to add lazy-loading for modules
+  "mfussenegger/nvim-jdtls", -- Better Config for Java, add things like in intellij
+  "mrcjkb/rustaceanvim", -- Better Config for Rust, add support for "rustup toolchain add rust-analyzer"
+  "mason-org/mason.nvim", -- Plugin to install a bunch of dev-tools, like LSPs, Formatters and Linters
+  "b0o/schemastore.nvim", -- A service to store schemas for markup languages, like JSON, YAML, XML, TOML and others
+  "lewis6991/gitsigns.nvim", -- Add integration with git, such as blame line and file, show diffs and hunks and more
+  "tpope/vim-fugitive", -- Add git commands to the vim command line
+  "folke/todo-comments.nvim", -- Add custom highlight and signs for comments
+  "christoomey/vim-tmux-navigator", -- Integration with tmux binds
+  "echasnovski/mini.nvim", -- Mini.nvim is a pack of mini plugins, is defined in various modules
+  "folke/snacks.nvim", -- Snacks.nvim is a plugin with a lot of features like pickers and ux improvements
+  "nat-418/boole.nvim", -- Is a better toggle, with support for keyword and boolean values
+  "johmsalas/text-case.nvim", -- Add toggles for text cases like UPPER CASE, snake_case, Pascal-Case
+  "nvim-treesitter/nvim-treesitter", -- Tree-Sitter support
+  { "nvim-treesitter/nvim-treesitter-textobjects", branch = "main" }, -- Tree-Sitter text objects support
+  "Wansmer/treesj", -- Collapse trees using tree-sitter
+  "daliusd/incr.nvim", -- Incremental selection for tree-sitter
+  "bennypowers/nvim-regexplainer", -- Explain the regex under the cursor
+  "folke/flash.nvim", -- A more powerfull search
+  { "catppuccin/nvim", name = "catppuccin" }, -- Colorscheme, defined in "ui.colorscheme" module
+  "folke/noice.nvim", -- Commandline, defined in "ui.command-line" module
+  "kevinhwang91/nvim-ufo", -- Better fold options, defined in "ui.fold" module
+  "nvim-lualine/lualine.nvim", -- Statusline, defined in "ui.status-line" module
+  "SmiteshP/nvim-navic", -- Breadcrumbs, used in lualine.nvim
+  "folke/which-key.nvim", -- Plugin to show my binds
+  "jiaoshijie/undotree", -- A function and command to see the undo tree "graphically"
+  "kawre/neotab.nvim", -- Plugin to "exit" close things such as ")", "'" and others
+  "nmac427/guess-indent.nvim", -- User command to change the indentation
+  "brenoprata10/nvim-highlight-colors", -- Add highlights for colors in formats like HEX, RGB, Tailwind and more
+  "chaoren/vim-wordmotion", -- Force neovim to understand hífen and cases as spaces
+  "ThePrimeagen/vim-be-good", -- Little game to practice neovim
+
+  -- Some Dependencies
+  "MunifTanjim/nui.nvim",
+  "kevinhwang91/promise-async",
+  "nvim-lua/plenary.nvim",
 })
+
+plugins.install()
+
+loader.load({ ignore = { "utils.*" } })

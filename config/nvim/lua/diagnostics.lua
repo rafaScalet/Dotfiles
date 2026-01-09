@@ -1,8 +1,12 @@
-local icons = {
-  [vim.diagnostic.severity.ERROR] = I.lsp.diagnostics.error,
-  [vim.diagnostic.severity.WARN] = I.lsp.diagnostics.warn,
-  [vim.diagnostic.severity.INFO] = I.lsp.diagnostics.info,
-  [vim.diagnostic.severity.HINT] = I.lsp.diagnostics.hint,
+local icons = require("utils.icons")
+local picker = require("snacks.picker")
+local keymap = require("utils.keymap")
+
+local diagnostic_icons = {
+  [vim.diagnostic.severity.ERROR] = icons.lsp.diagnostics.error,
+  [vim.diagnostic.severity.WARN] = icons.lsp.diagnostics.warn,
+  [vim.diagnostic.severity.INFO] = icons.lsp.diagnostics.info,
+  [vim.diagnostic.severity.HINT] = icons.lsp.diagnostics.hint,
 }
 
 --- @type vim.diagnostic.Opts
@@ -11,11 +15,11 @@ local opts = {
     spacing = 4,
     source = "if_many",
     prefix = function(diagnostic)
-      return icons[diagnostic.severity]
+      return diagnostic_icons[diagnostic.severity]
     end,
   },
   severity_sort = true,
-  signs = { text = icons },
+  signs = { text = diagnostic_icons },
 }
 
 local diagnosticToggle = vim.deepcopy(opts)
@@ -59,5 +63,73 @@ M.update_in_insert = function()
   toggle("update_in_insert")
 end
 
+keymap.add({
+  { "s", M.signs, "Toggle Signs" },
+  { "S", M.severity_sort, "Toggle Severity Sort" },
+  { "u", M.underline, "Toggle Underline" },
+  { "U", M.update_in_insert, "Toggle Update In Insert" },
+  { "v", M.virtual_text, "Toggle Virtual Text" },
+  { "V", M.virtual_lines, "Toggle Virtual Lines" },
+  {
+    "d",
+    function()
+      local enabled = vim.diagnostic.is_enabled()
+      vim.diagnostic.enable(not enabled)
+      vim.notify((enabled and "no%s" or "  %s"):format("diagnostic"))
+    end,
+    "Toggle Diagnostic",
+  },
+}, { prefix = "<localLeader>d", group = "Diagnostics" })
+
+keymap.add({
+  { "n", vim.diagnostic.goto_next, "Go To Next Diagnostic" },
+  { "p", vim.diagnostic.goto_prev, "Go To Previous Diagnostic" },
+  { "s", vim.diagnostic.open_float, "Show Diagnostic" },
+  { "l", vim.diagnostic.setloclist, "Show Diagnostics In Location List" },
+  { "q", vim.diagnostic.setqflist, "Show Diagnostics In Quickfix List" },
+}, { prefix = "<leader>d", group = "Diagnostics" })
+
+---@type keymaps.spec[]
+local diagnostics_specs = {
+  { "a", "ALL", "All" },
+  { "i", "INFO", "Info" },
+  { "h", "HINT", "Hint" },
+  { "w", "WARN", "Warn" },
+  { "e", "ERROR", "Error" },
+}
+
+local diagnostics_cmd_wrapper = function(value, fn)
+  if value == "ALL" then
+    return function()
+      fn()
+    end
+  end
+  return function()
+    fn({
+      filter = {
+        filter = function(item)
+          return item.severity == vim.diagnostic.severity[value]
+        end,
+      },
+    })
+  end
+end
+
+keymap.add(diagnostics_specs, {
+  prefix = "<leader>da",
+  group = "All",
+  cmd_wrapper = function(value)
+    return diagnostics_cmd_wrapper(value, picker.diagnostics)
+  end,
+})
+
+keymap.add(diagnostics_specs, {
+  prefix = "<leader>db",
+  group = "Buffer",
+  cmd_wrapper = function(value)
+    return diagnostics_cmd_wrapper(value, picker.diagnostics_buffer)
+  end,
+})
+
 vim.diagnostic.toggle = M
-vim.diagnostic.icons = icons
+vim.diagnostic.icons = diagnostic_icons
