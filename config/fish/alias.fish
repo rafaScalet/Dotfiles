@@ -1,12 +1,4 @@
 # @fish-lsp-disable 2002 4004
-if type -q chafa
-    alias chafa="chafa --passthrough tmux --format kitty"
-end
-
-if type -q sudo
-    alias please="sudo"
-end
-
 if type -q eza
     alias eza="eza --git --icons --oneline --group --group-directories-first --no-quotes --header --octal-permissions"
 

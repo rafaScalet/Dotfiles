@@ -1,5 +1,5 @@
 # This is the configuration.nix, the name system.nix is just to be beauty
-{ pkgs, ... }: {
+{ pkgs, inputs, config, ... }: {
   imports = [ ./hardware-configuration.nix ];
 
   nix.settings = {
@@ -8,6 +8,8 @@
     auto-optimise-store = true;
     trusted-users = [ "scalet" ];
   };
+
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
   nix.gc = {
     automatic = true;
@@ -42,10 +44,31 @@
     plymouth.enable = true;
   };
 
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = ''
+          ${pkgs.tuigreet}/bin/tuigreet \
+            --asterisks \
+            --remember \
+            --window-padding 1 \
+            --theme border=magenta;prompt=magenta;time=red;action=blue;button=yellow
+            --remember-user-session \
+            --time \
+            --cmd ${pkgs.niri}/bin/niri-session
+        '';
+        user = "greeter";
+      };
+    };
+  };
+
   networking = {
     hostName = "nix-btw";
-    networkmanager.enable = true;
-    nftables.enable = true;
+    networkmanager = {
+      enable = true;
+      wifi.backend = "iwd";
+    };
 
     firewall = {
       enable = true;
@@ -60,11 +83,12 @@
     extraLocales = [ "en_US.UTF-8/UTF-8" "pt_BR.UTF-8/UTF-8" ];
   };
 
-  console.keyMap = "br-abnt2";
+  console = { keyMap = "br-abnt2"; };
 
   fonts = {
     packages = with pkgs; [
       corefonts
+      terminus_font
       material-design-icons
       nerd-fonts.symbols-only
       nerd-fonts.jetbrains-mono
@@ -89,6 +113,8 @@
 
   services.printing.enable = true;
 
+  services.upower.enable = true;
+
   services.gvfs.enable = true;
 
   services.openssh.enable = true;
@@ -111,6 +137,13 @@
     kvmgt.enable = true;
 
     spiceUSBRedirection.enable = true;
+
+    virtualbox.host.enable = true;
+  };
+
+  qt = {
+    enable = true;
+    platformTheme = "gtk2";
   };
 
   programs = {
@@ -120,7 +153,6 @@
     lazygit.enable = true;
     nix-ld.enable = true;
     tmux.enable = true;
-    vivid.enable = true;
     thunderbird.enable = true;
     localsend.enable = true;
     virt-manager.enable = true;
@@ -147,6 +179,19 @@
     enable = true;
     viAlias = true;
     vimAlias = true;
+    withNodeJs = true;
+  };
+
+  programs.starship = {
+    enable = true;
+    transientPrompt.enable = true;
+  };
+
+  programs.bash.blesh.enable = true;
+
+  programs.vivid = {
+    enable = true;
+    theme = "catppuccin-mocha";
   };
 
   programs.nh = {
@@ -241,6 +286,12 @@
     xdg-ninja
     xdg-utils
     zip
+    nixd
+    gnome-boxes
+    inspector
+    catppuccinifier-gui
+    wiremix
+    qutebrowser
   ];
 
   system.stateVersion = "24.11";

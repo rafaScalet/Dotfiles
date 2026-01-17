@@ -34,7 +34,7 @@
     in with inputs; {
       nixosConfigurations.nix-btw = nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit inputs system; };
+        specialArgs = { inherit inputs system self; };
         modules = [
           {
             nixpkgs = {
@@ -47,7 +47,6 @@
           }
           ./nixos/system.nix
           ./nixos/env.nix
-          ./nixos/games.nix
           catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
           spicetify.nixosModules.spicetify

@@ -6,20 +6,20 @@ import Quickshell
 import "root:/modules/"
 
 ShellRoot{
-    id: root
+  id: root
 
-    property string wall: "/home/scalet/Dotfiles/assets/background.png"
+  property string wall: "/home/scalet/Dotfiles/assets/background.png"
 
-    Bar {}
-    Wall {}
+  Bar {}
+  Wall {}
 
-    Niri {
-        id: niri
-        Component.onCompleted: connect()
+  Niri {
+    id: niri
+    Component.onCompleted: connect()
 
-        onConnected: console.info("Connected to niri")
-        onErrorOccurred: function(error) {
-            console.error("Niri error:", error)
-        }
+    onConnected: console.info("Connected to niri")
+    onErrorOccurred: function(error) {
+      console.error("Niri error:", error)
     }
+  }
 }

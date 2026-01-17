@@ -22,6 +22,7 @@ $kotlin
 $haskell
 $c
 $lua
+$shell
 """
 command_timeout = 600
 
@@ -49,7 +50,7 @@ style = "bold dimmed blue"
 [shell]
 disabled = false
 style = "black bold"
-format = "[ $indicator ]($style)"
+format = "[$indicator ]($style)"
 fish_indicator = "󰻴"
 bash_indicator = ""
 nu_indicator = ""

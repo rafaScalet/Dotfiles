@@ -89,6 +89,11 @@ layout {
 
     }
 }
+cursor {
+    xcursor-theme "Bibata-Modern-Classic"
+    xcursor-size 24
+    hide-when-typing
+}
 spawn-at-startup "qs"
 hotkey-overlay {
     skip-at-startup

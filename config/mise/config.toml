@@ -5,16 +5,9 @@ deno = 'latest'
 java = 'lts'
 maven = 'latest'
 gradle = 'latest'
-android-sdk = 'latest'
-flutter = 'latest'
 kotlin = 'latest'
-spring-boot = 'latest'
 python = 'latest'
 go = 'latest'
-yq = 'latest'
-jq = 'latest'
-watchexec = "latest"
-usage = "latest"
 "ubi:adwinying/php" = "latest"
 "ubi:composer/composer" = "latest"
 
