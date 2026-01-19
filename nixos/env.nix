@@ -13,7 +13,8 @@
     DOTFILES_DIR = "$HOME/Dotfiles";
     SCRIPTS_DIR = "$DOTFILES_DIR/scripts";
 
-    MANPAGER = "env BATMAN_IS_BEING_MANPAGER=yes batman --pager=less";
+    MANPAGER =
+      "env BATMAN_IS_BEING_MANPAGER=yes ${pkgs.bat-extras.batman}/bin/batman --pager=less";
     MANROFFOPT = [ "-c" ];
 
     CDPATH = [ "$HOME/Projects" "$HOME" ];

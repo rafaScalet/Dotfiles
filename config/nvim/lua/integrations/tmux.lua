@@ -7,3 +7,10 @@ keymap.add({
   { "<c-l>", "<cmd>TmuxNavigateRight<cr>", "Navigate to Right" },
   { "<c-\\>", "<cmd>TmuxNavigatePrevious<cr>", "Navigate to Previous Window" },
 })
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "**/*.tmux" },
+  callback = function()
+    vim.bo.filetype = "tmux"
+  end,
+})

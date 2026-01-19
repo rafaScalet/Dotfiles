@@ -33,15 +33,18 @@ keymap.add({
 }, { mode = { "n", "x", "i" } })
 
 keymap.add({
-  { "d", "<cmd>bdelete<cr>", "Buffer Delete" },
-  { "D", "<cmd>bdelete!<cr>", "Buffer Force Delete" },
-  { "N", "<cmd>bnext<cr>", "Buffer Next" },
-  { "P", "<cmd>bprev<cr>", "Buffer Previous" },
-  { "f", "<cmd>bfirst<cr>", "Buffer First" },
-  { "l", "<cmd>blast<cr>", "Buffer Last" },
-  { "m", "<cmd>bmodified<cr>", "Buffer Modified" },
-  { "r", "<cmd>e#<cr>", "Buffer Recent" },
-  { "n", "<cmd>enew<cr>", "Buffer New" },
+  { "d", "<cmd>bdelete<cr>", "Delete" },
+  { "D", "<cmd>bdelete!<cr>", "Force Delete" },
+  { "N", "<cmd>bnext<cr>", "Next" },
+  { "P", "<cmd>bprev<cr>", "Previous" },
+  { "f", "<cmd>bfirst<cr>", "First" },
+  { "l", "<cmd>blast<cr>", "Last" },
+  { "m", "<cmd>bmodified<cr>", "Modified" },
+  { "r", "<cmd>e#<cr>", "Recent" },
+  { "n", "<cmd>enew<cr>", "New" },
+  { "i", "<cmd>BufferInfo filetype<cr>", "Type" },
+  { "o", "<cmd>BufferInfo fileformat<cr>", "Format" },
+  { "e", "<cmd>BufferInfo fileencoding<cr>", "Encoding" },
 }, { prefix = "<leader>b", group = "Buffer" })
 
 keymap.add({

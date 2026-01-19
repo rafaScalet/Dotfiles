@@ -1,5 +1,3 @@
-local keymap = require("utils.keymap")
-
 vim.api.nvim_create_user_command("LspActive", function(opts)
   local args = opts.args ~= "" and opts.args or "all"
   local title = "Active LSPs "

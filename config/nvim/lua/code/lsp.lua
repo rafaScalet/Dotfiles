@@ -145,7 +145,7 @@ keymap.add({
 
 keymap.add({
   {
-    "h",
+    "p",
     function()
       local enabled = vim.lsp.inlay_hint.is_enabled()
       vim.lsp.inlay_hint.enable(not enabled)
@@ -153,4 +153,4 @@ keymap.add({
     end,
     "Toggle Inlay Hints",
   },
-}, { prefix = "<localLeader>L", group = "LSP" })
+}, { prefix = "<localLeader>" })

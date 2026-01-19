@@ -1,9 +1,9 @@
 vim.g.no_plugin_maps = true
 
-local plugins = require("utils.lazy")
+local lazy = require("utils.lazy")
 local loader = require("utils.loader")
 
-plugins.add({
+lazy.add({
   { "saghen/blink.cmp", version = "1.*" }, -- Completion plugin
   "bydlw98/blink-cmp-env", -- Plugin for blink to add Env Var completions
   "rafamadriz/friendly-snippets", -- Snippets, alo integrates with blink.cmp
@@ -41,13 +41,16 @@ plugins.add({
   "brenoprata10/nvim-highlight-colors", -- Add highlights for colors in formats like HEX, RGB, Tailwind and more
   "chaoren/vim-wordmotion", -- Force neovim to understand hífen and cases as spaces
   "ThePrimeagen/vim-be-good", -- Little game to practice neovim
+  "tpope/vim-abolish", -- A plugin to work with words, like substitutions
+})
 
-  -- Some Dependencies
+-- Some Dependencies
+lazy.add({
   "MunifTanjim/nui.nvim",
   "kevinhwang91/promise-async",
   "nvim-lua/plenary.nvim",
 })
 
-plugins.install()
+lazy.install()
 
-loader.load({ ignore = { "utils.*" } })
+loader.setup({ ignore = { "utils.*" } })

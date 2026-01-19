@@ -168,6 +168,7 @@
       enable = true;
       extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     };
+    icons.fallbackCursorThemes = [ "Bibata-Modern-Classic" ];
   };
 
   programs.gnupg.agent = {
@@ -292,6 +293,11 @@
     catppuccinifier-gui
     wiremix
     qutebrowser
+    logseq
+    nautilus
+    homebank
+    denaro
+    lsd
   ];
 
   system.stateVersion = "24.11";

@@ -1,6 +1,6 @@
 local M = {}
 
-M.load = function(opts)
+M.setup = function(opts)
   opts = opts or {}
   local ignore = opts.ignore or {}
 

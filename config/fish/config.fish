@@ -1,6 +1,4 @@
 # @fish-lsp-disable 2002 
-source $__fish_config_dir/alias.fish
-
 fish_vi_key_bindings
 
 # Don't show the vi mode in the prompt
@@ -94,7 +92,10 @@ type -q vivid; and set -gx LS_COLORS (vivid generate catppuccin-mocha)
 # Abbreviations
 abbr q exit
 abbr md "mkdir -p"
+abbr rd rmdir
 abbr . "cd ."
+abbr .. "cd .."
+abbr "~" "cd ~"
 abbr -- - "cd -"
 abbr upgrade topgrade
 abbr v $EDITOR
@@ -105,17 +106,12 @@ abbr -a --position anywhere -- --help '--help | bat -Pplhelp'
 abbr -a --position anywhere -- -h '-h | bat -Pplhelp'
 
 # Binds
-bind --mode insert ctrl-alt-g lazygit
-bind --mode default ctrl-alt-g lazygit
-
-bind --mode insert ctrl-alt-d lazydocker
-bind --mode default ctrl-alt-d lazydocker
-
-bind --mode insert ctrl-alt-b btm
-bind --mode default ctrl-alt-b btm
-
-bind --mode insert ctrl-alt-e $EDITOR
-bind --mode default ctrl-alt-e $EDITOR
-
 bind --mode insert ctrl-alt-r "clear && exec fish"
 bind --mode default ctrl-alt-r "clear && exec fish"
+
+# Alias
+alias cat bat
+alias ls lsd
+alias la "lsd -la"
+alias ll "lsd -l"
+alias lt "lsd --tree"

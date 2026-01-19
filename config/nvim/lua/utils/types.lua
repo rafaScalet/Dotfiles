@@ -14,3 +14,9 @@
 --- @alias keymaps.spec { [1]: string, [2]: keymaps.rhs, [3]: string, mode?: string | string[] }
 --- @alias keymaps.rhs string | function | table
 --- @alias keymaps.cmd-wrapper fun(value: keymaps.rhs): string | function
+---
+--- @alias utils.handlers table<string, utils.handlers.field>
+---
+--- @class utils.handlers.field
+--- @field value string
+--- @field title? string

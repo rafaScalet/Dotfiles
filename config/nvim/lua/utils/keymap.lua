@@ -8,7 +8,23 @@ local M = {}
 wk.setup({
   preset = "modern",
   icons = { mappings = false },
+  spec = {
+    { leader, group = "Leader", mode = { "n", "v", "x" } },
+    { local_leader, group = "Toggle", mode = { "n", "v", "x" } },
+    { "<C-w>", group = "Window" },
+    { "z", group = "Fold" },
+    { "g", group = "Global" },
+    { '"', group = "Registers" },
+    { "'", group = "Marks" },
+    { "`", group = "Marks" },
+    { "]", group = "Next" },
+    { "[", group = "Prev" },
+  },
 })
+
+vim.keymap.set("n", "?", function()
+  wk.show({ global = true })
+end, { desc = "Which Key" })
 
 vim.g.mapleader = leader
 vim.g.maplocalleader = local_leader
@@ -35,11 +51,7 @@ M.add = function(specs, opts)
       return value
     end
 
-  wk.add({
-    { prefix, group = group, mode = mode },
-    { leader, group = "Leader", mode = { "n", "v", "x" } },
-    { local_leader, group = "Toggle", mode = { "n", "v", "x" } },
-  })
+  wk.add({ { prefix, group = group, mode = mode } })
 
   for _, spec in ipairs(specs) do
     local lhs = prefix .. spec[1]
