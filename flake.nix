@@ -28,6 +28,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.quickshell.follows = "quickshell";
     };
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = { self, ... }@inputs:
     let system = "x86_64-linux";
@@ -50,6 +55,7 @@
           catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
           spicetify.nixosModules.spicetify
+          noctalia.nixosModules.default
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;

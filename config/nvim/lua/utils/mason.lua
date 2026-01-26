@@ -1,10 +1,13 @@
 local mason = require("mason")
 local registry = require("mason-registry")
 local icons = require("utils.icons")
+local mason_lspconfig = require("mason-lspconfig")
 
 local M = {}
 local desired = {}
 local scheduled = false
+local log = vim.log.levels
+local title = { title = "mason.nvim" }
 
 mason.setup({
   ui = {
@@ -24,9 +27,6 @@ local show = vim.schedule_wrap(function(msg, level, opts)
 end)
 
 local function sync()
-  local log = vim.log.levels
-  local title = { title = "mason.nvim" }
-
   registry.refresh()
 
   for tool, _ in pairs(desired) do
@@ -88,6 +88,10 @@ function M.add(tools)
 
     vim.schedule(sync)
   end
+end
+
+function M.lsp(opts)
+  mason_lspconfig.setup({ automatic_enable = opts })
 end
 
 return M

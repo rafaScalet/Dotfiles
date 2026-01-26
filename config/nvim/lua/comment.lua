@@ -1,8 +1,14 @@
 local comment = require("mini.comment")
 local todo = require("todo-comments")
 local keymap = require("utils.keymap")
+local ts_comment = require("ts_context_commentstring")
 
 comment.setup({
+  options = {
+    custom_commentstring = function()
+      return ts_comment.calculate_commentstring() or vim.bo.commentstring
+    end,
+  },
   mappings = {
     -- stylua: ignore start
     comment        = "<leader>cc",

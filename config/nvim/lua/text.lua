@@ -5,6 +5,15 @@ local pairs = require("mini.pairs")
 local surround = require("mini.surround")
 local textcase = require("textcase")
 
+vim.api.nvim_create_autocmd("TextYankPost", {
+  pattern = "*",
+  desc = "Highlight the yanked text",
+  group = vim.api.nvim_create_augroup("HighlightTextYank", {}),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
+
 ai.setup({})
 
 move.setup({})

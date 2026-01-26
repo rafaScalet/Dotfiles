@@ -23,7 +23,7 @@ snacks.setup({
     enabled = true,
     folds = { git_hl = true, open = true },
   },
-  picker = { enabled = true },
+  picker = { enabled = true, icons = { files = { enabled = false } } },
   words = { enabled = true },
   image = { enabled = true },
   explorer = {
@@ -33,5 +33,25 @@ snacks.setup({
 })
 
 keymap.add({
-  { "f", flash.toggle, "Toggle flash search" },
+  {
+    "f",
+    function()
+      local enabled = flash.toggle()
+      vim.notify((enabled and "no%s" or "  %s"):format("flash"))
+    end,
+    "Toggle Flash Search",
+  },
+  {
+    "m",
+    function()
+      local enabled = snacks.dim.enabled
+      if enabled then
+        snacks.dim.disable()
+      else
+        snacks.dim.enable()
+      end
+      vim.notify((enabled and "no%s" or "  %s"):format("dim"))
+    end,
+    "Toggle Dim",
+  },
 }, { prefix = "<localLeader>" })

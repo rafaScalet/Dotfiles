@@ -23,9 +23,10 @@ keymap.add({ { "<leader>cp", "<cmd>TSJToggle<cr>", "Tree Collapse" } })
 keymap.add({
   { "af", { "@function.outer", "textobjects" }, "Around Function" },
   { "if", { "@function.inner", "textobjects" }, "Inner Function" },
-  { "ac", { "@class.outer", "textobjects" }, "Around Class" },
-  { "ic", { "@class.inner", "textobjects" }, "Inner Class" },
-  { "as", { "@local.scope", "local" }, "I don't know" },
+  { "aC", { "@class.outer", "textobjects" }, "Around Class" },
+  { "iC", { "@class.inner", "textobjects" }, "Inner Class" },
+  { "ac", { "@comment.outer", "textobjects" }, "Around Comment" },
+  { "ic", { "@comment.inner", "textobjects" }, "Inner Comment" },
 }, {
   mode = { "x", "o" },
   cmd_wrapper = function(value)

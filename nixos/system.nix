@@ -33,8 +33,17 @@
   users.users.scalet = {
     isNormalUser = true;
     description = "Rafael Scalet de Lima";
-    extraGroups =
-      [ "wheel" "docker" "networkmanager" "kvm" "inputs" "libvirtd" ];
+    extraGroups = [
+      "audio"
+      "disk"
+      "docker"
+      "inputs"
+      "kvm"
+      "libvirtd"
+      "networkmanager"
+      "video"
+      "wheel"
+    ];
     shell = pkgs.fish;
   };
 
@@ -128,6 +137,10 @@
     jack.enable = true;
   };
 
+  services.power-profiles-daemon.enable = true;
+
+  hardware.bluetooth.enable = true;
+
   virtualisation = {
     docker.enable = true;
     docker.extraPackages = with pkgs; [ docker-init ];
@@ -216,6 +229,18 @@
     colorScheme = "mocha";
   };
 
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscodium;
+  };
+
+  programs.steam = { enable = true; };
+
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+
   environment.systemPackages = with pkgs; [
     atuin
     xwayland-satellite
@@ -281,9 +306,10 @@
     units
     unzip
     usql
-    vscodium
     wget
     wl-clipboard
+    cliphist
+    wtype
     xdg-ninja
     xdg-utils
     zip
@@ -298,6 +324,8 @@
     homebank
     denaro
     lsd
+    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+    nirius
   ];
 
   system.stateVersion = "24.11";

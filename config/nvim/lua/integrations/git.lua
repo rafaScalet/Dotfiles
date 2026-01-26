@@ -50,16 +50,9 @@ keymap.add({
   { "w", "<cmd>Gitsigns toggle_word_diff<CR>", "Toggle Word Diff" },
 }, { prefix = "<localLeader>g", group = "Git" })
 
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-  pattern = { "**/*git/config", "**/*.gitconfig" },
-  callback = function()
-    vim.bo.filetype = "gitconfig"
-  end,
-})
-
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-  pattern = { "**/*git/ignore" },
-  callback = function()
-    vim.bo.filetype = "gitignore"
-  end,
+vim.filetype.add({
+  pattern = {
+    [".*/%.?git/config"] = "gitconfig",
+    [".*/%.?git/ignore"] = "gitignore",
+  },
 })

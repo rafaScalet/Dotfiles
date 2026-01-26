@@ -19,10 +19,23 @@ keymap.add({
   { "E", picker.explorer, "Explorer" },
   { "\\", "<cmd>vnew<cr>", "Split Verticaly" },
   { "-", "<cmd>new<cr>", "Split Horizontaly" },
-  { "t", "<cmd>terminal<cr>", "Open a New Terminal Buffer" },
   { "y", '"+y', "Copy To The Clipboard" },
   { "Y", '"+Y', "Copy Line To The Clipboard" },
   { "P", '"+p', "Paste from the Clipboard" },
+  {
+    "n",
+    function()
+      local path = vim.fn.expand("%:p:.:h")
+      vim.ui.input({ prompt = path }, function(input)
+        if not input or input == "" then
+          return
+        end
+        local file = vim.fs.joinpath(path, input)
+        vim.cmd.edit(file)
+      end)
+    end,
+    "New File",
+  },
 }, { prefix = "<leader>", mode = { "n", "x" } })
 
 keymap.add({
@@ -63,6 +76,7 @@ keymap.add({
   { "p", picker.pick, "Pickers" },
   { "r", picker.recent, "Recent Files" },
   { "P", picker.lazy, "Plugins" },
+  { "l", picker.lsp_config, "LSP Configs" },
 }, { prefix = "<leader>f", group = "Find" })
 
 keymap.add({

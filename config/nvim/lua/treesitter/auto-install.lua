@@ -4,9 +4,11 @@ local parsers = require("nvim-treesitter.parsers")
 treesitter.install({
   "awk",
   "bash",
+  "css",
   "diff",
   "git_rebase",
   "gitcommit",
+  "html",
   "markdown",
   "markdown_inline",
   "query",

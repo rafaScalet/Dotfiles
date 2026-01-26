@@ -11,6 +11,8 @@ vim.opt.laststatus = 3
 
 vim.opt.wrap = true
 
+vim.opt.inccommand = "split"
+
 vim.opt.smarttab = true
 vim.opt.smartindent = true
 vim.opt.autoindent = true

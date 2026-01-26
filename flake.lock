@@ -104,6 +104,26 @@
         "type": "github"
       }
     },
+    "noctalia": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1769027276,
+        "narHash": "sha256-0p2SHQrijshR+sImlbX5YNenu3Ao4Tj1HK0D01Pohsw=",
+        "owner": "noctalia-dev",
+        "repo": "noctalia-shell",
+        "rev": "23e0af11ec49d6c97940211c76a3ec184fbad7b6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "noctalia-dev",
+        "repo": "noctalia-shell",
+        "type": "github"
+      }
+    },
     "qml-niri": {
       "inputs": {
         "flake-parts": "flake-parts",
@@ -155,6 +175,7 @@
         "catppuccin": "catppuccin",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
+        "noctalia": "noctalia",
         "qml-niri": "qml-niri",
         "quickshell": "quickshell",
         "spicetify": "spicetify"

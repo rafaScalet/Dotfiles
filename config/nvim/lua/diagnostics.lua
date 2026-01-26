@@ -9,67 +9,21 @@ local diagnostic_icons = {
   [vim.diagnostic.severity.HINT] = icons.lsp.diagnostics.hint,
 }
 
---- @type vim.diagnostic.Opts
-local opts = {
+vim.diagnostic.config({
+  jump = { float = true },
   virtual_text = {
     spacing = 4,
     source = "if_many",
+    current_line = true,
     prefix = function(diagnostic)
       return diagnostic_icons[diagnostic.severity]
     end,
   },
   severity_sort = true,
   signs = { text = diagnostic_icons },
-}
-
-local diagnosticToggle = vim.deepcopy(opts)
-
-local M = {}
-
----@param diagnosticOpts vim.diagnostic.Opts
-local function apply(diagnosticOpts)
-  vim.diagnostic.config(diagnosticOpts)
-end
-
-apply(opts)
-
-local function toggle(key)
-  if diagnosticToggle[key] ~= false then
-    diagnosticToggle[key] = false
-    vim.notify(("no%s (Diagnostic)"):format(key))
-  else
-    diagnosticToggle[key] = opts[key] == nil and true or opts[key]
-    vim.notify(("  %s (Diagnostic)"):format(key))
-  end
-  apply(diagnosticToggle)
-end
-
-M.underline = function()
-  toggle("underline")
-end
-M.signs = function()
-  toggle("signs")
-end
-M.virtual_text = function()
-  toggle("virtual_text")
-end
-M.virtual_lines = function()
-  toggle("virtual_lines")
-end
-M.severity_sort = function()
-  toggle("severity_sort")
-end
-M.update_in_insert = function()
-  toggle("update_in_insert")
-end
+})
 
 keymap.add({
-  { "s", M.signs, "Toggle Signs" },
-  { "S", M.severity_sort, "Toggle Severity Sort" },
-  { "u", M.underline, "Toggle Underline" },
-  { "U", M.update_in_insert, "Toggle Update In Insert" },
-  { "v", M.virtual_text, "Toggle Virtual Text" },
-  { "V", M.virtual_lines, "Toggle Virtual Lines" },
   {
     "d",
     function()
@@ -79,7 +33,7 @@ keymap.add({
     end,
     "Toggle Diagnostic",
   },
-}, { prefix = "<localLeader>d", group = "Diagnostics" })
+}, { prefix = "<localLeader>" })
 
 keymap.add({
   { "n", vim.diagnostic.goto_next, "Go To Next Diagnostic" },
@@ -130,6 +84,3 @@ keymap.add(diagnostics_specs, {
     return diagnostics_cmd_wrapper(value, picker.diagnostics_buffer)
   end,
 })
-
-vim.diagnostic.toggle = M
-vim.diagnostic.icons = diagnostic_icons

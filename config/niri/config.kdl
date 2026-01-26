@@ -6,6 +6,11 @@
 // Find the full list of options on the wiki:
 // https://yalter.github.io/niri/Configuration:-Input
 prefer-no-csd
+gestures {
+    hot-corners {
+        off
+    }
+}
 input {
     keyboard {
         repeat-rate 35
@@ -71,7 +76,7 @@ layout {
         proportion 0.66667
     }
     default-column-width {
-        proportion 0.75
+        proportion 1.0
     }
     focus-ring {
         off
@@ -94,7 +99,8 @@ cursor {
     xcursor-size 24
     hide-when-typing
 }
-spawn-at-startup "qs"
+spawn-at-startup "noctalia-shell"
+spawn-at-startup "niriusd"
 hotkey-overlay {
     skip-at-startup
 }
@@ -126,7 +132,7 @@ binds {
         spawn "kitty"
     }
     Mod+Space hotkey-overlay-title="Run an Application: fuzzel" {
-        spawn "fuzzel"
+        spawn-sh "noctalia-shell ipc call launcher toggle"
     }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" {
         spawn "swaylock"
@@ -390,19 +396,19 @@ binds {
     // For example, with 2 workspaces + 1 empty, indices 3, 4, 5 and so on
     // will all refer to the 3rd workspace.
     Mod+1 {
-        focus-workspace 1
+        spawn-sh "nirius focus-or-spawn --app-id kitty kitty"
     }
     Mod+2 {
-        focus-workspace 2
+        spawn-sh "nirius focus-or-spawn --app-id brave brave"
     }
     Mod+3 {
-        focus-workspace 3
+        spawn-sh "nirius focus-or-spawn --app-id obsidian obsidian"
     }
     Mod+4 {
-        focus-workspace 4
+        spawn-sh "nirius focus-or-spawn --app-id nautilus nautilus"
     }
     Mod+5 {
-        focus-workspace 5
+        spawn-sh "nirius focus-or-spawn --app-id thunderbird thunderbird"
     }
     Mod+6 {
         focus-workspace 6

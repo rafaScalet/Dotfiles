@@ -20,3 +20,6 @@
 --- @class utils.handlers.field
 --- @field value string
 --- @field title? string
+---
+--- @class loader.opts Options for the auto loader module
+--- @field ignore? string[] A list of modules that will not be loaded

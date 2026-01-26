@@ -13,7 +13,11 @@ lazy.add({
   "folke/lazydev.nvim", -- Better Config for Lua, to add lazy-loading for modules
   "mfussenegger/nvim-jdtls", -- Better Config for Java, add things like in intellij
   "mrcjkb/rustaceanvim", -- Better Config for Rust, add support for "rustup toolchain add rust-analyzer"
+  "jmbuhr/otter.nvim",
+  "MeanderingProgrammer/render-markdown.nvim",
+  "epwalsh/obsidian.nvim",
   "mason-org/mason.nvim", -- Plugin to install a bunch of dev-tools, like LSPs, Formatters and Linters
+  "mason-org/mason-lspconfig.nvim", -- Auto Setup of LSPs installed with mason
   "b0o/schemastore.nvim", -- A service to store schemas for markup languages, like JSON, YAML, XML, TOML and others
   "lewis6991/gitsigns.nvim", -- Add integration with git, such as blame line and file, show diffs and hunks and more
   "tpope/vim-fugitive", -- Add git commands to the vim command line
@@ -28,6 +32,7 @@ lazy.add({
   "Wansmer/treesj", -- Collapse trees using tree-sitter
   "daliusd/incr.nvim", -- Incremental selection for tree-sitter
   "bennypowers/nvim-regexplainer", -- Explain the regex under the cursor
+  "JoosepAlviste/nvim-ts-context-commentstring", -- Uses tree-sitter as the comment string, for complex languages like JSX
   "folke/flash.nvim", -- A more powerfull search
   { "catppuccin/nvim", name = "catppuccin" }, -- Colorscheme, defined in "ui.colorscheme" module
   "folke/noice.nvim", -- Commandline, defined in "ui.command-line" module
@@ -42,10 +47,8 @@ lazy.add({
   "chaoren/vim-wordmotion", -- Force neovim to understand hífen and cases as spaces
   "ThePrimeagen/vim-be-good", -- Little game to practice neovim
   "tpope/vim-abolish", -- A plugin to work with words, like substitutions
-})
 
--- Some Dependencies
-lazy.add({
+  -- Some Dependencies
   "MunifTanjim/nui.nvim",
   "kevinhwang91/promise-async",
   "nvim-lua/plenary.nvim",

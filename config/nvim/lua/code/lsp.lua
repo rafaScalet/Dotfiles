@@ -24,6 +24,7 @@ mason.add({
   "tailwindcss-language-server",
   "taplo",
   "termux-language-server",
+  "ts_query_ls",
   "typescript-language-server",
   "unocss-language-server",
   "yaml-language-server",
@@ -61,6 +62,16 @@ vim.lsp.config("kdlls", {
   root_markers = { ".git" },
 })
 
+vim.lsp.config("lua_ls", {
+  settings = {
+    Lua = {
+      workspace = {
+        library = { vim.env.VIMRUNTIME },
+      },
+    },
+  },
+})
+
 vim.lsp.config("nixd", {
   settings = {
     nixd = {
@@ -95,18 +106,11 @@ vim.lsp.config("ts_ls", {
 })
 
 vim.lsp.enable({
-  "biome",
-  "cspell_ls",
   "denols",
-  "json_ls",
-  "lua_ls",
   "nixd",
-  "taplo",
-  "ts_ls",
-  "kdlls",
 })
 
-vim.lsp.inlay_hint.enable(true)
+mason.lsp({ exclude = { "stylua" } })
 
 keymap.add({
   { "s", picker.lsp_symbols, "Symbols" },
