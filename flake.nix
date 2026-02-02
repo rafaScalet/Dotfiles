@@ -33,6 +33,16 @@
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixcord = {
+      url = "github:FlameFlag/nixcord";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = { self, ... }@inputs:
     let system = "x86_64-linux";
@@ -47,6 +57,7 @@
               overlays = [
                 (_: _: { spicetify = spicetify.legacyPackages.${system}; })
                 (_: _: { qs = qml-niri.packages.${system}.quickshell; })
+                # inputs.neovim-nightly-overlay.overlays.default
               ];
             };
           }
@@ -56,6 +67,7 @@
           home-manager.nixosModules.home-manager
           spicetify.nixosModules.spicetify
           noctalia.nixosModules.default
+          nixcord.nixosModules.default
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;

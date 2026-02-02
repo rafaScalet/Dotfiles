@@ -1,5 +1,3 @@
-local keymap = require("utils.keymap")
-
 vim.api.nvim_create_user_command("TSActiveParser", function()
   local title = "TreeSitter Active Parsers"
   local ok, parser = pcall(vim.treesitter.get_parser)
@@ -29,5 +27,3 @@ vim.api.nvim_create_user_command("TSActiveParser", function()
 
   vim.notify(table.concat(result, "\n"), "info", { title = title })
 end, {})
-
-keymap.add({ { "<leader>ck", "<cmd>TSActiveParser<cr>", "Active Parsers" } })

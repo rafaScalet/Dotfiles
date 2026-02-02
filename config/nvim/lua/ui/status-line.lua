@@ -35,20 +35,23 @@ lualine.setup({
     component_separators = "",
     section_separators = "",
     always_divide_middle = false,
+    always_show_tabline = false,
+  },
+  tabline = {
+    lualine_a = {},
+    lualine_b = {
+      { "tabs", mode = 2, use_mode_colors = true },
+    },
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {},
   },
   sections = {
     lualine_a = {},
     lualine_b = {
       { "mode", icon = icons.terminal },
       { recording, icon = icons.play },
-      {
-        function()
-          return require("nvim-navic").get_location()
-        end,
-        cond = function()
-          return require("nvim-navic").is_available()
-        end,
-      },
     },
     lualine_c = {
       "%=",
@@ -72,6 +75,7 @@ lualine.setup({
     },
     lualine_x = {},
     lualine_y = {
+      -- { "tabs", mode = 0, use_mode_colors = true },
       { "branch", icon = icons.git.branch },
       {
         "filename",

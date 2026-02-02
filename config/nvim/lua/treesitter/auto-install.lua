@@ -46,3 +46,17 @@ vim.api.nvim_create_autocmd("FileType", {
     end)
   end,
 })
+
+vim.api.nvim_create_autocmd("User", {
+  pattern = "TSUpdate",
+  callback = function()
+    require("nvim-treesitter.parsers").sed = {
+      tier = 1,
+      install_info = {
+        url = "https://github.com/mskelton/tree-sitter-sed",
+        revision = "e13f8bccd4e6bc190fa34f3df8b2d576a41ff04d",
+        queries = "queries/neovim",
+      },
+    }
+  end,
+})

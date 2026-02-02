@@ -18,8 +18,6 @@ textobject.setup({
   move = { set_jumps = true },
 })
 
-keymap.add({ { "<leader>cp", "<cmd>TSJToggle<cr>", "Tree Collapse" } })
-
 keymap.add({
   { "af", { "@function.outer", "textobjects" }, "Around Function" },
   { "if", { "@function.inner", "textobjects" }, "Inner Function" },

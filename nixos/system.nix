@@ -1,9 +1,22 @@
 # This is the configuration.nix, the name system.nix is just to be beauty
-{ pkgs, inputs, config, ... }: {
+{ pkgs, inputs, config, ... }:
+let
+  theme-name = "Catppuccin-GTK-Dark";
+  theme-package = pkgs.magnetic-catppuccin-gtk;
+
+  icon-theme-name = "Papirus";
+  icon-theme-package = pkgs.catppuccin-papirus-folders;
+
+  gtksettings = ''
+    [Settings]
+    gtk-icon-theme-name = ${icon-theme-name}
+    gtk-theme-name = ${theme-name}
+  '';
+in {
   imports = [ ./hardware-configuration.nix ];
 
   nix.settings = {
-    experimental-features = [ "nix-command" "flakes" ];
+    experimental-features = [ "nix-command" "flakes" "pipe-operators" ];
     use-xdg-base-directories = true;
     auto-optimise-store = true;
     trusted-users = [ "scalet" ];
@@ -41,6 +54,7 @@
       "kvm"
       "libvirtd"
       "networkmanager"
+      "podman"
       "video"
       "wheel"
     ];
@@ -142,9 +156,13 @@
   hardware.bluetooth.enable = true;
 
   virtualisation = {
-    docker.enable = true;
-    docker.extraPackages = with pkgs; [ docker-init ];
-    podman.enable = true;
+    containers.enable = true;
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+      extraPackages = [ pkgs.podman-compose ];
+    };
 
     libvirtd.enable = true;
     kvmgt.enable = true;
@@ -152,11 +170,8 @@
     spiceUSBRedirection.enable = true;
 
     virtualbox.host.enable = true;
-  };
 
-  qt = {
-    enable = true;
-    platformTheme = "gtk2";
+    waydroid.enable = true;
   };
 
   programs = {
@@ -166,7 +181,6 @@
     lazygit.enable = true;
     nix-ld.enable = true;
     tmux.enable = true;
-    thunderbird.enable = true;
     localsend.enable = true;
     virt-manager.enable = true;
     trippy.enable = true;
@@ -174,6 +188,20 @@
     yazi.enable = true;
     television.enable = true;
     niri.enable = true;
+    obs-studio.enable = true;
+  };
+
+  programs.thunderbird = {
+    enable = true;
+    policies = {
+      ExtensionSettings = {
+        "{f6d05f0c-39a8-5c4d-96dd-4852202a8244}" = {
+          installation_mode = "force_installed";
+          install_url =
+            "https://github.com/catppuccin/thunderbird/raw/refs/heads/main/themes/mocha/mocha-blue.xpi";
+        };
+      };
+    };
   };
 
   xdg = {
@@ -234,6 +262,18 @@
     package = pkgs.vscodium;
   };
 
+  programs.nixcord = {
+    enable = true;
+    user = "scalet"; # Needed for system-level config
+    quickCss = # css
+      ''
+        @import url("https://catppuccin.github.io/discord/dist/catppuccin-mocha-blue.theme.css");'';
+    config = {
+      useQuickCss = true;
+      frameless = true;
+    };
+  };
+
   programs.steam = { enable = true; };
 
   hardware.graphics = {
@@ -248,7 +288,6 @@
     bottom
     brave
     cachix
-    catppuccin-papirus-folders
     catppuccin-whiskers
     chafa
     cht-sh
@@ -277,7 +316,6 @@
     jwt-cli
     kitty
     lazydocker
-    magnetic-catppuccin-gtk
     mise
     mission-center
     nix-search-tv
@@ -326,7 +364,54 @@
     lsd
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     nirius
+    dasel
+    yq-go
+    fx
+    jqp
+    fastgron
+    kdePackages.kdenlive
+    kdePackages.dolphin
+    theme-package
+    icon-theme-package
+    catppuccin-kvantum
   ];
+
+  environment = {
+    etc = {
+      "xdg/gtk-3.0/settings.ini".text = gtksettings;
+      "xdg/gtk-4.0/settings.ini".text = gtksettings;
+    };
+  };
+
+  environment.variables = {
+    GTK_THEME = theme-name;
+    QT_ICON_THEME = icon-theme-name;
+  };
+
+  qt = {
+    enable = true;
+    platformTheme = "qt5ct";
+  };
+
+  programs = {
+    dconf = {
+      enable = true;
+      profiles = {
+        user = {
+          databases = [{
+            lockAll = false;
+            settings = {
+              "org/gnome/desktop/interface" = {
+                gtk-theme = theme-name;
+                icon-theme = icon-theme-name;
+                color-scheme = "prefer-dark";
+              };
+            };
+          }];
+        };
+      };
+    };
+  };
 
   system.stateVersion = "24.11";
 }

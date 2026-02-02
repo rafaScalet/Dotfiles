@@ -3,8 +3,10 @@ local lazydev = require("lazydev")
 local keymap = require("utils.keymap")
 local mason = require("utils.mason")
 local picker = require("snacks.picker")
+local otter = require("otter")
 
 mason.add({
+  -- "awk-language-server",
   "bash-language-server",
   "biome",
   "cspell-lsp",
@@ -15,10 +17,12 @@ mason.add({
   "fish-lsp",
   "html-lsp",
   "jdtls",
+  "jq-lsp",
   "json-lsp",
   "lemminx",
   "lua-language-server",
   "markdown-oxide",
+  "nxls",
   "prisma-language-server",
   "pyright",
   "tailwindcss-language-server",
@@ -27,6 +31,7 @@ mason.add({
   "ts_query_ls",
   "typescript-language-server",
   "unocss-language-server",
+  "vim-language-server",
   "yaml-language-server",
 })
 
@@ -108,6 +113,7 @@ vim.lsp.config("ts_ls", {
 vim.lsp.enable({
   "denols",
   "nixd",
+  "nushel",
 })
 
 mason.lsp({ exclude = { "stylua" } })
@@ -124,7 +130,7 @@ keymap.add({
 keymap.add({
   { "i", "<cmd>LspInfo<cr>", "Show info about active LSPs" },
   { "R", "<cmd>LspRestart<cr>", "Restart all LSPs" },
-  { "s", "<cmd>LspStop", "Stop all LSPs" },
+  { "s", "<cmd>LspStop<cr>", "Stop all LSPs" },
   { "h", vim.lsp.buf.hover, "Show Info Hover" },
   { "r", picker.lsp_references, "References" },
   { "c", picker.lsp_config, "Config" },
@@ -158,3 +164,19 @@ keymap.add({
     "Toggle Inlay Hints",
   },
 }, { prefix = "<localLeader>" })
+
+vim.api.nvim_create_autocmd({ "BufEnter", "BufReadPost" }, {
+  group = vim.api.nvim_create_augroup("OtterActivated", { clear = true }),
+  desc = "Auto Activate otter for all files",
+  callback = function()
+    if vim.bo.buftype ~= "" then
+      return
+    end
+
+    if vim.api.nvim_buf_get_name(0) == "" then
+      return
+    end
+
+    otter.activate(nil, true, true, nil)
+  end,
+})

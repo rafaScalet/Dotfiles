@@ -15,7 +15,8 @@ lazy.add({
   "mrcjkb/rustaceanvim", -- Better Config for Rust, add support for "rustup toolchain add rust-analyzer"
   "jmbuhr/otter.nvim",
   "MeanderingProgrammer/render-markdown.nvim",
-  "epwalsh/obsidian.nvim",
+  "hsanson/usql.nvim",
+  "cenk1cenk2/jq.nvim",
   "mason-org/mason.nvim", -- Plugin to install a bunch of dev-tools, like LSPs, Formatters and Linters
   "mason-org/mason-lspconfig.nvim", -- Auto Setup of LSPs installed with mason
   "b0o/schemastore.nvim", -- A service to store schemas for markup languages, like JSON, YAML, XML, TOML and others
@@ -52,6 +53,7 @@ lazy.add({
   "MunifTanjim/nui.nvim",
   "kevinhwang91/promise-async",
   "nvim-lua/plenary.nvim",
+  "grapp-dev/nui-components.nvim",
 })
 
 lazy.install()

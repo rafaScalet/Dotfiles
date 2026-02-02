@@ -111,7 +111,8 @@ bind --mode default ctrl-alt-r "clear && exec fish"
 
 # Alias
 alias cat bat
-alias ls lsd
-alias la "lsd -la"
-alias ll "lsd -l"
-alias lt "lsd --tree"
+alias jq yq
+alias ls "eza --oneline --group-directories-first --icons --header --group --octal-permissions --git --no-quotes"
+alias ll "ls --long --total-size"
+alias la "ll --all"
+alias lt "ls --tree"

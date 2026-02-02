@@ -10,7 +10,6 @@ mason.add({
   "kdlfmt",
   "nginx-config-formatter",
   "nixfmt",
-  "nixfmt",
   "stylua",
   "taplo",
   "xmlformatter",
@@ -37,6 +36,8 @@ conform.setup({
     nix = { "nixpkgs_fmt", "nixfmt" },
     toml = { "taplo" },
     kdl = { "kdlfmt" },
+    markdown = { "injected" },
+    nu = { "nufmt" },
   },
   format_on_save = {
     timeout_ms = 1000,

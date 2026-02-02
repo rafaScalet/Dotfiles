@@ -46,6 +46,13 @@ keymap.add({
 }, { mode = { "n", "x", "i" } })
 
 keymap.add({
+  { "p", "<cmd>TSJToggle<cr>", "Collapse Tree" },
+  { "k", "<cmd>TSActiveParser<cr>", "Active Parsers" },
+  { "i", "<cmd>InspectTree<cr>", "Inspect Tree" },
+  { "e", "<cmd>EditQuery<cr>", "Edit Query" },
+}, { prefix = "<leader>ck" })
+
+keymap.add({
   { "d", "<cmd>bdelete<cr>", "Delete" },
   { "D", "<cmd>bdelete!<cr>", "Force Delete" },
   { "N", "<cmd>bnext<cr>", "Next" },
@@ -59,6 +66,14 @@ keymap.add({
   { "o", "<cmd>BufferInfo fileformat<cr>", "Format" },
   { "e", "<cmd>BufferInfo fileencoding<cr>", "Encoding" },
 }, { prefix = "<leader>b", group = "Buffer" })
+
+keymap.add({
+  { "n", "<cmd>tabnew<cr>", "New" },
+  { "r", "g<Tab>", "Recent" },
+  { "l", "<cmd>tabnext<cr>", "Next" },
+  { "h", "<cmd>tabprevious<cr>", "Previous" },
+  { "t", "<cmd>wincmd T<cr>", "Move window to new Tab" },
+}, { prefix = "<leader>t", group = "Tabs" })
 
 keymap.add({
   { "B", "^", "Move to beginning of line" },

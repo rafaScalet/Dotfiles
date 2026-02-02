@@ -3,7 +3,7 @@
 set subcommands
 set command
 set node_package_manager
-set repls "node node" "deno deno" "bun bun repl" "python python" "nix nix repl" "rust evcxr" "java jshell" "php php -a"
+set repls "node node" "deno deno" "bun bun repl" "python python" "nix nh os repl" "rust evcxr" "java jshell" "php php -a"
 set cmds ls la tokei tree
 
 if test -e "Cargo.toml" -o -e "Cargo.lock"
